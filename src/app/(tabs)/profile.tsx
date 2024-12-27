@@ -1,12 +1,11 @@
-import { ScrollView, FlatList, Image,TouchableOpacity,StyleSheet, Text, View, Button} from 'react-native';
+import { Alert,ScrollView, FlatList, Image,TouchableOpacity,StyleSheet, Text, View, Button} from 'react-native';
 import { Ionicons } from 'react-native-vector-icons';
-import { useRef, useState} from "react";
+import {  useRef, useState} from "react";
 import { Linking } from 'react-native';
 import { Video } from 'expo-av';
 import YoutubePlayer from 'react-native-youtube-iframe';
 import { Audio } from 'expo-av';
 import AudioPlayer from '../components/Music/Songs ID/AudioPlayer'
-import LoadingBarMusic from '../components/Music/LoadingBarMusic';
 
 
 
@@ -39,11 +38,16 @@ const Profile = () => {
       console.error("URL inválida ou não suportada:", link);
     }
   };
-
+  
   //Ajustes na confirguação de áudio
   
-  
-  
+  const handleError = (error: Error) => {
+    Alert.alert(
+      'Erro na reprodução',
+      'Não foi possível reproduzir o áudio. Tente novamente mais tarde.',
+      [{ text: 'OK' }]
+    );
+  };
   
   return (
 
@@ -277,43 +281,87 @@ const Profile = () => {
             </View>        
             
             <View style={styles.boxMidia}>
+
               <Text style={styles.title}>Sounds For Streets</Text>
               <Text style={styles.subtitle}>Check the new songs for sound in the midnight racers</Text>
 
+              // Primeiro SoundTrack
               <View style={styles.ImageMusic}>
                   <Image source={{uri: 'https://i.pinimg.com/736x/c9/02/ab/c902abfec616f5b6c1d0e9147e7f2402.jpg'}} style={styles.bannerMusic} />
               </View>
-
-              <View style={styles.boxBar}>
-              <LoadingBarMusic audioUri="https://drive.google.com/uc?export=download&id=1SbU9wkTwSKosHOovG7rIeVOZ64IZPT-g" />
-              </View>
-
-              <View style={styles.boxMusic}>
-                <AudioPlayer audioUrl="https://drive.google.com/uc?export=download&id=1SbU9wkTwSKosHOovG7rIeVOZ64IZPT-g" />
-              </View>
-
-
-              <View style={styles.ImageMusic}>
-                  <Image source={{uri: 'https://i.pinimg.com/736x/c8/c5/28/c8c528f736da7cc53bb502b188b1c76b.jpg'}} style={styles.bannerMusic} />
-            </View>
-
-            <View style={styles.boxBar}>
-              </View>
-
-              <View style={styles.boxMusic}>
       
+
+              <ScrollView horizontal>
+                  <Text style={styles.titleMusic}>Veneno de Cobra - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+              </ScrollView>
+
+              <View style={styles.boxMusic}>
+                <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1tl12Czw5phucUyAOqBStGkKlnUl0eskG" onError={handleError}/>
               </View>
-              
+
+              // Segundo SoundTrack
+              <View style={styles.ImageMusic}>
+                  <Image source={{uri: 'https://i.pinimg.com/736x/c8/c5/28/c8c528f736da7cc53bb502b188b1c76b.jpg' }}style={styles.bannerMusic} />
+              </View>
+
+              <ScrollView horizontal>
+                  <Text style={styles.titleMusic}>Gakkou - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+              </ScrollView>
+
+              <View style={styles.boxMusic}>
+                <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1SbU9wkTwSKosHOovG7rIeVOZ64IZPT-g" onError={handleError} />
+              </View>
+
+              // Terceiro SoundTrack
               <View style={styles.ImageMusic}>
                   <Image source={{uri: 'https://i.pinimg.com/736x/ae/c8/7c/aec87c345aee076be2f367689bd97c69.jpg'}} style={styles.bannerMusic} />
-            </View>
-
-              <View style={styles.boxBar}>
-      
               </View>
 
+              <ScrollView horizontal>
+                  <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+              </ScrollView>
+
               <View style={styles.boxMusic}>
-   
+               <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1mGqfMoSn8LXkH6k9sgRuJkvBOeA0RhB0" onError={handleError}/>
+              </View>
+              
+              // Quarto SoundTrack
+              <View style={styles.ImageMusic}>
+                  <Image source={{uri: 'https://i.pinimg.com/736x/ae/c8/7c/aec87c345aee076be2f367689bd97c69.jpg'}} style={styles.bannerMusic} />
+              </View>
+
+              <ScrollView horizontal>
+                  <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+              </ScrollView>
+
+              <View style={styles.boxMusic}>
+               <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1mGqfMoSn8LXkH6k9sgRuJkvBOeA0RhB0" onError={handleError}/>
+              </View>
+              
+              // Quinto SoundTrack
+              <View style={styles.ImageMusic}>
+                  <Image source={{uri: 'https://i.pinimg.com/736x/ae/c8/7c/aec87c345aee076be2f367689bd97c69.jpg'}} style={styles.bannerMusic} />
+              </View>
+
+              <ScrollView horizontal>
+                  <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+              </ScrollView>
+
+              <View style={styles.boxMusic}>
+               <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1mGqfMoSn8LXkH6k9sgRuJkvBOeA0RhB0" onError={handleError}/>
+              </View>
+              
+              // Sexto SoundTrack
+              <View style={styles.ImageMusic}>
+                  <Image source={{uri: 'https://i.pinimg.com/736x/ae/c8/7c/aec87c345aee076be2f367689bd97c69.jpg'}} style={styles.bannerMusic} />
+              </View>
+
+              <ScrollView horizontal>
+                  <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+              </ScrollView>
+
+              <View style={styles.boxMusic}>
+               <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1mGqfMoSn8LXkH6k9sgRuJkvBOeA0RhB0" onError={handleError}/>
               </View>
               
 
@@ -350,6 +398,11 @@ const styles = StyleSheet.create({
     fontSize: 34,
     fontWeight: 'bold',
     marginBottom: 10,
+  },
+  titleColors: {
+    color: '#ff2626',
+    fontWeight: 'bold',
+    fontSize: 24,
   },
   subtitle: {
     color: '#ffffff',
@@ -588,7 +641,7 @@ const styles = StyleSheet.create({
   boxBar: {
     backgroundColor: '#000000',
     padding: 2,
-    height: 2,
+    height: 20,
     width: '100%',
     marginBottom: 10,
     borderRadius: 100,
@@ -603,6 +656,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   ImageMusic: {
     backgroundColor: '#020202',
     marginBottom: 20,
@@ -619,6 +673,13 @@ const styles = StyleSheet.create({
     width: 220,
     height: 250,
     resizeMode: 'contain',
+  },
+
+  titleMusic: {
+    color: '#f2f2f2',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
   textMusic: {
     color: '#f2f2f2',
