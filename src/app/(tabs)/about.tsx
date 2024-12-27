@@ -176,7 +176,7 @@ const About = () => {
                        <Image source={{ uri: 'https://i.pinimg.com/736x/a1/84/b0/a184b0fd49ec766f7dba8fe760760a81.jpg' }} style={styles.imageBrand} />
                     </View>
                     <View style={styles.boxBrand}>
-                    <Text style={styles.boldTitle}>History</Text>
+                    <Text style={styles.brandTitle}>History</Text>
                     <Text style={styles.paragraph}>Nissan is a Japanese automotive manufacturing company, founded in 1886 as Nisshin. The company has been producing luxury vehicles since its inception, with some of the most iconic models being the Nissan 350Z, the Nissan GT-R, and the Nissan GT-R (Dura-Ace). Nissan has also made significant contributions to the world of sports car racing, with the company participating in the 2011 D1 Grand Prix.</Text> 
                     </View>
                 </View>
@@ -186,7 +186,7 @@ const About = () => {
                        <Image source={{ uri: 'https://i.pinimg.com/736x/7e/52/65/7e5265aba65f20d6ede4d5536b2509b5.jpg' }} style={styles.imageBrand} />
                     </View>
                     <View style={styles.boxBrand}>
-                    <Text style={styles.boldTitle}>History</Text>
+                    <Text style={styles.brandTitle}>History</Text>
                     <Text style={styles.paragraph}>Nissan is a Japanese automotive manufacturing company, founded in 1886 as Nisshin. The company has been producing luxury vehicles since its inception, with some of the most iconic models being the Nissan 350Z, the Nissan GT-R, and the Nissan GT-R (Dura-Ace). Nissan has also made significant contributions to the world of sports car racing, with the company participating in the 2011 D1 Grand Prix.</Text> 
                     </View>
                 </View>
@@ -196,7 +196,7 @@ const About = () => {
                        <Image source={{ uri: 'https://i.pinimg.com/736x/d0/7c/f8/d07cf819bbd62d7b9d339ebfeecbe7fe.jpg' }} style={styles.imageBrand} />
                     </View>
                     <View style={styles.boxBrand}>
-                    <Text style={styles.boldTitle}>History</Text>
+                    <Text style={styles.brandTitle}>History</Text>
                     <Text style={styles.paragraph}>Nissan is a Japanese automotive manufacturing company, founded in 1886 as Nisshin. The company has been producing luxury vehicles since its inception, with some of the most iconic models being the Nissan 350Z, the Nissan GT-R, and the Nissan GT-R (Dura-Ace). Nissan has also made significant contributions to the world of sports car racing, with the company participating in the 2011 D1 Grand Prix.</Text> 
                     </View>
                 </View>
@@ -206,7 +206,7 @@ const About = () => {
                        <Image source={{ uri: 'https://i.pinimg.com/736x/ca/2e/0f/ca2e0f554f671d709f2830d69f325036.jpg' }} style={styles.imageBrand} />
                     </View>
                     <View style={styles.boxBrand}>
-                    <Text style={styles.boldTitle}>History</Text>
+                    <Text style={styles.brandTitle}>History</Text>
                     <Text style={styles.paragraph}>Nissan is a Japanese automotive manufacturing company, founded in 1886 as Nisshin. The company has been producing luxury vehicles since its inception, with some of the most iconic models being the Nissan 350Z, the Nissan GT-R, and the Nissan GT-R (Dura-Ace). Nissan has also made significant contributions to the world of sports car racing, with the company participating in the 2011 D1 Grand Prix.</Text> 
                     </View>
                 </View>
@@ -216,7 +216,7 @@ const About = () => {
                        <Image source={{ uri: 'https://i.pinimg.com/736x/29/28/2e/29282e31de93bfff420f2b7dfaf433b3.jpg' }} style={styles.imageBrand} />
                     </View>
                     <View style={styles.boxBrand}>
-                    <Text style={styles.boldTitle}>History</Text>
+                    <Text style={styles.brandTitle}>History</Text>
                     <Text style={styles.paragraph}>Nissan is a Japanese automotive manufacturing company, founded in 1886 as Nisshin. The company has been producing luxury vehicles since its inception, with some of the most iconic models being the Nissan 350Z, the Nissan GT-R, and the Nissan GT-R (Dura-Ace). Nissan has also made significant contributions to the world of sports car racing, with the company participating in the 2011 D1 Grand Prix.</Text> 
                     </View>
                 </View>
@@ -240,6 +240,7 @@ const styles = StyleSheet.create({
       paddingBottom: 24,
       alignItems: 'center',
       justifyContent: 'center',
+      marginTop: 50,
     },
 
     main: {
@@ -283,6 +284,13 @@ const styles = StyleSheet.create({
       color: '#ff2626',  
       fontSize: 28,
       marginBottom: 12,
+      fontWeight: '600',
+    },
+     
+    brandTitle: {
+      color: '#ff2626',  
+      fontSize: 28,
+      marginBottom: 16,
       fontWeight: '600',
     },
 

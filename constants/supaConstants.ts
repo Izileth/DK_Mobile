@@ -1,0 +1,3 @@
+export const supaUrl ='https://igdujymyargsixlbrsno.supabase.co'
+
+export const supaKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnZHVqeW15YXJnc2l4bGJyc25vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzUwNTQ0NDIsImV4cCI6MjA1MDYzMDQ0Mn0.yrkiP0Z2MXc8juBBE6GLDe1wax9d5fbpV82IxFtwDIg'

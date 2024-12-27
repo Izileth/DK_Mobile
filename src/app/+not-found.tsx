@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#000',
         justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: 0, // Remove possíveis espaçamentos
     },
     text: {
         color: '#fff',

@@ -48,6 +48,12 @@ const Content = () => {
         { uri: 'https://i.pinimg.com/736x/7a/d5/43/7ad543a6f06d19228a72a90d9674feaf.jpg' },
     ];
 
+    const imagesSeven = [
+        { uri: 'https://i.pinimg.com/736x/2e/3e/76/2e3e76b750150c4000034a3ef10d34b8.jpg' },
+        { uri: 'https://i.pinimg.com/736x/1a/00/6d/1a006d82fb405110543af9e64bbc3a05.jpg' },
+        { uri: 'https://i.pinimg.com/736x/3e/65/2f/3e652ff16f3bf7f45300284e01ec9dd8.jpg' },
+    ]
+
     const handleScroll = (event) => {
         const slideIndex = Math.round(event.nativeEvent.contentOffset.x / windowWidth);
         setActiveIndex(slideIndex);
@@ -66,9 +72,12 @@ const Content = () => {
     };
 
     return (
+
         <ScrollView>
+
             <View style={styles.container}>
                 <StatusBar style="light" />
+
                 <View style={styles.main}>
                     <Text style={styles.title}>The Content of Streets</Text>
                     <Text style={styles.subtitle}>Touge: The Japanese Mountain Races</Text>
@@ -97,6 +106,7 @@ const Content = () => {
                         ))}
                     </View>
                 </View>
+
                 <View style={styles.main}>
                     <Text style={styles.subtitle}>Mid Night Club in Streets </Text>
                     <Text style={styles.paragraph}>The "Mid Night Club" was an underground group of street runners in Tokyo, active in the 1980s and 1990s. Known for their high-speed races, often exceeding 300 km/h, they defied authorities and safety on urban roads. The history of this club inspired Rockstar Games' "Midnight Club" video game series. </Text>
@@ -124,6 +134,7 @@ const Content = () => {
                         ))}
                     </View>
                 </View>
+
                 <View style={styles.main}>
                     <Text style={styles.subtitle}>Saudi Arabian Races: Thrill-Seeking Youth</Text>
                     <Text style={styles.paragraph}>In Saudi Arabia, especially among young people, car races have become a popular form of entertainment. Fueled by boredom and a lack of recreational options, many turn to these illegal races, which represent a collective cry of frustration in the country.</Text>
@@ -151,6 +162,7 @@ const Content = () => {
                         ))}
                     </View>
                 </View>
+
                 <View style={styles.main}>
                     <Text style={styles.subtitle}>Cannonball Run: The Illegal Run Across the United States</Text>
                     <Text style={styles.paragraph}>The "Cannonball Run" is an unofficial race that crosses the United States from coast to coast. Started in 1971, the competition challenges participants to cover the distance between New York and Los Angeles in the shortest possible time, without respecting speed limits. Over the years, the race has attracted enthusiasts looking to test their limits and those of their vehicles, resulting in several record attempts and stories of extreme speed</Text>
@@ -178,6 +190,7 @@ const Content = () => {
                         ))}
                     </View>
                 </View>
+
                 <View style={styles.main}>
                     <Text style={styles.subtitle}>Clandestine Races in São Paulo</Text>
                     <Text style={styles.paragraph}>In São Paulo, especially in peripheral areas, clandestine street races have been a growing concern. These illegal races attract young people and enthusiasts seeking excitement and recognition, often using modified cars to increase performance. The practice puts the safety of participants and innocents at risk, in addition to defying local authorities. </Text>
@@ -205,6 +218,7 @@ const Content = () => {
                         ))}
                     </View>
                 </View>
+
                 <View style={styles.main}>
                     <Text style={styles.subtitle}>Illegal Racing in 90s Japan</Text>
                     <Text style={styles.paragraph}>In the 1990s, Japan was the scene of illegal races known as "touge", held on winding mountain roads. These competitions attracted drivers who sought to test their skills in challenging conditions, often at night to avoid enforcement. The phenomenon has influenced global automotive culture, inspiring movies, anime, and video games.  </Text>
@@ -232,10 +246,35 @@ const Content = () => {
                         ))}
                     </View>
                 </View>
-                <View style={styles.boxContent}>
-                    <Text style={styles.title}>Illegal Racing in Singapore</Text>
-                    <Text style={styles.paragraph}>In Singapore, illegal races have been a significant concern, particularly in the central area. These races often involve modified cars, smoke, and noise, and are often held at night. The practice of illegal racing has led to a rise in violent incidents, as well as the arrest of innocent drivers and passengers. </Text>
-                </View>    
+
+                <View style={styles.main}>
+                    <Text style={styles.titleColors}>Singapure Ilegal Racers</Text>
+                    <Text style={styles.paragraph}> In Singapore, illegal street racing is strictly prohibited due to strict traffic laws and heavy police presence. Despite this, there are sporadic reports of young people engaging in clandestine running activities, especially during the early hours of the morning when the streets are more deserted. Local authorities maintain constant vigilance to curb such practices, employing measures such as surveillance cameras and intensive patrols.</Text>
+
+                    {/* Carrossel de imagens */}
+                    <View style={styles.imageView}>
+                        <ScrollView style={styles.boxSlide} ref={scrollViewRef} horizontal pagingEnabled onScroll={handleScroll} showsHorizontalScrollIndicator={false}>
+                            {imagesSeven.map((img, index) => (
+                                <Image key={index} source={{ uri: img.uri }} style={styles.imageSlide} />
+                            ))}
+                        </ScrollView>
+                    </View>
+
+                    {/* Indicadores de ícones */}
+                    <View style={styles.iconsIndicators}>
+                        {imagesSeven.map((_, index) => (
+                            <TouchableOpacity key={index} onPress={() => goToSlide(index)}>
+                                <Ionicons
+                                    name={index === activeIndex ?  'speedometer' : 'speedometer-outline'}
+                                    size={20}
+                                    color={index === activeIndex ? '#ff2323' : '#ccc'}
+                                    style={styles.indicator}
+                                />
+                            </TouchableOpacity>
+                        ))}
+                    </View>
+                </View>
+           
             </View>
         </ScrollView>
     );
@@ -246,8 +285,10 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#000000",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        marginTop: 100,
     },
+
     main: {
         width: "100%",
         padding: 15,
@@ -262,12 +303,12 @@ const styles = StyleSheet.create({
     },
 
     boxSlide: {
-        width: Dimensions.get('window').width * 2,
+        width: '100%',
         height: 450,
     },
 
     imageSlide: {
-        width: Dimensions.get('window').width,
+        width: 450,
         height: 450,
         marginInline: 12,
         resizeMode: 'cover',
@@ -287,11 +328,10 @@ const styles = StyleSheet.create({
     boxContent: {
         backgroundColor: "#000000",
         width: "100%",
-        height: 520,
+        height: 920,
         padding: 15,
         marginBottom: 20,
         justifyContent: "center",
-        alignItems: "center"
     },
 
     title: {
@@ -299,6 +339,17 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: "bold",
         marginBottom: 10
+    },
+
+    titleColors: {
+        color: "#ff2626",
+        fontSize: 32,
+        textAlign: "left",
+        fontWeight: "bold",
+        marginBottom: 10,
+        textShadowColor: "#000000",
+        textShadowOffset: { width: 1, height: 1 },
+        textShadowRadius: 5,
     },
     subtitle: {
         color: "#f1f1f1",

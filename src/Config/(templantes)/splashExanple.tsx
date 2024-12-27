@@ -1,23 +1,15 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
+import LoadingBar from '../../app/components/LoadingBar';
 
-const SplashScreen = ({ navigation}) => {
-    useEffect(() => {
-
-        //Time para sair da tela após 3 segundos
-
-        const timer = setTimeout( () => {
-            navigation.navigate('index'); // Tela Inicial
-        }, 7000 );
-        
-        return () => clearTimeout(timer); // Limpa o timer quando a tela for fechada
-    }, [navigation]); 
-       
+const SplashExanple = () => {
        
     return (
         <View style={styles.container}>
             <Image source={{uri:  'https://i.pinimg.com/736x/c2/d5/99/c2d5992561607d3e9635cec20098a454.jpg' }} style={styles.image} />
-            <Text style={styles.text}>Welcome To Drifit For All</Text>
+            <Text style={styles.text}>Welcome To <Text style={styles.textColors}>Drifit for All</Text></Text>
+            <LoadingBar />
+            <Text style={styles.loadText}>Loading Expirence...</Text>
         </View>
     );
 }
@@ -30,6 +22,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#000',
+        paddingTop: 0, // Remove possíveis espaçamentos
     },
 
     //Ajustes nas imagens
@@ -44,6 +37,24 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
     },
+    textColors: {
+        color: '#ff2626',
+    },
+
+    //Ajustes na barra de carregamento
+    loadBar: {
+        height: 2,
+        width: 226,
+        backgroundColor: '#ff2626',
+        borderRadius: 10,
+        marginBlock: 24,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    loadText: {
+        color: '#fff',
+        fontSize: 16,
+    },
 })
 
-export default SplashScreen;
+export default SplashExanple;

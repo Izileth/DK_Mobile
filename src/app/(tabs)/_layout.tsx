@@ -1,8 +1,7 @@
 import { Tabs } from 'expo-router';
 import { Ionicons} from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
+import { SafeAreaView, StyleSheet } from 'react-native';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -12,7 +11,7 @@ const TabsLayout = () => {
         tabBarShowLabel: false,
         tabBarActiveTintColor: '#ff2323',
         tabBarInactiveTintColor: '#6c757d',
-        tabBarLabelStyle: { fontSize: 16, fontWeight: '500' },
+        tabBarLabelStyle: { fontSize: 16, fontWeight: '600' },
         tabBarStyle: { 
           backgroundColor: '#000000', 
           borderTopWidth: 0, // Remove a linha
@@ -23,11 +22,21 @@ const TabsLayout = () => {
           position: 'absolute', // Positiona o tab bar abaixo do header
         },
         tabBarIconStyle: { color: '#ff2323' },
+        
+        //Ajustes no Header do Aplicativo
         headerStyle: { backgroundColor: '#000000' },
         headerTitleStyle: { color: '#ff2323' },
+        headerTransparent: true, // Para transparência
+        headerShown: true, // Controle visibilidade
         headerTitleAlign: 'center',
         headerTitle: () => null, // Remove header title for screens without titles
     }}>
+      <Tabs.Screen name="default" options={{
+        headerTitle: 'Defalult',
+        tabBarIcon: ({focused, color }) => (
+        <Ionicons name={focused? 'build': 'build-outline'} size={30} color={color} />
+      ),
+      }} />
       <Tabs.Screen name="index" options={{ 
         headerTitle: 'Drif King World',
         tabBarIcon: ({focused, color }) => (

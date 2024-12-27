@@ -1,0 +1,20 @@
+{
+    "expo": {
+      "name": "DK MObile",
+      "slug": "meu-app",
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "https://i.pinimg.com/736x/41/a7/77/41a77728621f0c51909347dec2265611.jpg",
+      "scheme": "your-app-scheme",
+      "splash": {
+        "image": "https://i.pinimg.com/736x/41/a7/77/41a77728621f0c51909347dec2265611.jpg",
+        "resizeMode": "contain",
+        "backgroundColor": "#1a1a1a"
+      },
+      "web": {
+        "bundler": "metro"
+      },
+      "platforms": ["ios", "android", "web"]
+    }
+  }
+  
