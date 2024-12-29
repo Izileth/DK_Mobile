@@ -31,31 +31,31 @@ const TabsLayout = () => {
         headerTitleAlign: 'center',
         headerTitle: () => null, // Remove header title for screens without titles
     }}>
-      <Tabs.Screen name="default" options={{
+      <Tabs.Screen name="defaults" options={{
         headerTitle: 'Defalult',
         tabBarIcon: ({focused, color }) => (
         <Ionicons name={focused? 'build': 'build-outline'} size={30} color={color} />
       ),
       }} />
-      <Tabs.Screen name="index" options={{ 
+      <Tabs.Screen name="beginning" options={{ 
         headerTitle: 'Drif King World',
         tabBarIcon: ({focused, color }) => (
           <Ionicons name={focused ? 'home-sharp': 'home-outline'} size={30} color={color} />
         ),
         }} />
-      <Tabs.Screen name="about" options={{
+      <Tabs.Screen name="history" options={{
          headerTitle: 'Historys',
          tabBarIcon: ({focused, color }) => (
             <Ionicons name={focused ? 'information-circle': 'information-circle-outline'} size={30} color={color} />
           ),
          }} />
-      <Tabs.Screen name="profile" options={{
+      <Tabs.Screen name="profiles" options={{
          headerTitle: 'Profiles',
          tabBarIcon: ({focused, color }) => (
             <Ionicons name={focused ?  'person': 'person-outline'} size={30} color={color} />
           ),
          }} />
-      <Tabs.Screen name="content" options={{
+      <Tabs.Screen name="contents" options={{
          headerTitle: 'Content',
          tabBarIcon: ({focused, color }) => (
             <Ionicons name={focused ?  'open': 'open-outline'} size={30} color={color} />

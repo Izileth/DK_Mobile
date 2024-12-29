@@ -15,7 +15,10 @@ import {
   Pressable,
 } from "react-native";
 import { Link, useRouter } from "expo-router";
-import { supabase } from "../../../lib/supabase";
+import { supabase } from "../../lib/supabase";
+
+
+// Réplica da Tela de Loguin 
 
 const Login = () => {
   const router = useRouter();
