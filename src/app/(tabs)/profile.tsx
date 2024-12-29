@@ -8,7 +8,7 @@ import { Audio } from 'expo-av';
 import AudioPlayer from '../components/Music/Songs ID/AudioPlayer'
 
 
-
+// Definição de constante a adição de identificadores para cada Link de redes sociais
 const DATA = [
   { id: '1', title: 'Facebook', link: 'https://www.facebook.com', icon: 'logo-facebook' },
   { id: '2', title: 'Twitter', link: 'https://www.twitter.com', icon: 'logo-twitter' },
@@ -19,6 +19,8 @@ const DATA = [
 ]
 
 const Profile = () => {
+
+  // Ajutes para a confirguração de Video
 
   const [playing, setPlaying] = useState(true); // Inicia como "tocando"
 
@@ -55,15 +57,23 @@ const Profile = () => {
 
       <View style={styles.container}>
 
+            // Caixa de Instruções sobre a seção
             <View style={styles.main}>
                 <Text style={styles.title}>Profile</Text>
                 <Text style={styles.subtitle}>Profiles in the Instragram of the culture Automotive</Text>
                 <Text style={styles.paragraph}>JDM (Japanese Domestic Market) automotive culture has a vibrant community of enthusiasts who share their passion for Japanese vehicles through various platforms, especially Instagram. Here are some notable profiles that celebrate this culture:</Text>
             </View>
 
+
+
+            // Caixa de Conteúdos e Petfis para o Instagram
+ 
+            // Primeio Perfil 
             <View style={styles.profiles}>
+
               <Text style={styles.titleProfiles}>Instagram</Text>
               <Text style={styles.subtitleProfiles}>@jdm - Profile</Text>
+
                 <View style={styles.ImageView}>
                     <Image source={{ uri: 'https://i.pinimg.com/736x/dd/65/ef/dd65ef8c7c15ce67277828eb3fbd7445.jpg' }} style={styles.image} />
                 </View>
@@ -74,10 +84,13 @@ const Profile = () => {
                       <Text style={styles.link}>Visit Instagram</Text>
                   </TouchableOpacity>
               </View>
+
               <Text style={styles.paragraphProfiles}>Check out this recent photo of a Japanese car that has been featured on JDM's Instagram page</Text>
             </View>   
 
+            // Segundo Perfil
             <View style={styles.profiles}>
+
             <Text style={styles.titleProfiles}>Instagram</Text>
               <Text style={styles.subtitleProfiles}>@jdm.domain  - Profile</Text>
                 <View style={styles.ImageView}>
@@ -90,61 +103,79 @@ const Profile = () => {
                       <Text style={styles.link}>Visit Instagram</Text>
                   </TouchableOpacity>
               </View>
+
               <Text style={styles.paragraphProfiles}>Check out this recent photo of a Japanese car that has been featured on JDM's Instagram page</Text>
             </View>    
 
+            // Terceiro Perfil
             <View style={styles.profiles}>
+
             <Text style={styles.titleProfiles}>Instagram</Text>
               <Text style={styles.subtitleProfiles}>@robys114  - Profile</Text>
                 <View style={styles.ImageView}>
                     <Image source={{ uri: 'https://i.pinimg.com/736x/6e/fc/fb/6efcfbdabb3d64f247ad47f28546ff0b.jpg' }} style={styles.image} />
                 </View>
               <Text style={styles.paragraphProfiles}> Robson Okamura is a specialist in JZ, RB engines and drift cars. Known as the "King of JDM in Brazil", he shares his expertise and projects related to Japanese automotive culture</Text>
+             
               <View>
                   <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/jdm/')}>
                       <Ionicons name="logo-instagram" size={24} color="#ff2626" />
                       <Text style={styles.link}>Visit Instagram</Text>
                   </TouchableOpacity>
               </View>
+
               <Text style={styles.paragraphProfiles}>Check out this recent photo of a Japanese car that has been featured on JDM's Instagram page</Text>
             </View>    
 
+            // Quarto Perfil
             <View style={styles.profiles}>
+
             <Text style={styles.titleProfiles}>Instagram</Text>
               <Text style={styles.subtitleProfiles}>@ryoukaimeet  - Profile</Text>
                 <View style={styles.ImageView}>
                     <Image source={{ uri: 'https://i.pinimg.com/736x/d8/37/3e/d8373ebe2e7bce380e04e70810e75bac.jpg' }} style={styles.image} />
                 </View>
+
               <Text style={styles.paragraphProfiles}>Profile dedicated to organizing drift events, hotlap and exhibitions, celebrating JDM culture and providing space for enthusiasts to display their modified vehicles</Text>
+            
               <View>
                   <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/jdm/')}>
                       <Ionicons name="logo-instagram" size={24} color="#ff2626" />
                       <Text style={styles.link}>Visit Instagram</Text>
                   </TouchableOpacity>
               </View>
+
               <Text style={styles.paragraphProfiles}>Check out this recent photo of a Japanese car that has been featured on JDM's Instagram page</Text>
             </View>    
 
+            // Quinto Perfil
             <View style={styles.profiles}>
+
             <Text style={styles.titleProfiles}>Instagram</Text>
               <Text style={styles.subtitleProfiles}>@pedroo.gearheadslz  - Profile</Text>
                 <View style={styles.ImageView}>
                     <Image source={{ uri: 'https://i.pinimg.com/736x/60/fd/07/60fd07f6c3b1f63988d97023a23a48cd.jpg' }} style={styles.image} />
                 </View>
               <Text style={styles.paragraphProfiles}> Pedro is a drift and sports car enthusiast, sharing videos and photos of customized cars and automotive events, contributing to the dissemination of JDM culture in Brazil</Text>
+             
               <View>
                   <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/jdm/')}>
                       <Ionicons name="logo-instagram" size={24} color="#ff2626" />
                       <Text style={styles.link}>Visit Instagram</Text>
                   </TouchableOpacity>
               </View>
+
               <Text style={styles.paragraphProfiles}>Check out this recent photo of a Japanese car that has been featured on JDM's Instagram page</Text>
             </View>    
 
+            // Caixa de Conteúdos e Links para as Redes Sociais
+
             <View style={styles.boxContent}>
+
                 <Text style={styles.title}>Follow our Instagram influencers</Text>
                 <Text style={styles.subtitle}>More content in next Links, Clik for Get redirected</Text>
                 <Text style={styles.paragraph}>These profiles offer a comprehensive view of the JDM community, from technical experts to event organizers and content creators, reflecting the diversity and passion that permeates this automotive culture</Text>
+               
                 <FlatList
                     data={DATA}
                     keyExtractor={(item) => item.id}
@@ -161,209 +192,225 @@ const Profile = () => {
                       </View>
                   )}
                 /> 
+
             </View>    
 
+            // Repositório de Videos e Reprodutor de Takes
+
             <View style={styles.boxLive}>
+
                 <Text style={styles.titleLive}>Live Events Epic</Text>
                 <Text style={styles.subtitleLive}>Check out our upcoming events and contests</Text>
 
-        
-                <View style={styles.video}>
-                  <Text style={styles.titleVideo}>Skyline R-34 GTR <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
+                  // Primeiro Video
+                  <View style={styles.video}>
+                    <Text style={styles.titleVideo}>Skyline R-34 GTR <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
+                    <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Hartnet Midia</Text></Text>
+                    <YoutubePlayer
+                      height={300}
+                      play={playing}
+                      videoId='5-0BwZ1r6H4' // ID do vídeo do YouTube
+                      onChangeState={onStateChange}
+                    />
+                  </View>
+
+                  // Segundo Video
+                  <View style={styles.video}>
+                  <Text style={styles.titleVideo}>Mardza RX-7 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
+                  <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Go Hader</Text></Text>
+                    <YoutubePlayer
+                      height={300}
+                      play={playing}
+                      videoId='itEOkjc4gKc' // ID do vídeo do YouTube
+                      onChangeState={onStateChange}
+                    />
+                  </View>
+
+                  // Terceiro Video
+                  <View style={styles.video}>
+                  <Text style={styles.titleVideo}>Mitisubichi Evo VII <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
+                  <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Skeler</Text></Text>
+                    <YoutubePlayer
+                      height={300}
+                      play={playing}
+                      videoId='jXs3bURC-oY' // ID do vídeo do YouTube
+                      onChangeState={onStateChange}
+                    />
+                  </View>
+                  
+                  // Quarto Video
+                  <View style={styles.video}>
+                  <Text style={styles.titleVideo}>Nissan Silvia S-15 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
+                  <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Go Harder</Text></Text>
+                    <YoutubePlayer
+                      height={300}
+                      play={playing}
+                      videoId='Iy5OMrgD8JQ' // ID do vídeo do YouTube
+                      onChangeState={onStateChange}
+                    />
+                  </View>
+
+                  // Quinto Video
+                  <View style={styles.video}>
+                  <Text style={styles.titleVideo}>Lexus IS2000 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
+                  <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Dark Midia</Text></Text>
+                    <YoutubePlayer
+                      height={300}
+                      play={playing}
+                      videoId='VGvc87lbEsE' // ID do vídeo do YouTube
+                      onChangeState={onStateChange}
+                    />
+                  </View>
+
+                  //Sexto Video
+                  <View style={styles.video}>
+                  <Text style={styles.titleVideo}>Toyota Supra MK-4 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
+                  <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Hartnet</Text></Text>
+                    <YoutubePlayer
+                      height={300}
+                      play={playing}
+                      videoId='tKqq6SAb_1M' // ID do vídeo do YouTube
+                      onChangeState={onStateChange}
+                    />
+                  </View>
+
+                  // Sétimo Video
+                  <View style={styles.video}>
+                  <Text style={styles.titleVideo}>Honda NSX <Text style={styles.titleVideoColors}>4K FULL-HD</Text>  </Text>
+                  <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Tomoki´s</Text></Text>
+                    <YoutubePlayer
+                      height={300}
+                      play={playing}
+                      videoId='W6v9lHA6Bcw' // ID do vídeo do YouTube
+                      onChangeState={onStateChange}
+                    />
+                  </View>
+
+                  // Oitavo Video
+                  <View style={styles.video}>
+                  <Text style={styles.titleVideo}>Nissan 240SX <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
+                  <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>NeoQual</Text></Text>
+                    <YoutubePlayer
+                      height={300}
+                      play={playing}
+                      videoId='AjFhmMgd_TE' // ID do vídeo do YouTube
+                      onChangeState={onStateChange}
+                    />
+                  </View>
+
+                  // Nono Video 
+                  <View style={styles.video}>
+                  <Text style={styles.titleVideo}>Subaru BRZ <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
                   <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Hartnet Midia</Text></Text>
-                  <YoutubePlayer
-                    height={300}
-                    play={playing}
-                    videoId='5-0BwZ1r6H4' // ID do vídeo do YouTube
-                    onChangeState={onStateChange}
-                  />
-                </View>
+                    <YoutubePlayer
+                      height={300}
+                      play={playing}
+                      videoId='NDI6VaBqEqc' // ID do vídeo do YouTube
+                      onChangeState={onStateChange}
+                    />
+                  </View>
 
-                <View style={styles.video}>
-                <Text style={styles.titleVideo}>Mardza RX-7 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
-                <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Go Hader</Text></Text>
-                  <YoutubePlayer
-                    height={300}
-                    play={playing}
-                    videoId='itEOkjc4gKc' // ID do vídeo do YouTube
-                    onChangeState={onStateChange}
-                  />
-                </View>
-
-                <View style={styles.video}>
-                <Text style={styles.titleVideo}>Mitisubichi Evo VII <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
-                <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Skeler</Text></Text>
-                  <YoutubePlayer
-                    height={300}
-                    play={playing}
-                    videoId='jXs3bURC-oY' // ID do vídeo do YouTube
-                    onChangeState={onStateChange}
-                  />
-                </View>
-
-                <View style={styles.video}>
-                <Text style={styles.titleVideo}>Nissan Silvia S-15 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
-                <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Go Harder</Text></Text>
-                  <YoutubePlayer
-                    height={300}
-                    play={playing}
-                    videoId='Iy5OMrgD8JQ' // ID do vídeo do YouTube
-                    onChangeState={onStateChange}
-                  />
-                </View>
-
-                <View style={styles.video}>
-                <Text style={styles.titleVideo}>Lexus IS2000 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
-                <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Dark Midia</Text></Text>
-                  <YoutubePlayer
-                    height={300}
-                    play={playing}
-                    videoId='VGvc87lbEsE' // ID do vídeo do YouTube
-                    onChangeState={onStateChange}
-                  />
-                </View>
-
-                <View style={styles.video}>
-                <Text style={styles.titleVideo}>Toyota Supra MK-4 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
-                <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Hartnet</Text></Text>
-                  <YoutubePlayer
-                    height={300}
-                    play={playing}
-                    videoId='tKqq6SAb_1M' // ID do vídeo do YouTube
-                    onChangeState={onStateChange}
-                  />
-                </View>
-
-                <View style={styles.video}>
-                <Text style={styles.titleVideo}>Honda NSX <Text style={styles.titleVideoColors}>4K FULL-HD</Text>  </Text>
-                <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Tomoki´s</Text></Text>
-                  <YoutubePlayer
-                    height={300}
-                    play={playing}
-                    videoId='W6v9lHA6Bcw' // ID do vídeo do YouTube
-                    onChangeState={onStateChange}
-                  />
-                </View>
-
-                <View style={styles.video}>
-                <Text style={styles.titleVideo}>Nissan 240SX <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
-                <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>NeoQual</Text></Text>
-                  <YoutubePlayer
-                    height={300}
-                    play={playing}
-                    videoId='AjFhmMgd_TE' // ID do vídeo do YouTube
-                    onChangeState={onStateChange}
-                  />
-                </View>
-
-                <View style={styles.video}>
-                <Text style={styles.titleVideo}>Subaru BRZ <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
-                <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Hartnet Midia</Text></Text>
-                  <YoutubePlayer
-                    height={300}
-                    play={playing}
-                    videoId='NDI6VaBqEqc' // ID do vídeo do YouTube
-                    onChangeState={onStateChange}
-                  />
-                </View>
-
-                <View style={styles.video}>
-                <Text style={styles.titleVideo}>Nissan R-32 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
-                <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Go Harder</Text></Text>
-                  <YoutubePlayer
-                    height={300}
-                    play={playing}
-                    videoId='9Cn_QbxcB_I' // ID do vídeo do YouTube
-                    onChangeState={onStateChange}
-                  />
-                </View>
+                  // Décimo Video
+                  <View style={styles.video}>
+                  <Text style={styles.titleVideo}>Nissan R-32 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
+                  <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Go Harder</Text></Text>
+                    <YoutubePlayer
+                      height={300}
+                      play={playing}
+                      videoId='9Cn_QbxcB_I' // ID do vídeo do YouTube
+                      onChangeState={onStateChange}
+                    />
+                  </View>
 
             </View>        
-            
+
+            // Repositório de Musicas e Reprodutor dos Sons
+
             <View style={styles.boxMidia}>
 
               <Text style={styles.title}>Sounds For Streets</Text>
               <Text style={styles.subtitle}>Check the new songs for sound in the midnight racers</Text>
 
-              // Primeiro SoundTrack
-              <View style={styles.ImageMusic}>
-                  <Image source={{uri: 'https://i.pinimg.com/736x/c9/02/ab/c902abfec616f5b6c1d0e9147e7f2402.jpg'}} style={styles.bannerMusic} />
-              </View>
-      
+                // Primeiro SoundTrack
 
-              <ScrollView horizontal>
-                  <Text style={styles.titleMusic}>Veneno de Cobra - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
-              </ScrollView>
+                <View style={styles.ImageMusic}>
+                    <Image source={{uri: 'https://i.pinimg.com/736x/c9/02/ab/c902abfec616f5b6c1d0e9147e7f2402.jpg'}} style={styles.bannerMusic} />
+                </View>
+        
 
-              <View style={styles.boxMusic}>
-                <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1tl12Czw5phucUyAOqBStGkKlnUl0eskG" onError={handleError}/>
-              </View>
+                <ScrollView horizontal>
+                    <Text style={styles.titleMusic}>Veneno de Cobra - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+                </ScrollView>
 
-              // Segundo SoundTrack
-              <View style={styles.ImageMusic}>
-                  <Image source={{uri: 'https://i.pinimg.com/736x/c8/c5/28/c8c528f736da7cc53bb502b188b1c76b.jpg' }}style={styles.bannerMusic} />
-              </View>
+                <View style={styles.boxMusic}>
+                  <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1tl12Czw5phucUyAOqBStGkKlnUl0eskG" onError={handleError}/>
+                </View>
 
-              <ScrollView horizontal>
-                  <Text style={styles.titleMusic}>Gakkou - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
-              </ScrollView>
+                // Segundo SoundTrack
+                <View style={styles.ImageMusic}>
+                    <Image source={{uri: 'https://i.pinimg.com/736x/c8/c5/28/c8c528f736da7cc53bb502b188b1c76b.jpg' }}style={styles.bannerMusic} />
+                </View>
 
-              <View style={styles.boxMusic}>
-                <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1SbU9wkTwSKosHOovG7rIeVOZ64IZPT-g" onError={handleError} />
-              </View>
+                <ScrollView horizontal>
+                    <Text style={styles.titleMusic}>Gakkou - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+                </ScrollView>
 
-              // Terceiro SoundTrack
-              <View style={styles.ImageMusic}>
-                  <Image source={{uri: 'https://i.pinimg.com/736x/ae/c8/7c/aec87c345aee076be2f367689bd97c69.jpg'}} style={styles.bannerMusic} />
-              </View>
+                <View style={styles.boxMusic}>
+                  <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1SbU9wkTwSKosHOovG7rIeVOZ64IZPT-g" onError={handleError} />
+                </View>
 
-              <ScrollView horizontal>
-                  <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
-              </ScrollView>
+                // Terceiro SoundTrack
+                <View style={styles.ImageMusic}>
+                    <Image source={{uri: 'https://i.pinimg.com/736x/ae/c8/7c/aec87c345aee076be2f367689bd97c69.jpg'}} style={styles.bannerMusic} />
+                </View>
 
-              <View style={styles.boxMusic}>
-               <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1mGqfMoSn8LXkH6k9sgRuJkvBOeA0RhB0" onError={handleError}/>
-              </View>
-              
-              // Quarto SoundTrack
-              <View style={styles.ImageMusic}>
-                  <Image source={{uri: 'https://i.pinimg.com/736x/ae/c8/7c/aec87c345aee076be2f367689bd97c69.jpg'}} style={styles.bannerMusic} />
-              </View>
+                <ScrollView horizontal>
+                    <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+                </ScrollView>
 
-              <ScrollView horizontal>
-                  <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
-              </ScrollView>
+                <View style={styles.boxMusic}>
+                <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1mGqfMoSn8LXkH6k9sgRuJkvBOeA0RhB0" onError={handleError}/>
+                </View>
+                
+                // Quarto SoundTrack
+                <View style={styles.ImageMusic}>
+                    <Image source={{uri: 'https://i.pinimg.com/736x/a7/6f/8f/a76f8f726687b216c91bf9e993b46193.jpg'}} style={styles.bannerMusic} />
+                </View>
 
-              <View style={styles.boxMusic}>
-               <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1mGqfMoSn8LXkH6k9sgRuJkvBOeA0RhB0" onError={handleError}/>
-              </View>
-              
-              // Quinto SoundTrack
-              <View style={styles.ImageMusic}>
-                  <Image source={{uri: 'https://i.pinimg.com/736x/ae/c8/7c/aec87c345aee076be2f367689bd97c69.jpg'}} style={styles.bannerMusic} />
-              </View>
+                <ScrollView horizontal>
+                    <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+                </ScrollView>
 
-              <ScrollView horizontal>
-                  <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
-              </ScrollView>
+                <View style={styles.boxMusic}>
+                <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=19uPum6kGvL-d_7qgBSI6mJecJatldeA6" onError={handleError}/>
+                </View>
+                
+                // Quinto SoundTrack
+                <View style={styles.ImageMusic}>
+                    <Image source={{uri: 'https://i.pinimg.com/736x/fb/ba/bd/fbbabd7ef368d937b11bfd4d40c31fe2.jpg'}} style={styles.bannerMusic} />
+                </View>
 
-              <View style={styles.boxMusic}>
-               <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1mGqfMoSn8LXkH6k9sgRuJkvBOeA0RhB0" onError={handleError}/>
-              </View>
-              
-              // Sexto SoundTrack
-              <View style={styles.ImageMusic}>
-                  <Image source={{uri: 'https://i.pinimg.com/736x/ae/c8/7c/aec87c345aee076be2f367689bd97c69.jpg'}} style={styles.bannerMusic} />
-              </View>
+                <ScrollView horizontal>
+                    <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+                </ScrollView>
 
-              <ScrollView horizontal>
-                  <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
-              </ScrollView>
+                <View style={styles.boxMusic}>
+                <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1omfxbjnA_rEgtRDd4U6Re9zJxEhXN2j-" onError={handleError}/>
+                </View>
+                
+                // Sexto SoundTrack
+                <View style={styles.ImageMusic}>
+                    <Image source={{uri: 'https://i.pinimg.com/736x/1d/bc/3e/1dbc3e29a0aab80e125e76f0906f34c8.jpg'}} style={styles.bannerMusic} />
+                </View>
 
-              <View style={styles.boxMusic}>
-               <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1mGqfMoSn8LXkH6k9sgRuJkvBOeA0RhB0" onError={handleError}/>
-              </View>
-              
+                <ScrollView horizontal>
+                    <Text style={styles.titleMusic}>Noite em Osaka - <Text style={styles.titleColors}>Drift</Text> Boys</Text>
+                </ScrollView>
+
+                <View style={styles.boxMusic}>
+                <AudioPlayer   audioUrl="https://drive.google.com/uc?export=download&id=1rZ2TuhzTWHukVkxynY5-1THXQUe4qIJK" onError={handleError}/>
+                </View>
+                
 
             </View>                       
       </View>
