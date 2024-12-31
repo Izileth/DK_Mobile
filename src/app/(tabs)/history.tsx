@@ -28,14 +28,13 @@ const About = () => {
   return (
     <ScrollView>
        <View style={styles.container}> 
-            <View style={styles.imageView}>
-               <Image source={{ uri:  'https://i.pinimg.com/736x/b2/da/4b/b2da4b53c85ac6e18f7c8762eb6abc56.jpg' }}
-                      style={styles.logo} />
-              <Image source={{ uri: 'https://i.pinimg.com/736x/6c/a5/76/6ca57681bc225c2410c32023b83c761a.jpg' }}
-                      style={styles.logo} />          
-              <Image source={{ uri: 'https://i.pinimg.com/736x/9e/1d/5b/9e1d5b0a9e772e514a0a5df6579342ca.jpg' }}
-                      style={styles.logo} />                             
-           </View>                    
+
+           <View style={styles.imageView}>
+              <Image source={{ uri:  'https://i.pinimg.com/736x/b2/da/4b/b2da4b53c85ac6e18f7c8762eb6abc56.jpg' }}style={styles.logo} />
+              <Image source={{ uri: 'https://i.pinimg.com/736x/6c/a5/76/6ca57681bc225c2410c32023b83c761a.jpg' }} style={styles.logo} />          
+              <Image source={{ uri: 'https://i.pinimg.com/736x/9e/1d/5b/9e1d5b0a9e772e514a0a5df6579342ca.jpg' }} style={styles.logo} />                             
+           </View>             
+
             <View style={styles.main}>
                 <View style={styles.box}>
                     <Text style={styles.title}>Historys of the World</Text>
@@ -44,12 +43,14 @@ const About = () => {
                     <Text style={styles.text}>Bōsōzoku culture also possessed elements of nationalism, such as the use of Imperial Japanese flags and references to kamikaze pilots of World War II. This subculture was portrayed in various media, such as the Akira anime, which captured their rebellious spirit and the impact they had on Japanese society at the time. However, due to police repression and social changes, Bōsōzoku gangs began to disappear in the 2000s, although some elements of this culture can still be found at modified car events</Text>
                 </View>                     
             </View>
+            
             <View style={styles.main}>
                 <View style={styles.box}>
                     <Text style={styles.title}>Historys of this  Sport Cars</Text>
                     <Text style={styles.subtitle}>Legens of Culture Japanese</Text>
                     <Text style={styles.paragraph}>Japanese cars have a rich and fascinating history, marked by iconic models that have left an indelible mark on the automotive industry and popular culture. Here are some of these notable vehicles</Text>
-                </View>       
+                </View>   
+
                 <View style={styles.boxContent}>
                   <Text style={styles.boldTitle}>Toyota Supra Mk-4 1995</Text>
                     <TouchableOpacity style={styles.boxList} onPress={() => handlePress('https://www.youtube.com/watch?v=q-2i93gJ5_8')}>
@@ -64,7 +65,8 @@ const About = () => {
                           <Ionicons style={styles.icon} size={25}  name='chatbubble'></Ionicons>
                       </View>
                     </TouchableOpacity>
-                </View>       
+                </View>    
+
                 <View style={styles.boxContent}>
                   <Text style={styles.boldTitle}>Nissan Skyline R-34 1994</Text>
                     <TouchableOpacity style={styles.boxList} onPress={() => handlePress('https://www.youtube.com/watch?v=q-2i93gJ5_8')}>
@@ -79,7 +81,8 @@ const About = () => {
                           <Ionicons style={styles.icon} size={25}  name='chatbubble'></Ionicons>
                       </View>
                     </TouchableOpacity>
-                </View>    
+                </View>   
+
                 <View style={styles.boxContent}>
                   <Text style={styles.boldTitle}>Mardza Rx-7 1994</Text>
                     <TouchableOpacity style={styles.boxList} onPress={() => handlePress('https://www.youtube.com/watch?v=q-2i93gJ5_8')}>
@@ -94,7 +97,8 @@ const About = () => {
                           <Ionicons style={styles.icon} size={25}  name='chatbubble'></Ionicons>
                       </View>
                     </TouchableOpacity>
-                </View>      
+                </View>   
+
                 <View style={styles.boxContent}>
                   <Text style={styles.boldTitle}>Nissan Fairlady Z (240Z)</Text>
                     <TouchableOpacity style={styles.boxList} onPress={() => handlePress('https://www.youtube.com/watch?v=q-2i93gJ5_8')}>
@@ -110,6 +114,7 @@ const About = () => {
                       </View>
                     </TouchableOpacity>
                 </View>    
+
                 <View style={styles.boxContent}>
                   <Text style={styles.boldTitle}>Mitsubishi Lancer Evolution VII</Text>
                     <TouchableOpacity style={styles.boxList} onPress={() => handlePress('https://www.youtube.com/watch?v=q-2i93gJ5_8')}>
@@ -125,6 +130,7 @@ const About = () => {
                       </View>
                     </TouchableOpacity>
                 </View>    
+
                 <View style={styles.boxContent}>
                   <Text style={styles.boldTitle}>Nissan 240SX</Text>
                     <TouchableOpacity style={styles.boxList} onPress={() => handlePress('https://www.youtube.com/watch?v=q-2i93gJ5_8')}>
@@ -140,6 +146,7 @@ const About = () => {
                       </View>
                     </TouchableOpacity>
                 </View>    
+
                 <View style={styles.boxContent}>
                   <Text style={styles.boldTitle}>Nissan Silvia S-14 1999</Text>
                     <TouchableOpacity style={styles.boxList} onPress={() => handlePress('https://www.youtube.com/watch?v=q-2i93gJ5_8')}>
@@ -155,6 +162,7 @@ const About = () => {
                       </View>
                     </TouchableOpacity>
                 </View>    
+
                 <View style={styles.boxContent}>
                   <Text style={styles.boldTitle}>Nissan 250z</Text>
                     <TouchableOpacity style={styles.boxList} onPress={() => handlePress('https://www.youtube.com/watch?v=q-2i93gJ5_8')}>
@@ -170,6 +178,7 @@ const About = () => {
                       </View>
                     </TouchableOpacity>
                 </View>     
+
                 <View style={styles.box}>
                   <Text style={styles.title}>Brand History of Nissan</Text>
                     <View style={styles.imageView}>
@@ -180,6 +189,7 @@ const About = () => {
                     <Text style={styles.paragraph}>Nissan is a Japanese automotive manufacturing company, founded in 1886 as Nisshin. The company has been producing luxury vehicles since its inception, with some of the most iconic models being the Nissan 350Z, the Nissan GT-R, and the Nissan GT-R (Dura-Ace). Nissan has also made significant contributions to the world of sports car racing, with the company participating in the 2011 D1 Grand Prix.</Text> 
                     </View>
                 </View>
+
                 <View style={styles.box}>
                   <Text style={styles.titleBrand}>Toyota</Text>
                     <View style={styles.imageView}>
@@ -190,6 +200,7 @@ const About = () => {
                     <Text style={styles.paragraph}>Nissan is a Japanese automotive manufacturing company, founded in 1886 as Nisshin. The company has been producing luxury vehicles since its inception, with some of the most iconic models being the Nissan 350Z, the Nissan GT-R, and the Nissan GT-R (Dura-Ace). Nissan has also made significant contributions to the world of sports car racing, with the company participating in the 2011 D1 Grand Prix.</Text> 
                     </View>
                 </View>
+
                 <View style={styles.box}>
                   <Text style={styles.titleBrand}>Mitsubishi</Text>
                     <View style={styles.imageView}>
@@ -200,6 +211,7 @@ const About = () => {
                     <Text style={styles.paragraph}>Nissan is a Japanese automotive manufacturing company, founded in 1886 as Nisshin. The company has been producing luxury vehicles since its inception, with some of the most iconic models being the Nissan 350Z, the Nissan GT-R, and the Nissan GT-R (Dura-Ace). Nissan has also made significant contributions to the world of sports car racing, with the company participating in the 2011 D1 Grand Prix.</Text> 
                     </View>
                 </View>
+
                 <View style={styles.box}>
                   <Text style={styles.titleBrand}>Honda</Text>
                     <View style={styles.imageView}>
@@ -210,6 +222,7 @@ const About = () => {
                     <Text style={styles.paragraph}>Nissan is a Japanese automotive manufacturing company, founded in 1886 as Nisshin. The company has been producing luxury vehicles since its inception, with some of the most iconic models being the Nissan 350Z, the Nissan GT-R, and the Nissan GT-R (Dura-Ace). Nissan has also made significant contributions to the world of sports car racing, with the company participating in the 2011 D1 Grand Prix.</Text> 
                     </View>
                 </View>
+
                 <View style={styles.box}>
                   <Text style={styles.titleBrand}>Mardza</Text>
                     <View style={styles.imageView}>
@@ -220,6 +233,7 @@ const About = () => {
                     <Text style={styles.paragraph}>Nissan is a Japanese automotive manufacturing company, founded in 1886 as Nisshin. The company has been producing luxury vehicles since its inception, with some of the most iconic models being the Nissan 350Z, the Nissan GT-R, and the Nissan GT-R (Dura-Ace). Nissan has also made significant contributions to the world of sports car racing, with the company participating in the 2011 D1 Grand Prix.</Text> 
                     </View>
                 </View>
+
             </View>
         </View>      
     </ScrollView>

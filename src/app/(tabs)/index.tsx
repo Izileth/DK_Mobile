@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
     color: "#ff2626",
     marginBlock: 6,
     fontSize: 30,
-    fontWeight: "",
+    fontWeight: "200",
     marginBottom: 10,
   },
   paragraph: {

@@ -2,9 +2,8 @@ import { Alert,ScrollView, FlatList, Image,TouchableOpacity,StyleSheet, Text, Vi
 import { Ionicons } from 'react-native-vector-icons';
 import {  useRef, useState} from "react";
 import { Linking } from 'react-native';
-import { Video } from 'expo-av';
+import VideoPlayer from '../components/Video/VideoPlayer';
 import YoutubePlayer from 'react-native-youtube-iframe';
-import { Audio } from 'expo-av';
 import AudioPlayer from '../components/Music/Songs ID/AudioPlayer'
 
 
@@ -19,18 +18,6 @@ const DATA = [
 ]
 
 const Profile = () => {
-
-  // Ajutes para a confirguração de Video
-
-  const [playing, setPlaying] = useState(true); // Inicia como "tocando"
-
-  const playerRef = useRef(null);
-
-  const onStateChange = (state) => {
-    if (state === 'ended') {
-      playerRef.current?.seekTo(0, true); // Reinicia o vídeo no início
-    }
-  }
 
   const handlePress = async (link: string) => {
     const canOpen = await Linking.canOpenURL(link);
@@ -72,10 +59,10 @@ const Profile = () => {
             <View style={styles.profiles}>
 
               <Text style={styles.titleProfiles}>Instagram</Text>
-              <Text style={styles.subtitleProfiles}>@jdm - Profile</Text>
+              <Text style={styles.subtitleProfiles}>JDM</Text>
 
                 <View style={styles.ImageView}>
-                    <Image source={{ uri: 'https://i.pinimg.com/736x/dd/65/ef/dd65ef8c7c15ce67277828eb3fbd7445.jpg' }} style={styles.image} />
+                    <Image source={{ uri: 'https://i.pinimg.com/736x/26/69/11/266911452ad5b101093b1e22cb24eb95.jpg' }} style={styles.image} />
                 </View>
               <Text style={styles.paragraphProfiles}>Official profile dedicated to the purchase and sale of Japanese cars and trucks. With over 1.2 million followers, it features a variety of JDM outlets and community updates.</Text>
               <View>
@@ -92,13 +79,13 @@ const Profile = () => {
             <View style={styles.profiles}>
 
             <Text style={styles.titleProfiles}>Instagram</Text>
-              <Text style={styles.subtitleProfiles}>@jdm.domain  - Profile</Text>
+              <Text style={styles.subtitleProfiles}>JDM DOMAIN</Text>
                 <View style={styles.ImageView}>
-                    <Image source={{ uri: 'https://i.pinimg.com/736x/33/79/bd/3379bda98e51a1e9d9fa742b07c60ad9.jpg' }} style={styles.image} />
+                    <Image source={{ uri: 'https://i.pinimg.com/736x/97/95/e5/9795e504b9df4555313f060528f37660.jpg' }} style={styles.image} />
                 </View>
               <Text style={styles.paragraphProfiles}>Focused on daily content about Japanese cars, this profile shares images and videos of JDM vehicles, attracting an audience of more than 363 thousand followers.</Text>
               <View>
-                  <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/jdm/')}>
+                  <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/jdm.domain/')}>
                       <Ionicons name="logo-instagram" size={24} color="#ff2626" />
                       <Text style={styles.link}>Visit Instagram</Text>
                   </TouchableOpacity>
@@ -111,14 +98,14 @@ const Profile = () => {
             <View style={styles.profiles}>
 
             <Text style={styles.titleProfiles}>Instagram</Text>
-              <Text style={styles.subtitleProfiles}>@robys114  - Profile</Text>
+              <Text style={styles.subtitleProfiles}>ROBYS144</Text>
                 <View style={styles.ImageView}>
-                    <Image source={{ uri: 'https://i.pinimg.com/736x/6e/fc/fb/6efcfbdabb3d64f247ad47f28546ff0b.jpg' }} style={styles.image} />
+                    <Image source={{ uri: 'https://i.pinimg.com/736x/f3/2d/cc/f32dccd791de682e9fb3cf2c08d0e4f7.jpg' }} style={styles.image} />
                 </View>
               <Text style={styles.paragraphProfiles}> Robson Okamura is a specialist in JZ, RB engines and drift cars. Known as the "King of JDM in Brazil", he shares his expertise and projects related to Japanese automotive culture</Text>
              
               <View>
-                  <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/jdm/')}>
+                  <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/robys114/')}>
                       <Ionicons name="logo-instagram" size={24} color="#ff2626" />
                       <Text style={styles.link}>Visit Instagram</Text>
                   </TouchableOpacity>
@@ -131,15 +118,15 @@ const Profile = () => {
             <View style={styles.profiles}>
 
             <Text style={styles.titleProfiles}>Instagram</Text>
-              <Text style={styles.subtitleProfiles}>@ryoukaimeet  - Profile</Text>
+              <Text style={styles.subtitleProfiles}>RYOUKAIMEET</Text>
                 <View style={styles.ImageView}>
-                    <Image source={{ uri: 'https://i.pinimg.com/736x/d8/37/3e/d8373ebe2e7bce380e04e70810e75bac.jpg' }} style={styles.image} />
+                    <Image source={{ uri: 'https://i.pinimg.com/736x/c0/f5/e5/c0f5e5506044242ee9a876143fda7c4d.jpg' }} style={styles.image} />
                 </View>
 
               <Text style={styles.paragraphProfiles}>Profile dedicated to organizing drift events, hotlap and exhibitions, celebrating JDM culture and providing space for enthusiasts to display their modified vehicles</Text>
             
               <View>
-                  <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/jdm/')}>
+                  <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/ryoukaimeet/')}>
                       <Ionicons name="logo-instagram" size={24} color="#ff2626" />
                       <Text style={styles.link}>Visit Instagram</Text>
                   </TouchableOpacity>
@@ -152,14 +139,14 @@ const Profile = () => {
             <View style={styles.profiles}>
 
             <Text style={styles.titleProfiles}>Instagram</Text>
-              <Text style={styles.subtitleProfiles}>@pedroo.gearheadslz  - Profile</Text>
+              <Text style={styles.subtitleProfiles}>PEDRO GEARHEADSLZ</Text>
                 <View style={styles.ImageView}>
-                    <Image source={{ uri: 'https://i.pinimg.com/736x/60/fd/07/60fd07f6c3b1f63988d97023a23a48cd.jpg' }} style={styles.image} />
+                    <Image source={{ uri: 'https://i.pinimg.com/736x/c5/6b/f5/c56bf56be82a71ef1d0dadc2a9ef0ee7.jpg' }} style={styles.image} />
                 </View>
               <Text style={styles.paragraphProfiles}> Pedro is a drift and sports car enthusiast, sharing videos and photos of customized cars and automotive events, contributing to the dissemination of JDM culture in Brazil</Text>
              
               <View>
-                  <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/jdm/')}>
+                  <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/pedroo.gearheadslz')}>
                       <Ionicons name="logo-instagram" size={24} color="#ff2626" />
                       <Text style={styles.link}>Visit Instagram</Text>
                   </TouchableOpacity>
@@ -167,6 +154,27 @@ const Profile = () => {
 
               <Text style={styles.paragraphProfiles}>Check out this recent photo of a Japanese car that has been featured on JDM's Instagram page</Text>
             </View>    
+
+            <View style={styles.profiles}>
+
+              <Text style={styles.titleProfiles}>Instagram</Text>
+                  <Text style={styles.subtitleProfiles}>SPEEDARTMEDIA</Text>
+                  <View style={styles.ImageView}>
+                      <Image source={{ uri: 'https://i.pinimg.com/736x/ab/04/fb/ab04fb9ebbb3c950a3411d0fe04f8b2c.jpg' }} style={styles.image} />
+                  </View>
+                <Text style={styles.paragraphProfiles}>Nicolás Orellana is an automotive content creator, producing videos and photos of cars, as well as drawings and paintings on demand, highlighting JDM vehicles and automotive culture in general</Text>
+               
+                <View>
+                    <TouchableOpacity style={styles.list} onPress={() => Linking.openURL('https://www.instagram.com/speedartmedia/')}>
+                        <Ionicons name="logo-instagram" size={24} color="#ff2626" />
+                        <Text style={styles.link}>Visit Instagram</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <Text style={styles.paragraphProfiles}>Check out this recent photo of a Japanese car that has been featured on JDM's Instagram page</Text>
+            </View>  
+
+            
 
             // Caixa de Conteúdos e Links para as Redes Sociais
 
@@ -206,121 +214,82 @@ const Profile = () => {
                   <View style={styles.video}>
                     <Text style={styles.titleVideo}>Skyline R-34 GTR <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
                     <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Hartnet Midia</Text></Text>
-                    <YoutubePlayer
-                      height={300}
-                      play={playing}
-                      videoId='5-0BwZ1r6H4' // ID do vídeo do YouTube
-                      onChangeState={onStateChange}
-                    />
+                     <VideoPlayer url="https://www.youtube.com/watch?v=5-0BwZ1r6H4" height={250} />
                   </View>
 
+                  // ID do vídeo do YouTube '5-0BwZ1r6H4'
                   // Segundo Video
                   <View style={styles.video}>
                   <Text style={styles.titleVideo}>Mardza RX-7 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
                   <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Go Hader</Text></Text>
-                    <YoutubePlayer
-                      height={300}
-                      play={playing}
-                      videoId='itEOkjc4gKc' // ID do vídeo do YouTube
-                      onChangeState={onStateChange}
-                    />
+                    <VideoPlayer url="https://www.youtube.com/watch?v=itEOkjc4gKc" height={250} />
                   </View>
-
+                  
+                  // ID do vídeo do YouTube 'itEOkjc4gKc
                   // Terceiro Video
                   <View style={styles.video}>
                   <Text style={styles.titleVideo}>Mitisubichi Evo VII <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
                   <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Skeler</Text></Text>
-                    <YoutubePlayer
-                      height={300}
-                      play={playing}
-                      videoId='jXs3bURC-oY' // ID do vídeo do YouTube
-                      onChangeState={onStateChange}
-                    />
+                    <VideoPlayer url="https://www.youtube.com/watch?v=jXs3bURC-oY" height={250} />
                   </View>
                   
+                  // ID do vídeo do YouTube 'jXs3bURC-oY'
                   // Quarto Video
                   <View style={styles.video}>
                   <Text style={styles.titleVideo}>Nissan Silvia S-15 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
                   <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Go Harder</Text></Text>
-                    <YoutubePlayer
-                      height={300}
-                      play={playing}
-                      videoId='Iy5OMrgD8JQ' // ID do vídeo do YouTube
-                      onChangeState={onStateChange}
-                    />
+                    <VideoPlayer url="https://www.youtube.com/watch?v=Iy5OMrgD8JQ" height={250} />
                   </View>
-
+                  
+                  // ID do vídeo do YouTube 'Iy5OMrgD8JQ'
                   // Quinto Video
                   <View style={styles.video}>
                   <Text style={styles.titleVideo}>Lexus IS2000 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
                   <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Dark Midia</Text></Text>
-                    <YoutubePlayer
-                      height={300}
-                      play={playing}
-                      videoId='VGvc87lbEsE' // ID do vídeo do YouTube
-                      onChangeState={onStateChange}
-                    />
+                    <VideoPlayer url="https://www.youtube.com/watch?v=VGvc87lbEsE'" height={250} />
                   </View>
-
+                  
+                  // ID do vídeo do YouTube 'VGvc87lbEsE''
                   //Sexto Video
                   <View style={styles.video}>
                   <Text style={styles.titleVideo}>Toyota Supra MK-4 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
                   <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Hartnet</Text></Text>
-                    <YoutubePlayer
-                      height={300}
-                      play={playing}
-                      videoId='tKqq6SAb_1M' // ID do vídeo do YouTube
-                      onChangeState={onStateChange}
-                    />
+                    <VideoPlayer url="https://www.youtube.com/watch?v=tKqq6SAb_1M" height={250} />
                   </View>
-
+                  
+                  // ID do vídeo do YouTube 'tKqq6SAb_1M''
                   // Sétimo Video
                   <View style={styles.video}>
                   <Text style={styles.titleVideo}>Honda NSX <Text style={styles.titleVideoColors}>4K FULL-HD</Text>  </Text>
                   <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Tomoki´s</Text></Text>
-                    <YoutubePlayer
-                      height={300}
-                      play={playing}
-                      videoId='W6v9lHA6Bcw' // ID do vídeo do YouTube
-                      onChangeState={onStateChange}
-                    />
+                    <VideoPlayer url="https://www.youtube.com/watch?v=jXs3bURC-oY" height={250} />
                   </View>
-
+                  
+                  // ID do vídeo do YouTube 'W6v9lHA6Bcw'
                   // Oitavo Video
                   <View style={styles.video}>
                   <Text style={styles.titleVideo}>Nissan 240SX <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
                   <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>NeoQual</Text></Text>
-                    <YoutubePlayer
-                      height={300}
-                      play={playing}
-                      videoId='AjFhmMgd_TE' // ID do vídeo do YouTube
-                      onChangeState={onStateChange}
-                    />
+                    <VideoPlayer url="https://www.youtube.com/watch?v=W6v9lHA6Bcw" height={250} />
                   </View>
-
+                  
+                  // ID do vídeo do YouTube ''W6v9lHA6Bcw'
                   // Nono Video 
                   <View style={styles.video}>
                   <Text style={styles.titleVideo}>Subaru BRZ <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
                   <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Hartnet Midia</Text></Text>
-                    <YoutubePlayer
-                      height={300}
-                      play={playing}
-                      videoId='NDI6VaBqEqc' // ID do vídeo do YouTube
-                      onChangeState={onStateChange}
-                    />
+                    <VideoPlayer url="https://www.youtube.com/watch?v=NDI6VaBqEqc" height={250} />
                   </View>
 
+                  // ID do vídeo do YouTube 'NDI6VaBqEqc'
                   // Décimo Video
                   <View style={styles.video}>
                   <Text style={styles.titleVideo}>Nissan R-32 <Text style={styles.titleVideoColors}>4K FULL-HD</Text></Text>
                   <Text style={styles.subtitleVideo}>Hosted by <Text style={styles.subtitleVideoColors}>Go Harder</Text></Text>
-                    <YoutubePlayer
-                      height={300}
-                      play={playing}
-                      videoId='9Cn_QbxcB_I' // ID do vídeo do YouTube
-                      onChangeState={onStateChange}
-                    />
+                     <VideoPlayer url="https://www.youtube.com/watch?v=9Cn_QbxcB_I" height={250} />
                   </View>
+                  
+                  // ID do vídeo do YouTube '9Cn_QbxcB_I''
 
             </View>        
 
@@ -464,7 +433,7 @@ const styles = StyleSheet.create({
 
   //Ajustes nas caixas de perfis
   profiles: {
-    backgroundColor: '#070707',
+    backgroundColor: '#000000',
     width: '110%',
     padding: 20,
     marginBottom: 30,

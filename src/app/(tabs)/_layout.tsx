@@ -1,9 +1,7 @@
 import { Tabs } from 'expo-router';
 import { Ionicons} from '@expo/vector-icons';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { SafeAreaView, StyleSheet } from 'react-native';
 
-const Tab = createMaterialTopTabNavigator();
 
 const TabsLayout = () => {
   return (
@@ -31,13 +29,13 @@ const TabsLayout = () => {
         headerTitleAlign: 'center',
         headerTitle: () => null, // Remove header title for screens without titles
     }}>
-      <Tabs.Screen name="defaults" options={{
+      <Tabs.Screen name="anim" options={{
         headerTitle: 'Defalult',
         tabBarIcon: ({focused, color }) => (
         <Ionicons name={focused? 'build': 'build-outline'} size={30} color={color} />
       ),
       }} />
-      <Tabs.Screen name="beginning" options={{ 
+      <Tabs.Screen name="index" options={{ 
         headerTitle: 'Drif King World',
         tabBarIcon: ({focused, color }) => (
           <Ionicons name={focused ? 'home-sharp': 'home-outline'} size={30} color={color} />

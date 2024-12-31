@@ -2,19 +2,12 @@ import React from "react";
 import { useState } from "react";
 import {
   Alert,
-  Button,
-  ScrollView,
-  FlatList,
-  Image,
-  TouchableOpacity,
   StyleSheet,
   Text,
   View,
-  Animated,
   TextInput,
   Pressable,
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Link, useRouter } from "expo-router";
 import { supabase } from "../../lib/supabase";
 
@@ -40,7 +33,7 @@ const Login = () => {
     }
 
     setLoading(false);
-    router.replace("/(tabs)");
+    router.replace('/(tabs)');
   }
 
   return (

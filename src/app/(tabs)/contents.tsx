@@ -49,7 +49,7 @@ const Content = () => {
     ];
 
     const imagesSeven = [
-        { uri: 'https://i.pinimg.com/736x/2e/3e/76/2e3e76b750150c4000034a3ef10d34b8.jpg' },
+        { uri: 'https://i.pinimg.com/736x/45/62/f0/4562f0b75279fe966d77652a90e8334f.jpg' },
         { uri: 'https://i.pinimg.com/736x/1a/00/6d/1a006d82fb405110543af9e64bbc3a05.jpg' },
         { uri: 'https://i.pinimg.com/736x/3e/65/2f/3e652ff16f3bf7f45300284e01ec9dd8.jpg' },
     ]
@@ -274,7 +274,23 @@ const Content = () => {
                         ))}
                     </View>
                 </View>
-           
+
+                <View style={styles.main}>
+                    <Text style={styles.titleColors}>Hong Kong <Text style={styles.title}>Illegal Racers</Text></Text>
+                    <Text style={styles.paragraph}>In Hong Kong, illegal street racing is a serious concern, with the majority of drivers participating in these activities on weekends. These activities often involve using modified cars, modifications that can increase speed and agility, and are often performed at night to avoid detection. As with Singapore, local authorities maintain constant vigilance to curb such practices, employing measures such as surveillance cameras and intensive patrols.</Text>
+                </View>
+
+                <View style={styles.main}>
+                    <Text style={styles.title}>More <Text style={styles.title}>Content</Text>for Navigation</Text>
+                    <View>
+                        <View style={styles.boxImage}>
+                             <Image source={{ uri:  'https://i.pinimg.com/736x/fa/9e/4b/fa9e4bbb1bd078a217d6b87a85290e9a.jpg' }}style={styles.image} />
+                             <Image source={{ uri:  'https://i.pinimg.com/736x/ab/70/c9/ab70c9bb6505e177be408f25f314265d.jpg' }}style={styles.image} />
+                             <Image source={{ uri:  'https://i.pinimg.com/736x/fc/cb/67/fccb676e60ab22cde7f2662bd3ed6ef4.jpg' }}style={styles.image} />
+                        </View>
+                    </View>
+                </View>
+
             </View>
         </ScrollView>
     );
@@ -342,7 +358,7 @@ const styles = StyleSheet.create({
     },
 
     titleColors: {
-        color: "#ff2626",
+        color: "#ffffff",
         fontSize: 32,
         textAlign: "left",
         fontWeight: "bold",
@@ -361,6 +377,22 @@ const styles = StyleSheet.create({
         color: "#f1f1f1",
         fontSize: 18,
         marginBottom: 30
+    },
+    //AJustes na caixa de imagens 
+
+    boxImage: {
+        width: "100%",
+        height: 450,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginBottom: 20
+    },
+
+    image: {
+        width: 150,
+        height: 450,
+        resizeMode: "cover",
+        marginVertical: 10,
     },
 });
 
