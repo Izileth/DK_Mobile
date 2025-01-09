@@ -6,6 +6,7 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 const TabsLayout = () => {
   return (
     <Tabs screenOptions={{
+   
         tabBarShowLabel: false,
         tabBarActiveTintColor: '#ff2323',
         tabBarInactiveTintColor: '#6c757d',
@@ -25,18 +26,14 @@ const TabsLayout = () => {
         headerStyle: { backgroundColor: '#000000' },
         headerTitleStyle: { color: '#ff2323' },
         headerTransparent: true, // Para transparência
-        headerShown: true, // Controle visibilidade
+        headerShown:  true, // Controle visibilidade
         headerTitleAlign: 'center',
         headerTitle: () => null, // Remove header title for screens without titles
     }}>
-      <Tabs.Screen name="anim" options={{
-        headerTitle: 'Defalult',
-        tabBarIcon: ({focused, color }) => (
-        <Ionicons name={focused? 'build': 'build-outline'} size={30} color={color} />
-      ),
-      }} />
+
       <Tabs.Screen name="index" options={{ 
         headerTitle: 'Drif King World',
+        headerShown: false,
         tabBarIcon: ({focused, color }) => (
           <Ionicons name={focused ? 'home-sharp': 'home-outline'} size={30} color={color} />
         ),
@@ -58,7 +55,13 @@ const TabsLayout = () => {
          tabBarIcon: ({focused, color }) => (
             <Ionicons name={focused ?  'open': 'open-outline'} size={30} color={color} />
           ),
-         }} />     
+         }} />   
+      <Tabs.Screen name="about" options={{
+         headerTitle: 'Defalult',
+         tabBarIcon: ({focused, color }) => (
+           <Ionicons name={focused? 'build': 'build-outline'} size={30} color={color} />
+          ),
+        }} />           
       <Tabs.Screen name="not-found" options={{ headerTitle: 'Profile', headerShown: false }} />
     </Tabs>
   );

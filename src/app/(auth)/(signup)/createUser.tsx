@@ -19,6 +19,7 @@ import {
 import { Link, useRouter, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { supabase } from "../../lib/supabase";
+import { hide } from "expo-router/build/utils/splash";
 
 
 const createLoguin = () => {
@@ -49,15 +50,21 @@ const createLoguin = () => {
     setLoading(false);
     router.replace('(auth)/(loguin)');
   }
+  
+  async function handleReturnLogin() {
+    router.replace('/(auth)/(loguin)');
+  }
+
+  // Ocultar e desoclutar password 
+  const [hidePass, setHidePass] = useState(true)
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1, backgroundColor: "#000000" }}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Pressable style={styles.backButton}>
-              <Link href='(auth)/(loguin)'>
+            <Pressable style={styles.backButton} onPress={handleReturnLogin}>
               <Ionicons name="arrow-back" size={24} color="#fff" />
-              </Link>
             </Pressable>
             <Text style={styles.title}>
               Drift King <Text style={styles.titleColors}>Mobile</Text>
@@ -69,32 +76,56 @@ const createLoguin = () => {
           </View>
           <View style={styles.form}>
             <Text style={styles.label}>Nome Completo</Text>
-            <TextInput
-              value={name}
-              onChangeText={setName}
-              placeholder="Inisra o seu nome completo"
-              style={styles.input}
-              secureTextEntry
-            />
-
+            <View style={styles.space}>
+                <TextInput
+                  value={name}
+                  onChangeText={setName}
+                  placeholder="Inisra o seu nome completo"
+                  style={styles.input}
+                  secureTextEntry={hidePass}
+                />
+                <TouchableOpacity onPress={() => { setHidePass(!hidePass);}} style={styles.icon }>
+                  { hidePass ?
+                  <Ionicons name="eye" size={24} color="black" style={{ marginLeft: 10 }} />
+                  :
+                  <Ionicons  name="eye-off"  size={24}  color="black"  style={{ marginLeft: 10 }}   />
+                  }
+                </TouchableOpacity>                
+            </View>
             <Text style={styles.label}>Nome do Usuário</Text>
-            <TextInput
-              value={email}
-              onChangeText={setEmail}
-              placeholder="Insira o seu Email"
-              style={styles.input}
-              secureTextEntry
-            />
-
+            <View style={styles.space}>
+                <TextInput
+                  value={email}
+                  onChangeText={setEmail}
+                  placeholder="Insira o seu Email"
+                  style={styles.input}
+                  secureTextEntry={hidePass}
+                />
+                <TouchableOpacity onPress={() => { setHidePass(!hidePass);}} style={styles.icon }>
+                  { hidePass ?
+                  <Ionicons name="eye" size={24} color="black" style={{ marginLeft: 10 }} />
+                  :
+                  <Ionicons  name="eye-off"  size={24}  color="black"  style={{ marginLeft: 10 }}   />
+                  }
+                </TouchableOpacity>    
+            </View>
             <Text style={styles.label}> Nova Senha</Text>
-            <TextInput
-              value={password}
-              onChangeText={setPassword}
-              placeholder="Inisira a sua Senha"
-              style={styles.input}
-              secureTextEntry={true}
-            />
-
+            <View style={styles.space}>
+              <TextInput
+                value={password}
+                onChangeText={setPassword}
+                placeholder="Inisira a sua Senha"
+                style={styles.input}
+                secureTextEntry={hidePass}
+              />
+              <TouchableOpacity onPress={() => { setHidePass(!hidePass);}} style={styles.icon }>
+                  { hidePass ?
+                  <Ionicons name="eye" size={24} color="black" style={{ marginLeft: 10 }} />
+                  :
+                  <Ionicons  name="eye-off"  size={24}  color="black"  style={{ marginLeft: 10 }}   />
+                  }
+              </TouchableOpacity>    
+            </View>
             <Pressable style={styles.button} onPress={handleCreateLoguin}>
               <Text style={styles.buttonText}>
                 {loading ? "Loading..." : "Create acoult"}
@@ -135,6 +166,22 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     alignItems: "center",
   },
+
+  space: {
+    flexDirection: 'row',
+    width: "85%",
+    borderWidth: 1,
+    borderColor: "#000000",
+    borderRadius: 8,
+    alignContent: 'center',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  icon: {
+    height: 25,
+  },
   //Ajustes nos titulos e paragrafos
 
   title: {
@@ -165,14 +212,10 @@ const styles = StyleSheet.create({
   },
   input: {
     color: "#000000",
-    width: "85%",
+    width: "80%",
     fontSize: 18,
-    marginBottom: 8,
     marginInline: 12,
-    padding: 8,
-    borderWidth: 1,
-    borderColor: "#000000",
-    borderRadius: 8,
+    height: 50,
   },
   placeholder: {
     color: "#ffffff",

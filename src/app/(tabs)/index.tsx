@@ -12,12 +12,16 @@ import {
   Button,
   Pressable,
 } from "react-native";
-import React, { useRef, useEffect, useState} from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Linking } from "react-native";
 import { Ionicons } from "react-native-vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter, Link } from "expo-router"; // Importa o useRouter
+import { replace } from "expo-router/build/global-state/routing";
 import { supabase } from "../lib/supabase";
+import PurploseEffectText from "../components/Animation/TextPurploseColors";
 import { AuthProvider, useAuth } from "../../context/authContext";
+import Carousel from "../components/Dinamics/Carrousel";
 
 // Dados para a FlatList
 const DATA = [
@@ -41,8 +45,32 @@ const DATA = [
   },
 ];
 
-export default function App() {
+const image = [
+  {
+    uri: "https://images.pexels.com/photos/9661387/pexels-photo-9661387.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    uri: "https://images.pexels.com/photos/4227197/pexels-photo-4227197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    uri: "https://images.pexels.com/photos/9661389/pexels-photo-9661389.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    uri: "https://images.pexels.com/photos/27703407/pexels-photo-27703407/free-photo-of-carro-veiculo-automovel-estacionamento.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    uri: "https://images.pexels.com/photos/27703427/pexels-photo-27703427/free-photo-of-noite-carro-veiculo-automovel.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    uri: "https://images.pexels.com/photos/27703365/pexels-photo-27703365/free-photo-of-carros-veiculos-automoveis-noite.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    uri: "https://images.pexels.com/photos/28984439/pexels-photo-28984439/free-photo-of-carro-esportivo-branco-elegante-em-garagem-urbana.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+];
 
+const App = () => {
+  // Constante de redirecionamento para links externos
   const [loading, setLoading] = useState(false);
 
   const handlePress = async (link: string) => {
@@ -68,119 +96,152 @@ export default function App() {
     }).start();
   }, [fadeAnim]);
 
+  // Função de logout
+
   const { setAuth } = useAuth();
 
-  async function handleSignout() {
+  // Função de redirecionamento para a tela de login
+  async function handleReturnOut() {
+    const router = useRouter(); // Garante que o roteador está disponível
     const { error } = await supabase.auth.signOut();
-    setAuth(null);
+
     if (error) {
       Alert.alert("Falha ao deslogar", error.message);
       return;
     }
+
+    // Limpa o estado do usuário logado
+    setAuth(null);
+
+    // Redireciona imediatamente para a tela de login
+    router.replace("(auth)/(loguin)");
   }
 
   return (
-    <ScrollView style={styles.header}>
+    <ScrollView style={{ flex: 1, backgroundColor: "#230606", width: "100%" }}>
       <LinearGradient
-        colors={["#000000", "#ff2626"]}
-        start={{ x: 0.4, y: 0.6 }}
-        end={{ x: 2.5, y: 2.6 }}
+        style={styles.container}
+        colors={["#ff2626", "#000000"]}
+        start={{ x: 0, y: -6 }}
+        end={{ x: 0, y: 1 }}
       >
-        <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
-          <View style={styles.container}>
-            <StatusBar style="light" />
-            <View style={styles.imageView}>
-              <Image
-                source={{
-                  uri: "https://i.pinimg.com/736x/5e/1a/08/5e1a08d7d7fb6ac44cb401558b89cbc7.jpg",
-                }}
-                style={styles.image}
-              />
-            </View>
-            <View style={styles.main}>
-              <Text style={styles.title}>Drift King <Text style={styles.titleColors}>Mobile</Text></Text>
-              <Text style={styles.subtitle}>
-                React Native App Developer for Android and IOS
-              </Text>
-              <Text style={styles.boldTitle}>Informations of App</Text>
-              <Text style={styles.paragraph}>
-                The App is exemple of japanese automotive culture, and its informations range from informing to giving a brief summary about this world.
-              </Text>
-              <View style={styles.boxContent}>
-                <Text style={styles.paragraph}>
-                  Follow the links for explore the vast contents make for you
-                  and others adimires of this world.{" "}
+        <Animated.View style={[{ opacity: fadeAnim }]}>
+          <View style={styles.header}>
+            <Text style={styles.headerTitle}>
+              Drift King <Text style={styles.titleColors}>Mobile App</Text>
+            </Text>
+            <Text>
+              <PurploseEffectText />
+            </Text>
+            <Pressable style={styles.logoutBox} onPress={handleReturnOut}>
+              <Link href={"/(auth)/(loguin)"} style={styles.logout}>
+                <Text style={styles.logoutText}>
+                  {loading ? "Loading..." : "Logout"}
                 </Text>
-              </View>
-              <View style={styles.boxLinks}>
-                <FlatList
-                  data={DATA}
-                  horizontal
-                  keyExtractor={(item) => item.id}
-                  renderItem={({ item }) => (
-                    <View style={styles.item}>
-                      <Ionicons
-                        name={item.icon}
-                        size={30}
-                        color="#000"
-                        style={styles.icon}
-                      />
-                      <TouchableOpacity onPress={() => handlePress(item.link)}>
-                        <Text style={styles.text}>{item.title}</Text>
-                      </TouchableOpacity>
-                    </View>
-                  )}
-                />
-              </View>
-              <View style={styles.lineButton}>
-                  <Pressable style={styles.button} onPress={handleSignout}>
-                    <Text style={styles.buttonText}>
-                      {loading? "Loading..." : "Exit Loguin"}
-                    </Text>
-                  </Pressable>
-              </View>
-            </View>
-            <StatusBar style="auto" />
+              </Link>
+            </Pressable>
+          </View>
+        </Animated.View>
+        <Animated.View style={[{ opacity: fadeAnim }]}>
+          <View style={styles.contentBox}>
+            <Text style={styles.title}>
+              React Native App Developer for Android and IOS
+            </Text>
+            <Text style={styles.subtitle}>
+              React Native App Developer for Android and IOS
+            </Text>
+            <Text style={styles.boldTitle}>Developer by Kawã Correia</Text>
+          </View>
+        </Animated.View>
+        <Animated.View style={[{ opacity: fadeAnim }]}>
+          <View style={styles.imageBox}>
+            <Carousel
+              images={image}
+              autoPlay={true}
+              autoPlayInterval={5000}
+              imageHeight={430}
+            />
+          </View>
+        </Animated.View>
+        <Animated.View style={[{ opacity: fadeAnim }]}>
+          <View style={styles.socialBox}>
+            <FlatList
+              data={DATA}
+              keyExtractor={(item) => item.id}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              renderItem={({ item }) => (
+                <Pressable onPress={() => handlePress(item.link)}>
+                  <Ionicons
+                    style={styles.icon}
+                    name={item.icon}
+                    size={30}
+                    color="#ffffff"
+                  />
+                </Pressable>
+              )}
+            />
+            <Text style={styles.credtsText}>
+              Credits for fotos - Erik Mclean
+            </Text>
+            <Pressable
+              style={styles.socialButton}
+              onPress={() =>
+                Linking.openURL(
+                  "https://www.pexels.com/pt-br/@introspectivedsgn/"
+                )
+              }
+            >
+              <Text style={styles.socialButtonText}>Follow-me</Text>
+            </Pressable>
           </View>
         </Animated.View>
       </LinearGradient>
     </ScrollView>
   );
-}
+};
+export default App;
 
 const styles = StyleSheet.create({
   //AJustes na caixa principal do aplicativo
 
   header: {
-    flex: 1,
-    backgroundColor: "#000000",
+    height: 90,
+    width: "105%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+    backgroundColor: "transparent",
     paddingTop: 0,
   },
 
   container: {
-    backgroundColor: "transparent",
-    width: 520,
-    height: '100%',
-    marginTop: 40,
     flex: 1,
+    backgroundColor: "transparent",
+    width: "100%",
+    height: "100%",
+    marginTop: 40,
     justifyContent: "space-around",
     alignItems: "center",
     padding: 24,
   },
 
   main: {
-    flex: 1,
-    justifyContent: "center",
+    height: 290,
+    textAlign: "left",
+    alignSelf: "auto",
     paddingHorizontal: 2,
     maxWidth: 960,
     marginHorizontal: "auto",
   },
 
-  boxContent: {
+  contentBox: {
     width: 450,
     maxWidth: 500,
+    marginBlock: 26,
+    backgroundColor: "transparent",
   },
-  
+
   //Ajustes bo Titulo, paragrafos e textos
 
   title: {
@@ -188,7 +249,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     textAlign: "left",
     fontSize: 48,
-    fontWeight: "bold",
+    fontWeight: "100",
   },
 
   titleColors: {
@@ -199,14 +260,19 @@ const styles = StyleSheet.create({
     textAlign: "left",
     color: "#ffffff",
     marginBottom: 6,
-    fontSize: 28,
+    fontSize: 20,
+    fontWeight: "500",
+  },
+
+  subtitleColors: {
+    color: "#ff2626",
     fontWeight: "500",
   },
 
   boldTitle: {
     color: "#ff2626",
     marginBlock: 6,
-    fontSize: 30,
+    fontSize: 16,
     fontWeight: "200",
     marginBottom: 10,
   },
@@ -220,111 +286,96 @@ const styles = StyleSheet.create({
     fontWeight: "100",
   },
 
-  //Ajustes especiais dos links para redes sociais
-
-  item: {
-    flexDirection: "row",
-    alignItems: "center",
-    width: 100,
-    height: 100,
-    justifyContent: "center",
-    marginInline: 24,
-    marginBlock: 8,
-    borderRadius: 4,
-  },
-
-  text: {
-    fontSize: 20,
-    color: "#f1f1f1", // Cor personalizada para o texto
-  },
-
-  //Ajustes na caixa de botão e lista de botões
-
-  lineButton: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    width: '100%',
-    marginBottom: 45,
-  },
-
-  button: {
-    backgroundColor: "transparent", // Fundo transparente
-    borderWidth: 1, // Espessura da borda
-    borderColor: "#ff2626", // Cor da borda vermelha
-    padding: 10, // Espaçamento interno
-    borderRadius: 24, // Bordas arredondadas
-    width: 156, // Largura fixa
-    marginBottom: 2,
-    justifyContent: "center", // Centraliza o texto verticalmente
-    alignItems: "center", // Centraliza o texto horizontalmente
-    color: "#ff2626", // Texto com cor da borda
-    fontSize: 21,
-    marginInline: 16,
-    marginTop: 16,
-    textDecorationLine: "underline", // Texto sublinhado
-  },
-
-  buttonText: {
+  headerTitle: {
     color: "#ffffff",
+    fontSize: 20,
+    fontWeight: "100",
+  },
+  headerTitleEfect: {
+    marginTop: 20,
+    marginBottom: 20,
+    fontSize: 20,
+    fontWeight: "500",
+    color: "#ffffff",
+  },
+
+  //Ajustes na caixa de logout
+
+  logoutBox: {
+    marginTop: 20,
+    marginBottom: 20,
+    paddingHorizontal: 28,
+    paddingVertical: 4,
+    borderWidth: 1,
+    borderColor: "#ffffff",
+    borderRadius: 2,
+    backgroundColor: "transparent",
+  },
+
+  logout: {
+    color: "#ffffff",
+    fontWeight: "100",
+    fontSize: 16,
     textAlign: "center",
+  },
+
+  logoutText: {
     fontSize: 14,
-    fontWeight: "100",
   },
 
-  //Ajustes na caixa de Links e Links em geral
+  //AJustes na caixa de Imagens
 
-  boxLinks: {
-    display: "flex",
+  imageBox: {
     flexDirection: "row",
+    flexWrap: "wrap",
     justifyContent: "space-around",
-    alignItems: "center",
+    width: 490,
+    height: 490,
+    paddingVertical: 16,
+    paddingHorizontal: 6,
+  },
+
+  //Ajustes na caixa de Redes Sociais
+
+  socialBox: {
     width: "100%",
-    marginBottom: 2,
-    marginTop: 8,
-  },
-  Link: {
-    borderColor: "#fbff00",
-    display: "flex",
+    height: 100,
+    backgroundColor: "transparent",
+    marginVertical: 16,
     flexDirection: "row",
-    padding: 8,
-    fontSize: 22,
-    borderRadius: 4,
-    width: 140,
-    textAlign: "center",
-    marginBlock: 2,
-    justifyContent: "space-around",
-    textDecorationLine: "underline",
-    color: "#ff2626",
-  },
-
-  textLink: {
-    textAlign: "center",
-    marginBottom: 32,
-    color: "#fbff00",
-    fontWeight: "100",
-  },
-
-  //Ajustes na caixa de imagens
-  imageView: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "center",
     alignItems: "center",
-    width: 456,
-    marginBottom: 32,
-  },
-  image: {
-    width: 456,
-    height: 346,
-    marginBottom: 32,
-    borderRadius: 26,
+    paddingVertical: 16,
+    paddingHorizontal: 6,
   },
 
-  //Ajustes nos icones
   icon: {
-    color: "#ff2626",
-    marginInline: 6, // Espaço entre o ícone e o texto
+    color: "#ffffff",
+    fontSize: 20,
+    marginInline: 6,
+    height: 24,
+  },
+  socialButton: {
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "#ffffff",
+    paddingHorizontal: 24,
+    paddingVertical: 8,
+    borderRadius: 18,
+    height: 42,
+    marginLeft: 16,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  socialButtonText: {
+    color: "#fff",
+    marginInline: 14,
+  },
+
+  //Ajustes nos textos de creditos
+  credtsText: {
+    color: "#ffffff",
+    fontSize: 12,
+    textAlign: "center",
   },
 });

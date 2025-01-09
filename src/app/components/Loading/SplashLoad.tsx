@@ -1,14 +1,14 @@
-import { useRouter } from 'expo-router';
-import { useEffect } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import LoadingBar from '../components/LoadingBar';
+import { useRouter } from "expo-router";
+import { useEffect } from "react";
+import { View, Text, StyleSheet, Image } from "react-native";
+import LoadingBar from "../Loading/LoadingBar";
 
 export default function SplashScreen() {
   const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.replace('/(auth)/(login)');
+      router.replace("/(auth)/(login)");
     }, 7000);
 
     return () => clearTimeout(timer);
@@ -18,7 +18,7 @@ export default function SplashScreen() {
     <View style={styles.container}>
       <Image
         source={{
-          uri: 'https://i.pinimg.com/736x/c2/d5/99/c2d5992561607d3e9635cec20098a454.jpg',
+          uri: "https://i.pinimg.com/736x/c2/d5/99/c2d5992561607d3e9635cec20098a454.jpg",
         }}
         style={styles.image}
       />
@@ -34,9 +34,9 @@ export default function SplashScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#000',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#000",
     paddingTop: 0,
   },
   image: {
@@ -44,24 +44,24 @@ const styles = StyleSheet.create({
     height: 356,
   },
   text: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   textColors: {
-    color: '#ff2626',
+    color: "#ff2626",
   },
   loadBar: {
     height: 2,
     width: 226,
-    backgroundColor: '#ff2626',
+    backgroundColor: "#ff2626",
     borderRadius: 10,
     marginBlock: 24,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   loadText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
   },
 });

@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View}  from 'react-native';
+import {ActivityIndicator, StyleSheet, Text, View}  from 'react-native';
 import React from 'react';
 import {Link, Stack} from 'expo-router';
 
@@ -8,9 +8,10 @@ export default function NotFoundScreen() {
         <>
         <Stack.Screen options={{ title: "Not Found"}} />
         <View style={styles.container}>
-            <Text style={styles.text}>Page not found</Text>
+            <ActivityIndicator animating={true} color={'#ff2626'} size={'large'}/>
+            <Text style={styles.text}>Loading...</Text>
             <Link href="/">
-                <Text style={{color: '#fff', fontWeight: 'bold', marginBottom: 10 }}>Back to Home</Text>
+                <Text style={{color: '#fff', fontWeight: 'bold', marginBottom: 10 }}>Reload App</Text>
             </Link>
         </View>
         </>
