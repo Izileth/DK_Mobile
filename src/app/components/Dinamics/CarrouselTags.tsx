@@ -1,10 +1,9 @@
 // CarouselTags.tsx
 import React, { useRef, useState, useEffect } from 'react';
-import {Text, Animated, ScrollView, View, Pressable, StyleSheet ,Image} from 'react-native';
+import { Animated, ScrollView, View, Pressable, StyleSheet, Text, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import ModalTags from './ModalsTags';
+import ModalTags from '../Dinamics/ModalsTags';
 import WordsPulsing from '../Animation/WordsInPulsing';
-import { CarouselItem } from '../Types';
 
 const CarouselTags = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -27,88 +26,155 @@ const CarouselTags = () => {
     setModalVisible(true);
   };
 
-  const items: CarouselItem[] = [
+  const items = [
     {
       text: "Pilot One",
       duration: 2000,
-      modalTitle: "Pilots of the Underworld",
+      modalTitle: "Block Yates",
       modalContent: (
-        <View>
-          <View style={styles.box}>
-               <Image src="https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg"></Image>
+        <View style={modalStyles.container}>
+          <View style={modalStyles.imageContainer}>
+            <Image 
+              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              style={modalStyles.image}
+              resizeMode="cover"
+            />
           </View>
-          <Text style={styles.paragraph}>Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:Brock YatesBrock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy. FLATOUT</Text>
+          <View style={modalStyles.contentContainer}>
+             <Text style={styles.paragraph}>
+              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
+              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
+              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
+              <Text style={styles.highlight}>FLATOUT</Text>
+            </Text>
+          </View>
         </View>
       )
     },
-
     {
       text: "Pilot Two",
       duration: 2000,
-      modalTitle: "Pilots of the Underworld",
+      modalTitle: "Rafael Steves",
       modalContent: (
-        <View>
-          <View style={styles.box}>
-               <Image src="https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg"></Image>
+        <View style={modalStyles.container}>
+          <View style={modalStyles.imageContainer}>
+            <Image 
+              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              style={modalStyles.image}
+              resizeMode="cover"
+            />
           </View>
-          <Text style={styles.paragraph}>Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them: Rafael Estevez Rafael Estevez, a Dominican driver based in New York, gained notoriety in the city's street races in the 90s. His skill behind the wheel and his constant presence in illegal competitions caught the attention of the media, becoming the inspiration for Vibe magazine's article "Racer X", which later influenced the creation of the movie "Fast and Furious". Estevez embodied the adrenaline and risks associated with urban clandestine racing</Text>
+          <View style={modalStyles.contentContainer}>
+             <Text style={styles.paragraph}>
+              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
+              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
+              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
+              <Text style={styles.highlight}>FLATOUT</Text>
+            </Text>
+          </View>
         </View>
       )
     },
     {
       text: "Pilot Twere",
       duration: 2000,
-      modalTitle: "Pilots of the Underworld",
+      modalTitle: "Pilot of Detroit",
       modalContent: (
-        <View>
-          <View style={styles.box}>
-               <Image src="https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg"></Image>
+        <View style={modalStyles.container}>
+          <View style={modalStyles.imageContainer}>
+            <Image 
+              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              style={modalStyles.image}
+              resizeMode="cover"
+            />
           </View>
-          <Text style={styles.paragraph}>Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them: Arne Toman and Doug TabbuttArne Toman and Doug Tabbutt are known for setting a record in the "Cannonball Run", an unofficial race that crosses the United States from coast to coast. In 2019, the pair completed the journey in a record time of 27 hours and 25 minutes, driving a modified Mercedes-Benz E63 AMG. His feat drew attention to the persistence of these illegal races, even decades after their origin. </Text>
+          <View style={modalStyles.contentContainer}>
+             <Text style={styles.paragraph}>
+              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
+              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
+              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
+              <Text style={styles.highlight}>FLATOUT</Text>
+            </Text>
+          </View>
         </View>
       )
     },
+   
     {
       text: "Pilot Four",
       duration: 2000,
-      modalTitle: "Pilots of the Underworld",
+      modalTitle: "DOug Tabbutt",
       modalContent: (
-        <View>
-          <View style={styles.box}>
-               <Image src="https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg"></Image>
+        <View style={modalStyles.container}>
+          <View style={modalStyles.imageContainer}>
+            <Image 
+              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              style={modalStyles.image}
+              resizeMode="cover"
+            />
           </View>
-          <Text style={styles.paragraph}>Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:Oklahoma City PilotsOklahoma City is known for its active illegal street racing scene, highlighted in the "Races Prohibited" series. Local drivers, such as Justin "Big Chief" Shearer and Shawn "Murder Nova" Ellington, gained notoriety for their skills and powerful cars, becoming central figures in this underworld. MA</Text>
+          <View style={modalStyles.contentContainer}>
+             <Text style={styles.paragraph}>
+              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
+              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
+              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
+              <Text style={styles.highlight}>FLATOUT</Text>
+            </Text>
+          </View>
         </View>
       )
     },
+   
     {
       text: "Pilot Five",
       duration: 2000,
-      modalTitle: "Pilots of the Underworld",
+      modalTitle: "Arne Toman",
       modalContent: (
-        <View>
-           <View style={styles.box}>
-               <Image src="https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg"></Image>
+        <View style={modalStyles.container}>
+          <View style={modalStyles.imageContainer}>
+            <Image 
+              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              style={modalStyles.image}
+              resizeMode="cover"
+            />
           </View>
-          <Text style={styles.paragraph}>Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:  Detroit PilotsDetroit, with its rich automotive history, is also home to a vibrant illegal street racing scene. Riders such as Brian "Chucky" Davis have distinguished themselves for their participations in clandestine competitions, contributing to the city's reputation as a center for street racing. YOUTUBE These drivers exemplify the adrenaline and risks associated with illegal street racing, leaving their marks on this parallel universe of motorsport.</Text>
+          <View style={modalStyles.contentContainer}>
+             <Text style={styles.paragraph}>
+              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
+              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
+              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
+              <Text style={styles.highlight}>FLATOUT</Text>
+            </Text>
+          </View>
         </View>
       )
     },
-
     {
       text: "Pilot Six",
       duration: 2000,
-      modalTitle: "Pilots of the Underworld",
+      modalTitle: "Pilot of Oclahoma",
       modalContent: (
-        <View>
-          <View style={styles.box}>
-               <Image src="https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg"></Image>
+        <View style={modalStyles.container}>
+          <View style={modalStyles.imageContainer}>
+            <Image 
+              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              style={modalStyles.image}
+              resizeMode="cover"
+            />
           </View>
-          <Text style={styles.paragraph}>Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them: Rafael Estevez Rafael Estevez, a Dominican driver based in New York, gained notoriety in the city's street races in the 90s. His skill behind the wheel and his constant presence in illegal competitions caught the attention of the media, becoming the inspiration for Vibe magazine's article "Racer X", which later influenced the creation of the movie "Fast and Furious". Estevez embodied the adrenaline and risks associated with urban clandestine racing</Text>
+          <View style={modalStyles.contentContainer}>
+             <Text style={styles.paragraph}>
+              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
+              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
+              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
+              <Text style={styles.highlight}>FLATOUT</Text>
+            </Text>
+          </View>
         </View>
       )
     },
-    // Adicione mais itens conforme necessário
+   
+   
   ];
 
   return (
@@ -117,31 +183,44 @@ const CarouselTags = () => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <View style={styles.list}>
             {items.map((item, index) => (
-              <Pressable    key={index}    onPress={() => openModal(item.modalTitle, item.modalContent)}    style={styles.button}  >
-                <WordsPulsing  text={item.text}  duration={item.duration}  startColor="#fff"  endColor="transparent"   />
-                <Ionicons style={styles.icon} name="chevron-collapse" size={18} color={'#ddd'}    />
+              <Pressable
+                key={index}
+                onPress={() => openModal(item.modalTitle, item.modalContent)}
+                style={styles.button}
+              >
+                <WordsPulsing
+                  text={item.text}
+                  duration={item.duration}
+                  startColor="#fff"
+                  endColor="transparent"
+                />
+                <Ionicons
+                  style={styles.icon}
+                  name="close"
+                  size={18}
+                  color={'#ddd'}
+                />
               </Pressable>
             ))}
           </View>
         </ScrollView>
       </Animated.View>
 
-      <ModalTags  visible={modalVisible}  onClose={() => setModalVisible(false)}  title={currentModalContent.title}>  {currentModalContent.content} </ModalTags>
+      <ModalTags
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        title={currentModalContent.title}
+      >
+        {currentModalContent.content}
+      </ModalTags>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-
-  box: {
-    height: 240,
-    width: '100%',
-    padding: 16,
-    borderRadius: 12,
-    marginBlock:12,
-    backgroundColor: '#1a1a1a',
-  },
   list: {
+    width: '100%',
+    height: '100%',
     display: "flex",
     flexDirection: "row",
     flexWrap: 'nowrap',
@@ -164,14 +243,50 @@ const styles = StyleSheet.create({
     position: "relative",
     zIndex: -1,
   },
+  icon: {
+    marginInline: 4,
+    zIndex: -1,
+  },
   paragraph: {
+    fontSize: 14,
+    lineHeight: 20,
     color: '#fff',
     textAlign: 'justify',
-    fontSize: 14,
   },
-  icon: {
-    marginInline: 14,
-    zIndex: -1,
+  highlight: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
+  }
+});
+
+const modalStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    padding: 180,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+  },
+  imageContainer: {
+    width: 370,
+    height:200,
+    borderRadius: 10,
+    overflow: 'hidden',
+    marginBottom: 15,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+  },
+  contentContainer: {
+    marginBottom: 15,
+    width: '100%',
+    paddingVertical: 70,
+    paddingHorizontal: 180,
+    backgroundColor: '#transparent',
+    borderRadius: 10,
   },
 });
 

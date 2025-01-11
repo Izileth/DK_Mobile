@@ -1,8 +1,8 @@
 import {Text, ScrollView, SafeAreaView, Image, StyleSheet, View, TouchableOpacity, Animated, Pressable, FlatList} from 'react-native'
 import {useEffect, useRef, useState} from 'react'
 import { Ionicons } from '@expo/vector-icons'
-import CarrouselWords from '../../Dinamics/CarrouselWords'
-import WordsPulsing from '../../Animation/WordsInPulsing'
+import CarrouselWords from '../../../Dinamics/CarrouselWords'
+import WordsPulsing from '../../../Animation/WordsInPulsing'
 import { Linking } from "react-native";
 
 // Dados para a FlatList
@@ -27,7 +27,7 @@ const data = [
     },
 ];
 
-const ContentSociaCredits = () => {
+const SociaCredits = () => {
 
   // Constante de redirecionamento para links externos
   const [loading, setLoading] = useState(false);
@@ -122,4 +122,4 @@ const styles = StyleSheet.create({
         fontWeight: '100',
     },
 })
-export default ContentSociaCredits;
+export default SociaCredits;

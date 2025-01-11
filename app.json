@@ -6,11 +6,6 @@
       "orientation": "portrait",
       "icon": "https://i.pinimg.com/736x/7c/71/00/7c71000a4397e62685fe5345d873d27c.jpg",
       "scheme": "your-app-scheme",
-      "splash": {
-        "image":"https://i.pinimg.com/736x/7c/71/00/7c71000a4397e62685fe5345d873d27c.jpg" ,
-        "resizeMode": "contain",
-        "backgroundColor": "#000000"
-      },
       "web": {
         "bundler": "metro"
       },

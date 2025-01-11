@@ -13,7 +13,7 @@ interface CarouselProps {
     imageHeight?: number;
 }
 
-const CarouselTabs: React.FC<CarouselProps> = ({
+const CarouselShorts: React.FC<CarouselProps> = ({
     images,
     autoPlay = true,
     autoPlayInterval = 3000,
@@ -161,4 +161,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default CarouselTabs;
+export default CarouselShorts;

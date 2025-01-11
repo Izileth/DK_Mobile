@@ -1,13 +1,13 @@
 import {} from 'react'
 import {Text, ScrollView, SafeAreaView, Image, StyleSheet, View} from 'react-native'
 
-const ContentHistory = () => {
+const HistoryLeague = () => {
     return (
         <SafeAreaView>
             <ScrollView>
                    <View style={styles.box}>
                        <Text style={styles.title}>Japanese</Text>
-                          <Text style={styles.subtitle}>Japanese Underworld Culture</Text>
+                          <Text style={styles.subtitle}>Japanese Racers Underworld</Text>
                             <Text style={styles.paragraph}>
                               Japan's auto gangs in the 1980s were strongly associated with the
                               Bōsōzoku movement, which means "high-speed tribe." Originating in
@@ -39,7 +39,7 @@ const ContentHistory = () => {
 
                    <View style={styles.box}>
                    <Text style={styles.title}>American</Text>
-                      <Text style={styles.subtitle}>American Underworld Culture</Text>  
+                      <Text style={styles.subtitle}>American Racers Underworld </Text>  
                             <Text style={styles.paragraph}>
                               Japan's auto gangs in the 1980s were strongly associated with the
                               Bōsōzoku movement, which means "high-speed tribe." Originating in
@@ -71,7 +71,7 @@ const ContentHistory = () => {
 
                    <View style={styles.box}>
                    <Text style={styles.title}>Europe</Text>
-                        <Text style={styles.subtitle}>Europe Underworld  Culture</Text>
+                        <Text style={styles.subtitle}>Europe Racers Underworld</Text>
                             <Text style={styles.paragraph}>
                               Japan's auto gangs in the 1980s were strongly associated with the
                               Bōsōzoku movement, which means "high-speed tribe." Originating in
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     title: {
         color: "#ff2626",
         fontSize: 32,
-        marginBlock:-10,
+        marginBlock:-16,
         fontWeight: "600",
     },
 
@@ -148,4 +148,4 @@ const styles = StyleSheet.create({
     
 })
 
-export default ContentHistory;
+export default HistoryLeague;

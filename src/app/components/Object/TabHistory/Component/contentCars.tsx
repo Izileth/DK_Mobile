@@ -4,7 +4,7 @@ import { Linking } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 
-const ContentCars = () => {
+const Cars = () => {
     
       // Redirecionamento caso haja falha no Link
       const handlePress = async (link: string) => {
@@ -67,7 +67,7 @@ const ContentCars = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.boxContent}>
+                    <View style={styles.box}>
                         <Text style={styles.boldTitle}>Nissan Skyline R-34 1994</Text>
                         <TouchableOpacity
                         style={styles.boxList}
@@ -114,7 +114,7 @@ const ContentCars = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.boxContent}>
+                    <View style={styles.box}>
                         <Text style={styles.boldTitle}>Mardza Rx-7 1994</Text>
                         <TouchableOpacity
                         style={styles.boxList}
@@ -161,7 +161,7 @@ const ContentCars = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.boxContent}>
+                    <View style={styles.box}>
                         <Text style={styles.boldTitle}>Nissan Fairlady Z (240Z)</Text>
                         <TouchableOpacity
                         style={styles.boxList}
@@ -207,7 +207,7 @@ const ContentCars = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.boxContent}>
+                    <View style={styles.box}>
                         <Text style={styles.boldTitle}>
                         Mitsubishi Lancer Evolution VII
                         </Text>
@@ -254,7 +254,7 @@ const ContentCars = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.boxContent}>
+                    <View style={styles.box}>
                         <Text style={styles.boldTitle}>Nissan 240SX</Text>
                         <TouchableOpacity
                         style={styles.boxList}
@@ -299,7 +299,7 @@ const ContentCars = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.boxContent}>
+                    <View style={styles.box}>
                         <Text style={styles.boldTitle}>Nissan Silvia S-14 1999</Text>
                         <TouchableOpacity
                         style={styles.boxList}
@@ -347,7 +347,7 @@ const ContentCars = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.boxContent}>
+                    <View style={styles.box}>
                         <Text style={styles.boldTitle}>Nissan 250z</Text>
                         <TouchableOpacity
                         style={styles.boxList}
@@ -405,10 +405,9 @@ const styles = StyleSheet.create({
   box: {
     width: "100%",
     padding: 24,
-    backgroundColor: "#080808",
+    backgroundColor: "#000",
     borderRadius: 12,
     textAlign: "center",
-    alignItems: "center",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
@@ -416,20 +415,7 @@ const styles = StyleSheet.create({
     elevation: 2,
     marginBottom: 90,
   },
-  boxContent: {
-    marginBottom: 58,
-    backgroundColor: "#070707",
-    justifyContent: "center",
-    width: "100%",
-    padding: 8,
-    height: 630,
-    borderRadius: 12,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.5,
-    shadowRadius: 4,
-    elevation: 2,
-  },
+
 
   boxList: {
     width: "100%",
@@ -438,7 +424,7 @@ const styles = StyleSheet.create({
     marginBlock: 28,
     marginBottom: 16,
     borderRadius: 12,
-    backgroundColor: "#000",
+    backgroundColor: "#020202",
     justifyContent: "center",
     alignItems: 'center',
   },
@@ -463,6 +449,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     borderRadius: 12,
   },
+ 
   
   //Ajustes nos titulos, subtitulos e paragrafos
   title: {
@@ -475,8 +462,8 @@ const styles = StyleSheet.create({
   boldTitle: {
     color: "#ff2626",
     fontSize: 28,
-    marginBottom: 12,
-    marginInlineStart: 18,
+    marginBottom: 18,
+    marginInlineStart: 20,
     fontWeight: "600",
   },
 
@@ -485,6 +472,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 8,
     marginBlock: 12,
+    width: 440,
     fontWeight: "600",
   },
 
@@ -498,17 +486,24 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 14,
     marginBottom: 10,
+    width: 440,
     fontWeight: "400",
   },
+  text: {
+    color: "#ffffff",
+    fontSize: 14,
+    textAlign: "justify",
+  },
+
   
   //Ajustes na lista de itens
 
   listItens: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     fontSize: 26,
     width: 100,
-    marginBottom: 12,
+    marginBlock: 12,
   },
   item: {
     backgroundColor: "#1a1a1a",
@@ -522,7 +517,6 @@ const styles = StyleSheet.create({
 
   // Ajustes nos icones
   icon: {
-    backgroundColor: "#1a1a1a",
     color: "#ff2626",
     padding: 4,
     borderRadius: 12,
@@ -532,4 +526,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default ContentCars;
+export default Cars;

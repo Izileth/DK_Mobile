@@ -2,7 +2,7 @@ import { ScrollView, FlatList, Image, TouchableOpacity, StyleSheet, Text, View,}
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const ContentBrand = () => {
+const Brand = () => {
     return (
         <ScrollView>
             <SafeAreaView>
@@ -279,4 +279,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default ContentBrand;
+export default Brand;
