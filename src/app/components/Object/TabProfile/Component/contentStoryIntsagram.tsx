@@ -12,14 +12,16 @@ const StoryIstagram = () => {
 
     const theme = useTheme();
     const styles = StyleSheet.create({
+
     box: {
         backgroundColor: theme.colors.dark.tertiary,
-        height: 320,
+        height:'auto',
         width: '95%',
         padding: 10,
         marginInline: 12,
-        marginBlock: 14,
-        borderRadius: 5,
+        marginBlock: 8,
+        marginBottom: 42,
+        borderRadius: 12,
     },
     title: {
         color: theme.colors.white.primary,
@@ -44,7 +46,6 @@ const StoryIstagram = () => {
     },
     button: {
         backgroundColor: theme.colors.dark.secondary,
-        borderRadius: 5,
         height: 50,
         width: 150,
         padding: 10,
@@ -52,6 +53,7 @@ const StoryIstagram = () => {
         marginBlock: 10,
         marginBottom: 20,
         borderWidth: 1,
+        borderRadius: 12,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',

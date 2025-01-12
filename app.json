@@ -1,15 +1,41 @@
 {
-    "expo": {
-      "name": "DK MObile",
-      "slug": "meu-app",
-      "version": "1.0.0",
-      "orientation": "portrait",
-      "icon": "https://i.pinimg.com/736x/7c/71/00/7c71000a4397e62685fe5345d873d27c.jpg",
-      "scheme": "your-app-scheme",
-      "web": {
-        "bundler": "metro"
+  "expo": {
+    "name": "DK Mobile",
+    "slug": "meu-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "https://i.pinimg.com/736x/7c/71/00/7c71000a4397e62685fe5345d873d27c.jpg",
+    "splash": {
+      "image": "https://i.pinimg.com/736x/7c/71/00/7c71000a4397e62685fe5345d873d27c.jpg",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.seudominio.dkmobile"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "https://i.pinimg.com/736x/7c/71/00/7c71000a4397e62685fe5345d873d27c.jpg",
+        "backgroundColor": "#000000"
       },
-      "platforms": ["ios", "android", "web"]
-    }
+      "package": "com.seudominio.dkmobile"
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "https://i.pinimg.com/736x/7c/71/00/7c71000a4397e62685fe5345d873d27c.jpg"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/your-project-id"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id"
+      }
+    },
+    "platforms": ["ios", "android", "web"],
+    "scheme": "your-app-scheme"
   }
-  
+}

@@ -14,47 +14,63 @@ const StoryYouTube = () => {
     
     const theme = useTheme();
     const styles = StyleSheet.create({
-        box: {
-            backgroundColor: theme.colors.dark.secondary,
-            height: 220,
-            width: '95%',
-            padding: 10,
-            marginBottom: 10,
-            borderRadius: 5,
-        },
-        title: {
-            color: theme.colors.white.primary,
-            fontSize: 18,
-            fontWeight: 'bold',
-        },
-        subtitle: {
-            color: theme.colors.white.primary,
-            fontSize: 16,
-            marginBottom: 10,
-        },
-        paragraph: {
-            color: theme.colors.white.primary,
-            fontSize: 14,
-            marginBottom: 10,
-        },
-        button: {
-            backgroundColor: theme.colors.white.primary,
-            borderRadius: 5,
-            padding: 10,
-            marginHorizontal: 10,
-            marginBottom: 10,
-            borderWidth: 1,
-        },
-    
-        colorsEffect: {
-            color: theme.colors.red.secondary,
-            fontSize: 16,
-            fontWeight: '100',
-        },
-    
-        icon: {
-            marginInlineStart: 8,
-        },
+        
+    box: {
+        backgroundColor: theme.colors.dark.tertiary,
+        height:'auto',
+        width: '95%',
+        padding: 10,
+        marginInline: 12,
+        marginBlock: 8,
+        marginBottom: 42,
+        borderRadius: 12,
+    },
+    title: {
+        color: theme.colors.white.primary,
+        fontSize: 32,
+        marginInline:6,
+        marginBlock:10,
+        fontWeight: 'bold',
+    },
+    subtitle: {
+        color: theme.colors.white.primary,
+        fontSize: 20,
+        marginInline:6,
+        marginBlock:2,
+        marginBottom: 10,
+    },
+    paragraph: {
+        color: theme.colors.white.primary,
+        fontSize: 16,
+        marginInline:6,
+        marginBlock:2,
+        marginBottom: 10,
+    },
+    button: {
+        backgroundColor: theme.colors.dark.secondary,
+        height: 50,
+        width: 150,
+        padding: 10,
+        marginHorizontal: 10,
+        marginBlock: 10,
+        marginBottom: 20,
+        borderWidth: 1,
+        borderRadius: 12,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+
+    colorsEffect: {
+        color: theme.colors.red.secondary,
+        fontSize: 16,
+        fontWeight: '100',
+    },
+
+    icon: {
+        marginInlineStart: 8,
+    },
     });
     return(
         <SafeAreaView>
@@ -65,7 +81,7 @@ const StoryYouTube = () => {
                     <Text style={styles.paragraph}>First Atention of Users who are in the aplicative</Text>
                     <ScrollView horizontal showsHorizontalScrollIndicator={false} scrollPerfTag='#'>
                         <TouchableOpacity style={styles.button}>
-                            <Text style={styles.colorsEffect}></Text>
+                            <Text style={styles.colorsEffect}>Dark Life</Text>
                             <Ionicons name='star' size={24} style={styles.icon} color={'#ff2626'}></Ionicons>
                         </TouchableOpacity>    
 

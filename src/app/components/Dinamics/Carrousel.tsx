@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     width: '100%',
-    backgroundColor: 'rgba(56, 29, 29, 0.2)', // Simula o "embaçado"
+    backgroundColor: 'rgba(20, 20, 20, 0.2)', // Simula o "embaçado"
     borderRadius:12,
   },
   scrollContent: {

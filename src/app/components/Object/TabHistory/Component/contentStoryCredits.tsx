@@ -1,9 +1,14 @@
 import {Text, ScrollView, SafeAreaView, Image, StyleSheet, View, TouchableOpacity, Animated, Pressable, FlatList} from 'react-native'
 import {useEffect, useRef, useState} from 'react'
-import { Ionicons } from '@expo/vector-icons'
 import CarrouselWords from '../../../Dinamics/CarrouselWords'
 import WordsPulsing from '../../../Animation/WordsInPulsing'
 import { Linking } from "react-native";
+
+
+//Styes 
+import { ThemeProvider } from '../../../../../context/themeContext';
+import { useTheme } from "../../../../../context/themeContext";
+import { Ionicons } from '@expo/vector-icons';
 
 // Dados para a FlatList
 const data = [
@@ -27,7 +32,7 @@ const data = [
     },
 ];
 
-const SociaCredits = () => {
+const StoryCredits = () => {
 
   // Constante de redirecionamento para links externos
   const [loading, setLoading] = useState(false);
@@ -54,7 +59,52 @@ const SociaCredits = () => {
         useNativeDriver: true,
         }).start();
     }, [fadeAnim]);
+
     
+    const theme = useTheme();
+    
+    const styles = StyleSheet.create({
+    box: {
+        height: 120,
+        width: '100%',
+        backgroundColor: theme.colors.dark.primary,
+        padding: 16,
+        borderRadius: 12,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 16,
+    },
+    icon: {
+        color: theme.colors.red.primary,
+        marginLeft: 16,
+        marginTop: 10,
+        marginBottom: 10,
+    },
+    credits: {
+        color: theme.colors.white.primary,
+        flexDirection: 'row',
+        textAlign: 'center',
+        marginInline: 16,
+    },
+    button:{
+        backgroundColor: theme.colors.red.primary,
+        flexDirection: 'row',
+        height:32,
+        width: 120,
+        borderRadius: 4,
+        marginInline: 16,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    text: {
+        color: theme.colors.white.primary,
+        fontSize: 16,
+        fontWeight: '100',
+    },
+
+    });
+
     return (
         <SafeAreaView>
             <ScrollView>
@@ -82,44 +132,4 @@ const SociaCredits = () => {
     )
 }
 
-const styles = StyleSheet.create({
-    box: {
-        height: 120,
-        width: '100%',
-        backgroundColor: '#000',
-        padding: 16,
-        borderRadius: 12,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 16,
-    },
-    icon: {
-        color: '#ff2626',
-        marginLeft: 16,
-        marginTop: 10,
-        marginBottom: 10,
-    },
-    credits: {
-        color: '#ffffff',
-        flexDirection: 'row',
-        textAlign: 'center',
-        marginInline: 16,
-    },
-    button:{
-        backgroundColor: '#ff2626',
-        flexDirection: 'row',
-        height:32,
-        width: 120,
-        borderRadius: 4,
-        marginInline: 16,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    text: {
-        color: '#ffffff',
-        fontSize: 16,
-        fontWeight: '100',
-    },
-})
-export default SociaCredits;
+export default StoryCredits;

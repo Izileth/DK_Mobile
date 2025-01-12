@@ -1,9 +1,9 @@
-// CarouselTags.tsx
 import React, { useRef, useState, useEffect } from 'react';
-import { Animated, ScrollView, View, Pressable, StyleSheet, Text, Image } from 'react-native';
+import { Animated, ScrollView, View, Pressable, StyleSheet, Text, Image, TouchableOpacity, Alert, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import ModalTags from '../Dinamics/ModalsTags';
 import WordsPulsing from '../Animation/WordsInPulsing';
+import { theme } from '../../../Styles/theme';
 
 const CarouselTags = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -26,6 +26,13 @@ const CarouselTags = () => {
     setModalVisible(true);
   };
 
+  const OperUrl = {
+    pilotOne: () => {
+      const url = 'https://br.pinterest.com/pin/137782069845198877/';
+      Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+    },
+  };
+  
   const items = [
     {
       text: "Pilot One",
@@ -35,18 +42,16 @@ const CarouselTags = () => {
         <View style={modalStyles.container}>
           <View style={modalStyles.imageContainer}>
             <Image 
-              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              source={{ uri: "https://i.pinimg.com/736x/c2/3f/18/c23f185a8a551854fc379985ca7e0e32.jpg" }}
               style={modalStyles.image}
               resizeMode="cover"
             />
           </View>
           <View style={modalStyles.contentContainer}>
-             <Text style={styles.paragraph}>
-              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
-              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
-              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
-              <Text style={styles.highlight}>FLATOUT</Text>
-            </Text>
+            <TouchableOpacity onPress={OperUrl.pilotOne} style={styles.buttonUrl}>
+              <WordsPulsing text="Press me" />
+              <Ionicons name="arrow-up" size={20} style={styles.icon} />
+            </TouchableOpacity>
           </View>
         </View>
       )
@@ -59,18 +64,16 @@ const CarouselTags = () => {
         <View style={modalStyles.container}>
           <View style={modalStyles.imageContainer}>
             <Image 
-              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              source={{ uri: "https://i.pinimg.com/736x/25/19/d4/2519d41458b767cfeee76f7abd4d0e6a.jpg" }}
               style={modalStyles.image}
               resizeMode="cover"
             />
           </View>
           <View style={modalStyles.contentContainer}>
-             <Text style={styles.paragraph}>
-              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
-              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
-              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
-              <Text style={styles.highlight}>FLATOUT</Text>
-            </Text>
+            <TouchableOpacity onPress={OperUrl.pilotOne} style={styles.buttonUrl}>
+              <WordsPulsing text="Press me" />
+              <Ionicons name="arrow-up" size={20} style={styles.icon} />
+            </TouchableOpacity>
           </View>
         </View>
       )
@@ -83,18 +86,16 @@ const CarouselTags = () => {
         <View style={modalStyles.container}>
           <View style={modalStyles.imageContainer}>
             <Image 
-              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              source={{ uri: "https://i.pinimg.com/736x/84/76/fd/8476fd0fa60ac0ad59f2e371980fdca9.jpg" }}
               style={modalStyles.image}
               resizeMode="cover"
             />
           </View>
           <View style={modalStyles.contentContainer}>
-             <Text style={styles.paragraph}>
-              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
-              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
-              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
-              <Text style={styles.highlight}>FLATOUT</Text>
-            </Text>
+           <TouchableOpacity onPress={OperUrl.pilotOne} style={styles.buttonUrl}>
+              <WordsPulsing text="Press me" />
+              <Ionicons name="arrow-up" size={20} style={styles.icon} />
+            </TouchableOpacity>
           </View>
         </View>
       )
@@ -108,18 +109,16 @@ const CarouselTags = () => {
         <View style={modalStyles.container}>
           <View style={modalStyles.imageContainer}>
             <Image 
-              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              source={{ uri: "https://i.pinimg.com/736x/1b/b0/8b/1bb08b6564ee09f4b54012cc1d56dfd4.jpg" }}
               style={modalStyles.image}
               resizeMode="cover"
             />
           </View>
           <View style={modalStyles.contentContainer}>
-             <Text style={styles.paragraph}>
-              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
-              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
-              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
-              <Text style={styles.highlight}>FLATOUT</Text>
-            </Text>
+           <TouchableOpacity onPress={OperUrl.pilotOne} style={styles.buttonUrl}>
+              <WordsPulsing text="Press me" />
+              <Ionicons name="arrow-up" size={20} style={styles.icon} />
+            </TouchableOpacity>
           </View>
         </View>
       )
@@ -133,18 +132,16 @@ const CarouselTags = () => {
         <View style={modalStyles.container}>
           <View style={modalStyles.imageContainer}>
             <Image 
-              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              source={{ uri: "https://i.pinimg.com/736x/4f/83/a4/4f83a49ce5d38e18d102e7cdd63818f1.jpg" }}
               style={modalStyles.image}
               resizeMode="cover"
             />
           </View>
           <View style={modalStyles.contentContainer}>
-             <Text style={styles.paragraph}>
-              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
-              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
-              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
-              <Text style={styles.highlight}>FLATOUT</Text>
-            </Text>
+            <TouchableOpacity onPress={OperUrl.pilotOne} style={styles.buttonUrl}>
+              <WordsPulsing text="Press me" />
+              <Ionicons name="arrow-up" size={20} style={styles.icon} />
+            </TouchableOpacity>
           </View>
         </View>
       )
@@ -157,18 +154,16 @@ const CarouselTags = () => {
         <View style={modalStyles.container}>
           <View style={modalStyles.imageContainer}>
             <Image 
-              source={{ uri: "https://i.pinimg.com/736x/71/25/cd/7125cd4d1d486621547b35c502ff027f.jpg" }}
+              source={{ uri: "https://i.pinimg.com/736x/08/a9/7f/08a97f1f5f0e01d158567d56112f2d7c.jpg" }}
               style={modalStyles.image}
               resizeMode="cover"
             />
           </View>
           <View style={modalStyles.contentContainer}>
-             <Text style={styles.paragraph}>
-              Illegal street racing has been the stage for drivers who have left indelible marks on this underworld. Here are some of them:{'\n\n'}
-              <Text style={styles.highlight}>Brock Yates{'\n'}</Text>
-              Brock Yates, senior editor of Car and Driver magazine, was the creator of the "Cannonball Run", an illegal race that crossed the United States from coast to coast. Started in 1971, the competition defied traffic laws and tested the limits of the participating drivers. Yates not only organized but also participated in the races, becoming an iconic figure in this scenario. His boldness and passion for motorsport left a controversial but undeniably influential legacy.{'\n\n'}
-              <Text style={styles.highlight}>FLATOUT</Text>
-            </Text>
+            <TouchableOpacity onPress={OperUrl.pilotOne} style={styles.buttonUrl}>
+              <WordsPulsing text="Press me" />
+              <Ionicons name="arrow-up" size={20} style={styles.icon} />
+            </TouchableOpacity>
           </View>
         </View>
       )
@@ -226,7 +221,6 @@ const styles = StyleSheet.create({
     flexWrap: 'nowrap',
     justifyContent: "center",
     paddingHorizontal: 12,
-    zIndex: -1,
   },
   button: {
     width: 150,
@@ -241,11 +235,27 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     overflow: "hidden",
     position: "relative",
-    zIndex: -1,
   },
+
+  buttonUrl:{
+    width: 130,
+    height: 44,
+    fontSize: 18,
+    padding: 12,
+    backgroundColor: theme.colors.dark.secondary,
+    borderRadius: 6,
+    marginInline: 10,
+    flexDirection: 'row',
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: 'center',
+    overflow: "hidden",
+    position: "relative",
+  },
+
   icon: {
+    color: '#ff2626',
     marginInline: 4,
-    zIndex: -1,
   },
   paragraph: {
     fontSize: 14,
@@ -263,15 +273,17 @@ const styles = StyleSheet.create({
 const modalStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'transparent',
-    padding: 180,
+    backgroundColor: 'transparent', // Fundo escuro para melhor contraste
+    padding: 150, // Padding mais razoável
+    width: '100%', // Garante que o container ocupe toda a largura disponível
+    maxWidth: 600, // Limita a largura máxima para melhor legibilidade
+    alignSelf: 'center', // Centraliza o container
     justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
+    alignItems: 'center', // Centraliza os elementos internos
   },
   imageContainer: {
-    width: 370,
-    height:200,
+    width: 380, // Ocupa toda a largura do container
+    aspectRatio: 16/9, // Mantém proporção da imagem
     borderRadius: 10,
     overflow: 'hidden',
     marginBottom: 15,
@@ -281,11 +293,13 @@ const modalStyles = StyleSheet.create({
     height: '100%',
   },
   contentContainer: {
-    marginBottom: 15,
     width: '100%',
-    paddingVertical: 70,
-    paddingHorizontal: 180,
-    backgroundColor: '#transparent',
+    paddingHorizontal: 190,
+    padding: 30,
+    alignSelf: 'center', // Centraliza o container
+    justifyContent: 'center',
+    alignItems: 'center', // Centraliza os elementos internos
+    backgroundColor: 'transparent', // Fundo ligeiramente mais claro que o container
     borderRadius: 10,
   },
 });

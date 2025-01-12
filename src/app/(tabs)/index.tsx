@@ -22,6 +22,7 @@ import { supabase } from "../lib/supabase";
 import PurploseEffectText from "../components/Animation/TextPurploseColors";
 import { AuthProvider, useAuth } from "../../context/authContext";
 import Carousel from "../components/Dinamics/Carrousel";
+import { carouselDataImagesIndexPrincipal } from "../components/Data";
 
 // Dados para a FlatList
 const DATA = [
@@ -45,29 +46,7 @@ const DATA = [
   },
 ];
 
-const image = [
-  {
-    uri: "https://images.pexels.com/photos/9661387/pexels-photo-9661387.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    uri: "https://images.pexels.com/photos/4227197/pexels-photo-4227197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    uri: "https://images.pexels.com/photos/9661389/pexels-photo-9661389.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    uri: "https://images.pexels.com/photos/27703407/pexels-photo-27703407/free-photo-of-carro-veiculo-automovel-estacionamento.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    uri: "https://images.pexels.com/photos/27703427/pexels-photo-27703427/free-photo-of-noite-carro-veiculo-automovel.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    uri: "https://images.pexels.com/photos/27703365/pexels-photo-27703365/free-photo-of-carros-veiculos-automoveis-noite.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    uri: "https://images.pexels.com/photos/28984439/pexels-photo-28984439/free-photo-of-carro-esportivo-branco-elegante-em-garagem-urbana.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-];
+
 
 const App = () => {
   // Constante de redirecionamento para links externos
@@ -116,13 +95,14 @@ const App = () => {
     // Redireciona imediatamente para a tela de login
     router.replace("(auth)/(loguin)");
   }
+  //"#230606"  
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "#230606", width: "100%" }}>
+    <ScrollView style={{ flex: 1, backgroundColor: "#1a1a1a", width: "100%" }}>
       <LinearGradient
         style={styles.container}
-        colors={["#ff2626", "#000000"]}
-        start={{ x: 0, y: -6 }}
+        colors={["#1a1a1a", "#000000"]}
+        start={{ x: 0, y: 0 }}
         end={{ x: 0, y: 1 }}
       >
         <Animated.View style={[{ opacity: fadeAnim }]}>
@@ -156,7 +136,7 @@ const App = () => {
         <Animated.View style={[{ opacity: fadeAnim }]}>
           <View style={styles.imageBox}>
             <Carousel
-              images={image}
+              images={carouselDataImagesIndexPrincipal.setOne}
               autoPlay={true}
               autoPlayInterval={5000}
               imageHeight={430}

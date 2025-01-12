@@ -57,7 +57,7 @@ const TabsLayout = () => {
           ),
          }} />   
       <Tabs.Screen name="about" options={{
-         headerTitle: 'Defalult',
+         headerShown: false,
          tabBarIcon: ({focused, color }) => (
            <Ionicons name={focused? 'build': 'build-outline'} size={30} color={color} />
           ),

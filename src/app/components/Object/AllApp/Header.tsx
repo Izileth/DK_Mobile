@@ -12,13 +12,15 @@ import {
   ScrollView,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import ColorChangeText from "./TextColors";
-import Spinner from "../Loading/Spinner";
-import SearchBar from "../Dinamics/SearchBar";
+import ColorChangeText from "../../Animation/TextColors";
+import Spinner from "../../Loading/Spinner";
+import SearchBar from "./SearchBar";
 import { useRouter } from "expo-router";
-import CarrouselTags from "../Dinamics/CarrouselTags";
+import CarrouselTags from "../../Dinamics/CarrouselTags";
 
-const TopStyle = () => {
+import Banner from "./Banner";
+
+const Header = () => {
   // Efeitos e Animações
 
   const fadeAnim = useRef(new Animated.Value(0)).current; // Inicializa com opacidade 0
@@ -53,33 +55,41 @@ const TopStyle = () => {
   };
 
   return (
-    <LinearGradient style={styles.container} colors={["#000000", "#000", "#000000"]}  start={{ x: 0.6, y: 0 }} end={{ x: 1, y: 1 }} >
-        <Animated.View style={[{ opacity: fadeAnim }]}>
-            <View style={styles.header}>
-              <Text style={styles.headerTitle}>
-                Drift King <Text style={styles.titleColors}>Mobile App</Text>
-              </Text>
-              <SearchBar />
-              <TouchableOpacity onPress={handleGetDefault} style={styles.buttonHeader} >
-                <Text onLongPress={handleRedirect} style={styles.buttonHaderText}>
-                  {redirect ? "Home" : "Home"}
-                </Text>
-              </TouchableOpacity>
-            </View>
-        </Animated.View>
-        <Animated.View style={[{ opacity: fadeAnim }]}>
-            <CarrouselTags/>
-        </Animated.View>
+    <LinearGradient
+      style={styles.container}
+      colors={["#000000", "#020202", "#000000"]}
+      start={{ x: 0.6, y: 0 }}
+      end={{ x: 1, y: 1 }}
+    >
+      <Animated.View style={[{ opacity: fadeAnim }]}>
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>
+            Drift King <Text style={styles.titleColors}>Mobile App</Text>
+          </Text>
+          <SearchBar />
+          <TouchableOpacity
+            onPress={handleGetDefault}
+            style={styles.buttonHeader}
+          >
+            <Text onLongPress={handleRedirect} style={styles.buttonHaderText}>
+              {redirect ? "Home" : "Home"}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </Animated.View>
+      <Animated.View style={[{ opacity: fadeAnim }]}>
+        <Banner />
+        <CarrouselTags />
+      </Animated.View>
     </LinearGradient>
   );
 };
 
-export default TopStyle;
+export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    height: 200,
+    height: 410,
     padding: 20,
     backgroundColor: "#000000",
     position: "relative",

@@ -1,5 +1,5 @@
 
-export const carouselDataImages = {
+export const carouselDataImagesHistory = {
     setOne: [
             {
                 uri: 'https://i.pinimg.com/736x/30/35/1c/30351c9c808185b37448927727ff0bd5.jpg',
@@ -53,7 +53,7 @@ export const carouselDataImages = {
     ],
 };
 
-export const carouselDataImagesHistory = {
+export const carouselDataImagesContent = {
     setOne: [
           {
             uri: "https://i.pinimg.com/736x/dd/b3/2b/ddb32b67ac44089fcb34633d07620e14.jpg",
@@ -140,7 +140,9 @@ export const carouselDataImagesHistory = {
             uri: "https://i.pinimg.com/736x/3e/65/2f/3e652ff16f3bf7f45300284e01ec9dd8.jpg",
           },
     ],
-    setEight: [],
+    setEight: [
+      
+    ],
     setNine: [],
 }
 
@@ -157,6 +159,32 @@ export const carouselDataImagesProfile = {
     },
     {
       uri: "https://i.pinimg.com/736x/70/a7/0a/70a70a7e1cadba3cfb9d33683cc23e22.jpg",
+    },
+  ],
+}
+
+export const carouselDataImagesIndexPrincipal = {
+  setOne: [
+    {
+      uri: "https://drive.google.com/uc?export=download&id=1ZK1yU5xA71oRYYrmydfzLDSLi_JqoT9Z",
+    },
+    {
+      uri: "https://drive.google.com/uc?export=download&id=1vQfNlPOWeDQ1Dw0fm4U01U-AJsMC3Iur",
+    },
+    {
+      uri: "https://drive.google.com/uc?export=download&id=16UVyrPqmplsXaKa9ZVYG9v76ggg6tBih",
+    },
+    {
+      uri: "https://drive.google.com/uc?export=download&id=1SE16YwzdfwYAmDBC-iI3kimUrwVkOGrh",
+    },
+    {
+      uri: "https://drive.google.com/uc?export=download&id=1meIBQLF648eMP5cv_S3ujlDdO4-uo92q",
+    },
+    {
+      uri: "https://drive.google.com/uc?export=download&id=18fOFzNaKCl3I3s0en_TKZ0STNKVDqF6l",
+    },
+    {
+      uri: "https://drive.google.com/uc?export=download&id=1jftYAasIIOT7-zwYGftksB45hwozmRHQ",
     },
   ],
 }

@@ -14,36 +14,52 @@ const StorySpotify = () => {
     
     const theme = useTheme();
     const styles = StyleSheet.create({
+        
     box: {
-        backgroundColor: theme.colors.dark.secondary,
-        height: 220,
+        backgroundColor: theme.colors.dark.tertiary,
+        height:'auto',
         width: '95%',
         padding: 10,
-        marginBottom: 10,
-        borderRadius: 5,
+        marginInline: 12,
+        marginBlock: 8,
+        marginBottom: 42,
+        borderRadius: 12,
     },
     title: {
         color: theme.colors.white.primary,
-        fontSize: 18,
+        fontSize: 32,
+        marginInline:6,
+        marginBlock:10,
         fontWeight: 'bold',
     },
     subtitle: {
         color: theme.colors.white.primary,
-        fontSize: 16,
+        fontSize: 20,
+        marginInline:6,
+        marginBlock:2,
         marginBottom: 10,
     },
     paragraph: {
         color: theme.colors.white.primary,
-        fontSize: 14,
+        fontSize: 16,
+        marginInline:6,
+        marginBlock:2,
         marginBottom: 10,
     },
     button: {
-        backgroundColor: theme.colors.white.primary,
-        borderRadius: 5,
+        backgroundColor: theme.colors.dark.secondary,
+        height: 50,
+        width: 150,
         padding: 10,
         marginHorizontal: 10,
-        marginBottom: 10,
+        marginBlock: 10,
+        marginBottom: 20,
         borderWidth: 1,
+        borderRadius: 12,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+
     },
 
     colorsEffect: {
