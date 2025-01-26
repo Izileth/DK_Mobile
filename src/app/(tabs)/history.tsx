@@ -19,10 +19,9 @@ import StoryBrand from "../components/Object/TabHistory/Component/contentStoryBr
 
 // Data
 import { carouselDataImagesHistory } from "../components/Data";
-import { DarkTheme } from "@react-navigation/native";
+
 
 //Styes
-import { ThemeProvider } from "../../context/themeContext";
 import { useTheme } from "../../context/themeContext";
 
 const History = () => {
@@ -33,7 +32,6 @@ const History = () => {
     container: {
       flex: 1,
       backgroundColor: theme.colors.dark.primary,
-      paddingTop: 48,
       paddingBottom: 24,
       alignItems: "center",
       justifyContent: "center",
@@ -55,7 +53,7 @@ const History = () => {
       borderRadius: 12,
       textAlign: "center",
       alignItems: "center",
-      shadowColor: "#000",
+      shadowColor: theme.colors.dark.secondary,
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 0.5,
       shadowRadius: 4,
@@ -78,16 +76,15 @@ const History = () => {
     },
   });
   return (
-    <SafeAreaView>
-      <ScrollView style={{ backgroundColor: "#101010", width: "100%" }}>
+      <ScrollView style={{ backgroundColor: "#000", width: "100%" }}>
         <View style={styles.container}>
           <Header />
           <View style={styles.mainCarrousel}>
             <CarouselShorts
               images={carouselDataImagesHistory.setOne}
               autoPlay={true}
-              autoPlayInterval={3000}
-              imageHeight={340}
+              autoPlayInterval={2500}
+              imageHeight={350}
             />
           </View>
 
@@ -101,10 +98,10 @@ const History = () => {
 
           <View style={styles.mainCarrousel}>
             <CarouselShorts
-              images={carouselDataImagesHistory.setTwo}
+              images={carouselDataImagesHistory.setOne}
               autoPlay={true}
-              autoPlayInterval={3000}
-              imageHeight={340}
+              autoPlayInterval={2500}
+              imageHeight={350}
             />
           </View>
 
@@ -118,10 +115,10 @@ const History = () => {
 
           <View style={styles.mainCarrousel}>
             <CarouselShorts
-              images={carouselDataImagesHistory.setThree}
+              images={carouselDataImagesHistory.setOne}
               autoPlay={true}
-              autoPlayInterval={3000}
-              imageHeight={340}
+              autoPlayInterval={2500}
+              imageHeight={350}
             />
           </View>
 
@@ -138,7 +135,6 @@ const History = () => {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
   );
 };
 

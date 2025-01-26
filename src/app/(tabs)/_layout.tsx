@@ -1,6 +1,5 @@
 import { Tabs } from 'expo-router';
 import { Ionicons} from '@expo/vector-icons';
-import { SafeAreaView, StyleSheet } from 'react-native';
 
 
 const TabsLayout = () => {
@@ -40,18 +39,21 @@ const TabsLayout = () => {
         }} />
       <Tabs.Screen name="history" options={{
          headerTitle: 'Historys',
+         headerShown: false,
          tabBarIcon: ({focused, color }) => (
             <Ionicons name={focused ? 'information-circle': 'information-circle-outline'} size={30} color={color} />
           ),
          }} />
       <Tabs.Screen name="profiles" options={{
          headerTitle: 'Profiles',
+         headerShown: false,
          tabBarIcon: ({focused, color }) => (
             <Ionicons name={focused ?  'person': 'person-outline'} size={30} color={color} />
           ),
          }} />
       <Tabs.Screen name="contents" options={{
          headerTitle: 'Content',
+         headerShown: false,
          tabBarIcon: ({focused, color }) => (
             <Ionicons name={focused ?  'open': 'open-outline'} size={30} color={color} />
           ),

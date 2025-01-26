@@ -12,15 +12,93 @@ import {
   ScrollView,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import ColorChangeText from "../../Animation/TextColors";
-import Spinner from "../../Loading/Spinner";
 import SearchBar from "./SearchBar";
 import { useRouter } from "expo-router";
 import CarrouselTags from "../../Dinamics/CarrouselTags";
 
 import Banner from "./Banner";
 
+//Styes
+import { useTheme } from '../../../../context/themeContext';
+
+
 const Header = () => {
+  const theme = useTheme();
+  const styles = StyleSheet.create({
+    container: {
+      height: 480,
+      padding: 20,
+      backgroundColor: theme.colors.dark.primary,
+      position: "relative",
+      marginBottom: 10,
+      zIndex: 2,
+    },
+
+    title: {
+      fontSize: 18,
+      color: "#ff2626",
+      fontWeight: "bold",
+      marginBottom: 10,
+      marginTop: 0,
+      textAlign: "left",
+    },
+    titleColors: {
+      color: "#fff",
+    },
+
+    //Ajustes na caixa de Títulos
+
+    titlesBox: {
+      width: "100%",
+      position: "relative",
+      justifyContent: "center",
+      alignItems: "flex-start",
+    },
+
+    //Ajustes na caixa de Busca
+
+    searchBar: {
+      marginBottom: 10,
+      borderRadius: 10,
+      backgroundColor: "#333333",
+      paddingHorizontal: 10,
+      paddingVertical: 5,
+    },
+
+    //Ajustes na caixa de Cabeçalho
+
+    header: {
+      flexDirection: "row",
+      width: "100%",
+      height: 100,
+      justifyContent: "space-around",
+      alignItems: "center",
+    },
+    headerTitle: {
+      fontSize: 14,
+      color: "#ff2626",
+      fontWeight: "100",
+    },
+
+    //Ajustes na caixa de Botão
+
+    buttonHeader: {
+      marginTop: 20,
+      marginBottom: 20,
+      paddingHorizontal: 28,
+      paddingVertical: 4,
+      borderWidth: 1,
+      borderColor: "#ffffff",
+      borderRadius: 12,
+      backgroundColor: "transparent",
+    },
+    buttonHaderText: {
+      color: "#fff",
+      fontSize: 14,
+      fontWeight: "100",
+    },
+  });
+
   // Efeitos e Animações
 
   const fadeAnim = useRef(new Animated.Value(0)).current; // Inicializa com opacidade 0
@@ -57,7 +135,7 @@ const Header = () => {
   return (
     <LinearGradient
       style={styles.container}
-      colors={["#000000", "#020202", "#000000"]}
+      colors={["#121212", "#020202", "#000000"]}
       start={{ x: 0.6, y: 0 }}
       end={{ x: 1, y: 1 }}
     >
@@ -86,77 +164,3 @@ const Header = () => {
 };
 
 export default Header;
-
-const styles = StyleSheet.create({
-  container: {
-    height: 410,
-    padding: 20,
-    backgroundColor: "#000000",
-    position: "relative",
-    marginBottom: 10,
-    zIndex: 2,
-  },
-
-  title: {
-    fontSize: 18,
-    color: "#ff2626",
-    fontWeight: "bold",
-    marginBottom: 10,
-    textAlign: "left",
-  },
-  titleColors: {
-    color: "#fff",
-  },
-
-  //Ajustes na caixa de Títulos
-
-  titlesBox: {
-    width: "100%",
-    position: "relative",
-    justifyContent: "center",
-    alignItems: "flex-start",
-  },
-
-  //Ajustes na caixa de Busca
-
-  searchBar: {
-    marginBottom: 10,
-    borderRadius: 10,
-    backgroundColor: "#333333",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-  },
-
-  //Ajustes na caixa de Cabeçalho
-
-  header: {
-    flexDirection: "row",
-    width: "100%",
-    height: 100,
-    justifyContent: "space-around",
-    alignItems: "center",
-  },
-  headerTitle: {
-    fontSize: 14,
-    color: "#ff2626",
-    fontWeight: "100",
-  },
-
-  //Ajustes na caixa de Botão
-
-  buttonHeader: {
-    marginTop: 20,
-    marginBottom: 20,
-    paddingHorizontal: 28,
-    paddingVertical: 4,
-    borderWidth: 1,
-    borderColor: "#ffffff",
-    borderRadius: 2,
-    backgroundColor: "transparent",
-  },
-  buttonHaderText: {
-    color: "#fff",
-    fontSize: 14,
-    fontWeight: "100",
-  },
-});

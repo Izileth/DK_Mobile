@@ -12,8 +12,8 @@ const StoryRacers = () => {
     const theme = useTheme();
     const styles = StyleSheet.create({
     box: {
-        width: "95%",
-        height:'auto',
+        width:  430,
+        height:450,
         padding: 24,
         marginInline: 12,
         backgroundColor: theme.colors.dark.tertiary,
@@ -27,7 +27,7 @@ const StoryRacers = () => {
     },
 
     title: {
-        color: "#fff",
+        color: theme.colors.red.primary,
         fontSize: 32,
         fontWeight: "600",
         marginBlock: 12,
@@ -41,7 +41,7 @@ const StoryRacers = () => {
 
     subtitle: {
         color: theme.colors.white.primary,
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: "500",
         marginBlock: 6,
     },
@@ -70,7 +70,7 @@ const StoryRacers = () => {
         width: 150,
         padding: 2,
         height:48,
-        backgroundColor: theme.colors.dark.secondary,
+        backgroundColor: theme.colors.dark.primary,
         marginBottom: 12,
         marginInline:10,
         borderColor: theme.colors.dark.secondary,
@@ -128,7 +128,7 @@ const StoryRacers = () => {
 
                         </View>
                     </ScrollView>
-                    <CarrouselWords  words={['Next JS', 'React JS', 'Value JS', 'Angular JS']} speed={150}direction="left" gradientWidth={40}  textStyle={{ color: 'red',fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
+                    <CarrouselWords  words={['Arizona', 'Detroit', 'Japan', 'Brazil']} speed={150}direction="left" gradientWidth={40}  textStyle={{ color: 'red',fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
                 </View>           
             </ScrollView>
         </SafeAreaView>

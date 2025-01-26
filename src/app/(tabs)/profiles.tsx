@@ -13,7 +13,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 //Import Content
 
-import ProfileContent from "../components/Object/TabProfile/Component/contentProfile";
 import ProfileInstagram from "../components/Object/TabProfile/Component/contentProfileInstagram";
 import ProfileSpotfy from "../components/Object/TabProfile/Component/contentProfileSpotfy";
 import ProfileYoutube from "../components/Object/TabProfile/Component/contentProfileYoutube";
@@ -29,14 +28,10 @@ import StoryYouTube from "../components/Object/TabProfile/Component/contentStory
 import StoryCredits from "../components/Object/TabHistory/Component/contentStoryCredits";
 // Data
 import {
-  carouselDataImagesContent,
-  carouselDataImagesHistory,
   carouselDataImagesProfile,
 } from "../components/Data";
-import { DarkTheme } from "@react-navigation/native";
 
 //Import Styles
-import { ThemeProvider } from "../../context/themeContext";
 import { useTheme } from "../../context/themeContext";
 
 const Profile = () => {
@@ -86,7 +81,7 @@ const Profile = () => {
               images={carouselDataImagesProfile.setOne}
               autoPlay={true}
               autoPlayInterval={3000}
-              imageHeight={340}
+              imageHeight={350}
             />
           </View>
 
@@ -103,7 +98,7 @@ const Profile = () => {
               images={carouselDataImagesProfile.setOne}
               autoPlay={true}
               autoPlayInterval={3000}
-              imageHeight={340}
+              imageHeight={350}
             />
           </View>
 
@@ -120,7 +115,7 @@ const Profile = () => {
               images={carouselDataImagesProfile.setOne}
               autoPlay={true}
               autoPlayInterval={3000}
-              imageHeight={340}
+              imageHeight={350}
             />
           </View>
 

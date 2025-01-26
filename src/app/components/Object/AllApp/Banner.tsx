@@ -3,20 +3,19 @@ import { ScrollView, StyleSheet, View, Text, TouchableOpacity} from 'react-nativ
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 
 //Styes 
-import { ThemeProvider } from '../../../../context/themeContext';
-import { useTheme } from "../../../../context/themeContext";
+import { useTheme } from '../../../../context/themeContext';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from "expo-linear-gradient";
 
 
 const Banner = () => {
-    const theme = useTheme();
+    const theme = useTheme();  
     const styles = StyleSheet.create({
         container: {
-            height: 120,
+            height: 160,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor:'#060606',
+            backgroundColor:theme.colors.dark.secondary,
             paddingTop: 48,
             paddingBottom: 64,
             borderRadius:8,
@@ -28,8 +27,8 @@ const Banner = () => {
             paddingBottom: 24,
             paddingHorizontal: 24,
             marginBottom: 24,
-            borderRadius:8,
-            backgroundColor:'#060606',
+            borderRadius: 12,
+            backgroundColor:theme.colors.red.tertiary,
             overflow: 'hidden',
             display: 'flex',
             flexDirection: 'row',
@@ -50,29 +49,29 @@ const Banner = () => {
         },
 
         titleColors: {
-            fontSize: 28,
+            fontSize: 32,
             fontWeight: 'bold',
-            color: theme.colors.red.secondary,
+            color: theme.colors.white.tertiary,
         },
 
         subtitle: {
-            fontSize: 18,
-            marginBlock:-12,
+            fontSize: 20,
+            marginBlock:-6,
             fontWeight: 'bold',
             color: theme.colors.white.tertiary,
         },
 
         //Ajustes no botão
         button: {
-            width: 140,
-            height: 36,
+            width: 152,
+            height: 42,
             borderRadius: 6,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: theme.colors.red.primary,
+            backgroundColor: theme.colors.dark.primary,
             display: 'flex',
             flexDirection: 'row',
-            marginBlock: 12,
+            marginBlock: 20,
         },
     });
 
@@ -84,7 +83,7 @@ const Banner = () => {
                         <Text style={styles.title}>Welcome To <Text style={styles.titleColors}>Drift For All</Text></Text>
                         <Text style={styles.subtitle}>Where are you going today?</Text>
                         <TouchableOpacity style={styles.button}>
-                            <Text style={{color: theme.colors.white.primary, fontWeight: '100', fontSize: 18, padding:4, borderRadius: 4, backgroundColor: theme.colors.red.primary }}>Book Now</Text>
+                            <Text style={{color: theme.colors.white.primary, fontWeight: '100', fontSize: 18, padding:4, borderRadius: 4, }}>Book Now</Text>
                             <Ionicons name='arrow-forward-circle-outline' style={{color: theme.colors.white.primary, fontSize: 24, marginLeft: 2}} size={24} />
                         </TouchableOpacity>
                     </View>

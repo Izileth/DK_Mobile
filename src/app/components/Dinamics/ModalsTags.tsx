@@ -1,36 +1,17 @@
 import React from 'react';
 import { Modal, StyleSheet, Text, Pressable, View } from 'react-native';
 
-const ModalTags = ({ visible, onClose, title = "Select tags to add", children }) => {
-  return (
-    <Modal 
-      animationType='slide' 
-      transparent={true} 
-      visible={visible} 
-      onRequestClose={onClose}
-    >
-      <View style={styles.box}>
-        <View style={styles.content}>
-          <Text style={styles.title}>{title}</Text>
-          <View>{children}</View>
-          <Pressable style={styles.closeButton} onPress={onClose}>
-            <Text style={styles.buttonText}>Close</Text>
-          </Pressable>
-        </View>
-      </View>
-    </Modal>
-  );
-}
+//Styes
+import { theme } from "../../../Styles/theme";
 
 const styles = StyleSheet.create({
   box: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
   },
   content: {
-    backgroundColor: '#080808',
+    backgroundColor: theme.colors.dark.primary,
     padding: 20,
     borderRadius: 10,
     width: '80%',
@@ -56,5 +37,27 @@ const styles = StyleSheet.create({
     color: '#fff',
   }
 });
+
+
+const ModalTags = ({ visible, onClose, title = "Select tags to add", children }) => {
+  return (
+    <Modal 
+      animationType='slide' 
+      transparent={true} 
+      visible={visible} 
+      onRequestClose={onClose}
+    >
+      <View style={styles.box}>
+        <View style={styles.content}>
+          <Text style={styles.title}>{title}</Text>
+          <View>{children}</View>
+          <Pressable style={styles.closeButton} onPress={onClose}>
+            <Text style={styles.buttonText}>Close</Text>
+          </Pressable>
+        </View>
+      </View>
+    </Modal>
+  );
+}
 
 export default ModalTags;

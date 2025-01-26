@@ -3,11 +3,141 @@ import React from "react";
 import { Linking } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
+import { useTheme } from "../../../../../context/themeContext";
 
 const Cars = () => {
+
+    const theme = useTheme();
+        
+    const styles = StyleSheet.create({
+        
+        //Ajustes nas caixas de conteúdo
+        
+        box: {
+        width: "100%",
+        padding: 24,
+        backgroundColor: theme.colors.dark.primary,
+        borderRadius: 12,
+        textAlign: "center",
+        shadowColor: theme.colors.dark.primary,
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.5,
+        shadowRadius: 4,
+        elevation: 2,
+        marginBottom: 90,
+        },
     
-      // Redirecionamento caso haja falha no Link
-      const handlePress = async (link: string) => {
+    
+        boxList: {
+        width: "100%",
+        height: 490,
+        padding: 12,
+        marginBlock: 28,
+        marginBottom: 16,
+        borderRadius: 12,
+        backgroundColor: theme.colors.dark.primary,
+        justifyContent: "center",
+        alignItems: 'center',
+        },
+    
+        //Ajustes na caixa de imagens
+    
+        boxImage: {
+        marginBlock: 24,
+        padding: 4,
+        borderRadius: 12,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        backgroundColor: theme.colors.dark.primary,
+        position: "relative",
+        height: 380,
+        width: "95%",
+        },
+    
+        image: {
+        width: 442,
+        height: 262,
+        marginBottom: 16,
+        borderRadius: 12,
+        },
+    
+        
+        //Ajustes nos titulos, subtitulos e paragrafos
+        title: {
+        color: theme.colors.red.primary,
+        fontSize: 32,
+        marginBottom: 20,
+        fontWeight: "600",
+        },
+    
+        boldTitle: {
+        color: theme.colors.red.primary,
+        fontSize: 28,
+        marginBottom: 18,
+        marginInlineStart: 20,
+        fontWeight: "600",
+        },
+    
+        boldParagraph: {
+        color: theme.colors.white.primary,
+        fontSize: 20,
+        marginBottom: 8,
+        marginBlock: 12,
+        width: 440,
+        fontWeight: "600",
+        },
+    
+        subtitle: {
+        color: theme.colors.red.primary,
+        fontSize: 24,
+        marginBottom: 32,
+        fontWeight: "500",
+        },
+        paragraph: {
+        color: theme.colors.white.primary,
+        fontSize: 14,
+        marginBottom: 10,
+        width: 440,
+        fontWeight: "400",
+        },
+        text: {
+        color: theme.colors.white.primary,
+        fontSize: 14,
+        textAlign: "justify",
+        },
+    
+        
+        //Ajustes na lista de itens
+    
+        listItens: {
+        flexDirection: "row",
+        justifyContent: "center",
+        fontSize: 26,
+        width: 100,
+        marginBlock: 12,
+        },
+        item: {
+        backgroundColor: theme.colors.dark.primary,
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100%",
+        height: 100,
+        justifyContent: "center",
+        marginBlock: 8,
+        },
+    
+        // Ajustes nos icones
+        icon: {
+        color: theme.colors.red.primary,
+        padding: 4,
+        borderRadius: 12,
+        marginBottom: 8,
+        marginInline: 24,
+        },
+    });
+    
+    // Redirecionamento caso haja falha no Link
+    const handlePress = async (link: string) => {
         const canOpen = await Linking.canOpenURL(link);
         if (canOpen) {
           Linking.openURL(link).catch((err) =>
@@ -16,7 +146,37 @@ const Cars = () => {
         } else {
           console.error("URL inválida ou não suportada:", link);
         }
-      };
+    };
+
+    // Chama a Constante para ir ao Link Http
+    const openCars = {
+
+      brandNissan: () => {
+      const url = 'https://www.nissan.co.jp/';
+      Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+      },
+      brandMitsubichi: () => {
+      const url = 'https://www.mitsubishi-motors.co.jp/'
+      Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+      },
+      brandToyota: () => {
+      const url = 'https://toyota.jp/';
+      Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+      },
+      brandHonda: () => {
+      const url = 'https://www.honda.co.jp/?msockid=3e8ecfece648628b193edb82e71f63df';
+      Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+      },
+      brandMardza: () => {
+      const url = 'https://www.mazda.co.jp/';
+      Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+      },
+      brandLexus: () => {
+      const url = 'https://lexus.jp/';
+      Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+      },  
+    };   
+    
     
     return (
         <ScrollView>
@@ -46,23 +206,39 @@ const Cars = () => {
                             collectors alike.
                         </Text>
                         <View style={styles.listItens}>
-                            <Ionicons style={styles.icon} size={25} name="flame"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon}
+                                size={25}
+                                name="flame"
+                                onPress={openCars.brandToyota}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="bookmark"
+                                style={styles.icon}
+                                size={25}
+                                name="bookmark"
+                                onPress={openCars.brandToyota}
                             ></Ionicons>
-                            <Ionicons style={styles.icon} size={25} name="heart"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon} 
+                                size={25} name="heart"   
+                                onPress={openCars.brandToyota}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="paper-plane"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="paper-plane"
+                                onPress={openCars.brandToyota}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="chatbubble"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="chatbubble"
+                                onPress={openCars.brandToyota}
+                            >
+                            </Ionicons>
                         </View>
                         </TouchableOpacity>
                     </View>
@@ -93,23 +269,39 @@ const Cars = () => {
                             performance and for being a favorite of Jay Leno.
                         </Text>
                         <View style={styles.listItens}>
-                            <Ionicons style={styles.icon} size={25} name="flame"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon}
+                                size={25}
+                                name="flame"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="bookmark"
+                                style={styles.icon}
+                                size={25}
+                                name="bookmark"
+                                onPress={openCars.brandNissan}
                             ></Ionicons>
-                            <Ionicons style={styles.icon} size={25} name="heart"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon} 
+                                size={25} name="heart"   
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="paper-plane"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="paper-plane"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="chatbubble"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="chatbubble"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                         </View>
                         </TouchableOpacity>
                     </View>
@@ -140,23 +332,39 @@ const Cars = () => {
                             discussions about the best sports cars of the time..
                         </Text>
                         <View style={styles.listItens}>
-                            <Ionicons style={styles.icon} size={25} name="flame"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon}
+                                size={25}
+                                name="flame"
+                                onPress={openCars.brandMardza}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="bookmark"
+                                style={styles.icon}
+                                size={25}
+                                name="bookmark"
+                                onPress={openCars.brandMardza}
                             ></Ionicons>
-                            <Ionicons style={styles.icon} size={25} name="heart"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon} 
+                                size={25} name="heart"   
+                                onPress={openCars.brandMardza}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="paper-plane"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="paper-plane"
+                                onPress={openCars.brandMardza}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="chatbubble"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="chatbubble"
+                                onPress={openCars.brandMardza}
+                            >
+                            </Ionicons>
                         </View>
                         </TouchableOpacity>
                     </View>
@@ -186,23 +394,39 @@ const Cars = () => {
                             and style.
                         </Text>
                         <View style={styles.listItens}>
-                            <Ionicons style={styles.icon} size={25} name="flame"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon}
+                                size={25}
+                                name="flame"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="bookmark"
+                                style={styles.icon}
+                                size={25}
+                                name="bookmark"
+                                onPress={openCars.brandNissan}
                             ></Ionicons>
-                            <Ionicons style={styles.icon} size={25} name="heart"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon} 
+                                size={25} name="heart"   
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="paper-plane"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="paper-plane"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="chatbubble"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="chatbubble"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                         </View>
                         </TouchableOpacity>
                     </View>
@@ -233,23 +457,39 @@ const Cars = () => {
                             become a favorite among rally and sports car enthusiasts.
                         </Text>
                         <View style={styles.listItens}>
-                            <Ionicons style={styles.icon} size={25} name="flame"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon}
+                                size={25}
+                                name="flame"
+                                onPress={openCars.brandMitsubichi}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="bookmark"
+                                style={styles.icon}
+                                size={25}
+                                name="bookmark"
+                                onPress={openCars.brandMitsubichi}
                             ></Ionicons>
-                            <Ionicons style={styles.icon} size={25} name="heart"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon} 
+                                size={25} name="heart"   
+                                onPress={openCars.brandMitsubichi}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="paper-plane"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="paper-plane"
+                                onPress={openCars.brandMitsubichi}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="chatbubble"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="chatbubble"
+                                onPress={openCars.brandMitsubichi}
+                            >
+                            </Ionicons>
                         </View>
                         </TouchableOpacity>
                     </View>
@@ -278,23 +518,39 @@ const Cars = () => {
                             made it an ideal platform for modifications and competitions.
                         </Text>
                         <View style={styles.listItens}>
-                            <Ionicons style={styles.icon} size={25} name="flame"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon}
+                                size={25}
+                                name="flame"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="bookmark"
+                                style={styles.icon}
+                                size={25}
+                                name="bookmark"
+                                onPress={openCars.brandNissan}
                             ></Ionicons>
-                            <Ionicons style={styles.icon} size={25} name="heart"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon} 
+                                size={25} name="heart"   
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="paper-plane"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="paper-plane"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="chatbubble"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="chatbubble"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                         </View>
                         </TouchableOpacity>
                     </View>
@@ -326,23 +582,39 @@ const Cars = () => {
                             solidifying its reputation in the world of drift.
                         </Text>
                         <View style={styles.listItens}>
-                            <Ionicons style={styles.icon} size={25} name="flame"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon}
+                                size={25}
+                                name="flame"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="bookmark"
+                                style={styles.icon}
+                                size={25}
+                                name="bookmark"
+                                onPress={openCars.brandNissan}
                             ></Ionicons>
-                            <Ionicons style={styles.icon} size={25} name="heart"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon} 
+                                size={25} name="heart"   
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="paper-plane"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="paper-plane"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="chatbubble"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="chatbubble"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                         </View>
                         </TouchableOpacity>
                     </View>
@@ -373,23 +645,39 @@ const Cars = () => {
                             performance and aesthetics.
                         </Text>
                         <View style={styles.listItens}>
-                            <Ionicons style={styles.icon} size={25} name="flame"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon}
+                                size={25}
+                                name="flame"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="bookmark"
+                                style={styles.icon}
+                                size={25}
+                                name="bookmark"
+                                onPress={openCars.brandNissan}
                             ></Ionicons>
-                            <Ionicons style={styles.icon} size={25} name="heart"></Ionicons>
+                            <Ionicons 
+                                style={styles.icon} 
+                                size={25} name="heart"   
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="paper-plane"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="paper-plane"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                             <Ionicons
-                            style={styles.icon}
-                            size={25}
-                            name="chatbubble"
-                            ></Ionicons>
+                                style={styles.icon}
+                                size={25}
+                                name="chatbubble"
+                                onPress={openCars.brandNissan}
+                            >
+                            </Ionicons>
                         </View>
                         </TouchableOpacity>                    
                 </View>
@@ -397,133 +685,4 @@ const Cars = () => {
         </ScrollView>
     );
 }
-
-const styles = StyleSheet.create({
-    
-  //Ajustes nas caixas de conteúdo
-  
-  box: {
-    width: "100%",
-    padding: 24,
-    backgroundColor: "#000",
-    borderRadius: 12,
-    textAlign: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.5,
-    shadowRadius: 4,
-    elevation: 2,
-    marginBottom: 90,
-  },
-
-
-  boxList: {
-    width: "100%",
-    height: 490,
-    padding: 12,
-    marginBlock: 28,
-    marginBottom: 16,
-    borderRadius: 12,
-    backgroundColor: "#020202",
-    justifyContent: "center",
-    alignItems: 'center',
-  },
-
-  //Ajustes na caixa de imagens
-
-  boxImage: {
-    marginBlock: 24,
-    padding: 4,
-    borderRadius: 12,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    backgroundColor: "#060606",
-    position: "relative",
-    height: 380,
-    width: "95%",
-  },
-
-  image: {
-    width: 442,
-    height: 262,
-    marginBottom: 16,
-    borderRadius: 12,
-  },
- 
-  
-  //Ajustes nos titulos, subtitulos e paragrafos
-  title: {
-    color: "#ff2626",
-    fontSize: 32,
-    marginBottom: 20,
-    fontWeight: "600",
-  },
-
-  boldTitle: {
-    color: "#ff2626",
-    fontSize: 28,
-    marginBottom: 18,
-    marginInlineStart: 20,
-    fontWeight: "600",
-  },
-
-  boldParagraph: {
-    color: "#ffffff",
-    fontSize: 20,
-    marginBottom: 8,
-    marginBlock: 12,
-    width: 440,
-    fontWeight: "600",
-  },
-
-  subtitle: {
-    color: "#ff2626",
-    fontSize: 24,
-    marginBottom: 32,
-    fontWeight: "500",
-  },
-  paragraph: {
-    color: "#ffffff",
-    fontSize: 14,
-    marginBottom: 10,
-    width: 440,
-    fontWeight: "400",
-  },
-  text: {
-    color: "#ffffff",
-    fontSize: 14,
-    textAlign: "justify",
-  },
-
-  
-  //Ajustes na lista de itens
-
-  listItens: {
-    flexDirection: "row",
-    justifyContent: "center",
-    fontSize: 26,
-    width: 100,
-    marginBlock: 12,
-  },
-  item: {
-    backgroundColor: "#1a1a1a",
-    flexDirection: "column",
-    alignItems: "center",
-    width: "100%",
-    height: 100,
-    justifyContent: "center",
-    marginBlock: 8,
-  },
-
-  // Ajustes nos icones
-  icon: {
-    color: "#ff2626",
-    padding: 4,
-    borderRadius: 12,
-    marginBottom: 8,
-    marginInline: 24,
-  },
-
-})
-
 export default Cars;

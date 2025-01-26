@@ -1,151 +1,148 @@
+import { Ionicons } from '@expo/vector-icons'
 import {} from 'react'
 import {Text, ScrollView, SafeAreaView, Image, StyleSheet, View} from 'react-native'
 
+// Styles
+import {useTheme} from "../../../../../context/themeContext"
 const HistoryLeague = () => {
+
+    const theme = useTheme();
+    const styles = StyleSheet.create({
+
+      box: {
+          width: "100%",
+          padding: 24,
+          backgroundColor: theme.colors.dark.tertiary,
+          borderRadius: 12,
+          textAlign: "center",
+          alignItems: "center",
+          shadowColor: theme.colors.dark.tertiary,
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.5,
+          shadowRadius: 4,
+          elevation: 2,
+          marginBottom: 60,
+      },
+
+      title: {
+          color: theme.colors.red.primary,
+          fontSize: 32,
+          fontWeight: "600",
+      },
+
+      subtitle: {
+          color: "#ff2626",
+          fontSize: 24,
+          fontWeight: "500",
+          marginBlock: 10,
+      },
+
+      paragraph: {
+          color: "#ffffff",
+          fontSize: 14,
+          fontWeight: "400",
+          marginBlock: 6,
+          textAlign: 'justify',
+          width: 390,
+      },
+      
+      boxImage: {
+        width: "100%",
+        height: 200,
+        marginBottom: 12,
+        overflow: "hidden",
+      },
+
+      image: {
+        width: "100%",
+        height: "100%",
+        resizeMode: "cover",
+      },
+
+      boxContent: {
+        width: 390,
+        height: 180,
+      },
+      
+      boxIcons: {
+        width: 380,
+        height: 60,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 20,
+        backgroundColor: theme.colors.dark.tertiary,
+      },
+
+      icon:{
+        fontSize: 32,
+        color: theme.colors.red.tertiary,
+        marginInline: 4,
+      },
+    })
+
+    
     return (
         <SafeAreaView>
             <ScrollView>
+              
                    <View style={styles.box}>
-                       <Text style={styles.title}>Japanese</Text>
-                          <Text style={styles.subtitle}>Japanese Racers Underworld</Text>
-                            <Text style={styles.paragraph}>
-                              Japan's auto gangs in the 1980s were strongly associated with the
-                              Bōsōzoku movement, which means "high-speed tribe." Originating in
-                              the 1950s and peaking in the 1980s, the group was known for its
-                              heavily modified motorcycles and cars and challenging behavior,
-                              both in traffic and in social confrontations.
-                            </Text>
-                            <Text style={styles.paragraph}>
-                              The members, usually young people between the ages of 16 and 20,
-                              engaged in illegal activities such as clandestine racing,
-                              vandalism and public riots. In many cases, they had links to the
-                              Japanese mafia, the Yakuza, and were characterized by flashy
-                              styles. These included uniforms called Tokko Fuku, inspired by
-                              military attire, and customized vehicles with noisy exhausts,
-                              vibrant paints, and accessories prohibited by Japanese laws.
-                            </Text>
-                            <Text style={styles.paragraph}>
-                              Bōsōzoku culture also possessed elements of nationalism, such as
-                              the use of Imperial Japanese flags and references to kamikaze
-                              pilots of World War II. This subculture was portrayed in various
-                              media, such as the Akira anime, which captured their rebellious
-                              spirit and the impact they had on Japanese society at the time.
-                              However, due to police repression and social changes, Bōsōzoku
-                              gangs began to disappear in the 2000s, although some elements of
-                              this culture can still be found at modified car events
-                            </Text>        
-                        <Text>..</Text>    
+                       <View style={styles.boxImage}>
+                         <Image  source={{
+                            uri: "https://images.wallpaperscraft.com/image/single/night_city_city_lights_tokyo_122633_2560x1440.jpg",
+                            }} style={styles.image} />
+                       </View>
+                       <View style={styles.boxContent}>
+                           <Text style={styles.title}>Japanese Mainland</Text>
+                           <Text style={styles.paragraph}>Tokyo stands out with its neon-lit streets, labyrinthine highways, and disciplined yet daring racers. The city's meticulous infrastructure and advanced car culture make it a hub for precision-tuned vehicles and late-night battles on winding expressways like the Wangan and mountain passes.</Text>
+                       </View> 
+                       <View style={styles.boxIcons}>
+                           <Ionicons name="arrow-back-circle-outline" style={styles.icon}></Ionicons>   
+                           <Ionicons name="map-outline" style={styles.icon}></Ionicons>   
+                           <Ionicons name="analytics-sharp" style={styles.icon}></Ionicons>   
+                           <Ionicons name="arrow-down-circle-outline" style={styles.icon}></Ionicons> 
+                       </View>
                    </View>
 
                    <View style={styles.box}>
-                   <Text style={styles.title}>American</Text>
-                      <Text style={styles.subtitle}>American Racers Underworld </Text>  
-                            <Text style={styles.paragraph}>
-                              Japan's auto gangs in the 1980s were strongly associated with the
-                              Bōsōzoku movement, which means "high-speed tribe." Originating in
-                              the 1950s and peaking in the 1980s, the group was known for its
-                              heavily modified motorcycles and cars and challenging behavior,
-                              both in traffic and in social confrontations.
-                            </Text>
-                            <Text style={styles.paragraph}>
-                              The members, usually young people between the ages of 16 and 20,
-                              engaged in illegal activities such as clandestine racing,
-                              vandalism and public riots. In many cases, they had links to the
-                              Japanese mafia, the Yakuza, and were characterized by flashy
-                              styles. These included uniforms called Tokko Fuku, inspired by
-                              military attire, and customized vehicles with noisy exhausts,
-                              vibrant paints, and accessories prohibited by Japanese laws.
-                            </Text>
-                            <Text style={styles.paragraph}>
-                              Bōsōzoku culture also possessed elements of nationalism, such as
-                              the use of Imperial Japanese flags and references to kamikaze
-                              pilots of World War II. This subculture was portrayed in various
-                              media, such as the Akira anime, which captured their rebellious
-                              spirit and the impact they had on Japanese society at the time.
-                              However, due to police repression and social changes, Bōsōzoku
-                              gangs began to disappear in the 2000s, although some elements of
-                              this culture can still be found at modified car events
-                            </Text>  
-                        <Text>..</Text>    
+                        <View style={styles.boxImage}>
+                          <Image  source={{
+                            uri: "https://wallpaperaccess.com/full/147476.jpg",
+                            }} style={styles.image} />
+                        </View>
+                        <View style={styles.boxContent}>
+                            <Text style={styles.title}>American Mainland</Text>
+                            <Text style={styles.paragraph}>New York offers a grittier, high-energy atmosphere. The sprawling cityscape, packed with gridlocked streets and iconic bridges, forces racers to adapt to chaotic environments. The underground scene thrives on speed, agility, and risk-taking amidst the dense urban jungle.</Text>
+                        </View>  
+                        <View style={styles.boxIcons}>
+                           <Ionicons name="arrow-back-circle-outline" style={styles.icon}></Ionicons>   
+                           <Ionicons name="map-outline" style={styles.icon}></Ionicons>   
+                           <Ionicons name="analytics-sharp" style={styles.icon}></Ionicons>     
+                           <Ionicons name="arrow-down-circle-outline" style={styles.icon}></Ionicons> 
+                       </View>
                    </View>
 
                    <View style={styles.box}>
-                   <Text style={styles.title}>Europe</Text>
-                        <Text style={styles.subtitle}>Europe Racers Underworld</Text>
-                            <Text style={styles.paragraph}>
-                              Japan's auto gangs in the 1980s were strongly associated with the
-                              Bōsōzoku movement, which means "high-speed tribe." Originating in
-                              the 1950s and peaking in the 1980s, the group was known for its
-                              heavily modified motorcycles and cars and challenging behavior,
-                              both in traffic and in social confrontations.
-                            </Text>
-                            <Text style={styles.paragraph}>
-                              The members, usually young people between the ages of 16 and 20,
-                              engaged in illegal activities such as clandestine racing,
-                              vandalism and public riots. In many cases, they had links to the
-                              Japanese mafia, the Yakuza, and were characterized by flashy
-                              styles. These included uniforms called Tokko Fuku, inspired by
-                              military attire, and customized vehicles with noisy exhausts,
-                              vibrant paints, and accessories prohibited by Japanese laws.
-                            </Text>
-                            <Text style={styles.paragraph}>
-                              Bōsōzoku culture also possessed elements of nationalism, such as
-                              the use of Imperial Japanese flags and references to kamikaze
-                              pilots of World War II. This subculture was portrayed in various
-                              media, such as the Akira anime, which captured their rebellious
-                              spirit and the impact they had on Japanese society at the time.
-                              However, due to police repression and social changes, Bōsōzoku
-                              gangs began to disappear in the 2000s, although some elements of
-                              this culture can still be found at modified car events
-                            </Text>  
-                        <Text>..</Text>    
+                        <View style={styles.boxImage}>
+                          <Image  source={{
+                            uri: "https://th.bing.com/th/id/OIP.RH6bGTIq01g7Ll2tCOF30QHaEo?rs=1&pid=ImgDetMain",
+                            }} style={styles.image} />
+                        </View>
+                        <View style={styles.boxContent}>
+                            <Text style={styles.title}>Europe Mainlend</Text>
+                            <Text style={styles.paragraph}>Paris, with its narrow cobblestone streets and historic landmarks, presents a more sophisticated yet rebellious racing scene. Racers weave through iconic avenues like the Champs-Élysées and challenge the limits under the cover of the city's romantic, moonlit ambiance, blending elegance with adrenaline-fueled danger. </Text>
+                        </View>  
+                        <View style={styles.boxIcons}>
+                           <Ionicons name="arrow-back-circle-outline" style={styles.icon}></Ionicons>   
+                           <Ionicons name="map-outline" style={styles.icon}></Ionicons>   
+                           <Ionicons name="analytics-sharp" style={styles.icon}></Ionicons>   
+                           <Ionicons name="arrow-down-circle-outline" style={styles.icon}></Ionicons> 
+                       </View>
                    </View>
+
             </ScrollView>
         </SafeAreaView>
     )
 }
-
-const styles = StyleSheet.create({
-
-    box: {
-        width: "100%",
-        padding: 24,
-        backgroundColor: "#080808",
-        borderRadius: 12,
-        textAlign: "center",
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.5,
-        shadowRadius: 4,
-        elevation: 2,
-        marginBottom: 60,
-    },
-
-    title: {
-        color: "#ff2626",
-        fontSize: 32,
-        marginBlock:-16,
-        fontWeight: "600",
-    },
-
-    subtitle: {
-        color: "#ff2626",
-        fontSize: 24,
-        fontWeight: "500",
-        marginBlock: 12,
-    },
-
-    paragraph: {
-        color: "#ffffff",
-        fontSize: 14,
-        fontWeight: "400",
-        marginBlock: 3,
-        textAlign: 'justify',
-        width: 440,
-    },
-    
-    
-})
 
 export default HistoryLeague;

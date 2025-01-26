@@ -2,13 +2,13 @@
 export const carouselDataImagesHistory = {
     setOne: [
             {
-                uri: 'https://i.pinimg.com/736x/30/35/1c/30351c9c808185b37448927727ff0bd5.jpg',
+                uri: 'https://i.pinimg.com/736x/57/c8/9e/57c89e2189d69afc189188f6586b0a71.jpg',
             },      
             {
-                uri: 'https://i.pinimg.com/736x/27/50/63/2750631ee5dde16e5f3c5952963776ec.jpg',
+                uri: 'https://i.pinimg.com/736x/57/c8/9e/57c89e2189d69afc189188f6586b0a71.jpg',
             },    
             {
-                uri: "https://i.pinimg.com/736x/07/04/cc/0704cc00b3837bc29ad4e1ddf5c6fdf2.jpg",
+                uri: "https://i.pinimg.com/736x/57/c8/9e/57c89e2189d69afc189188f6586b0a71.jpg",
             },  
     ],
     setTwo: [

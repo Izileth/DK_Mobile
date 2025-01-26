@@ -1,19 +1,7 @@
 import React, { useEffect } from "react";
-import { useState , } from "react";
 import { AuthProvider, useAuth } from "../../../context/authContext";
 import {
   Alert,
-  Button,
-  ScrollView,
-  FlatList,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  Text,
-  View,
-  Animated,
-  TextInput,
-  Pressable,
 } from "react-native";
 import { Link, router, useRouter } from "expo-router";
 import { supabase } from "../../lib/supabase";

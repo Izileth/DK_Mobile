@@ -1,12 +1,10 @@
 import {Text, ScrollView, SafeAreaView, Image, StyleSheet, View, TouchableOpacity, Animated, Pressable, FlatList} from 'react-native'
 import {useEffect, useRef, useState} from 'react'
-import CarrouselWords from '../../../Dinamics/CarrouselWords'
-import WordsPulsing from '../../../Animation/WordsInPulsing'
 import { Linking } from "react-native";
 
 
 //Styes 
-import { ThemeProvider } from '../../../../../context/themeContext';
+
 import { useTheme } from "../../../../../context/themeContext";
 import { Ionicons } from '@expo/vector-icons';
 

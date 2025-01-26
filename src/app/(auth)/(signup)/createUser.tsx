@@ -3,10 +3,7 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import {
   Alert,
-  Button,
   ScrollView,
-  FlatList,
-  Image,
   TouchableOpacity,
   StyleSheet,
   Text,
@@ -14,19 +11,25 @@ import {
   Animated,
   TextInput,
   Pressable,
-  ImageBackground,
 } from "react-native";
-import { Link, useRouter, router } from "expo-router";
+import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { supabase } from "../../lib/supabase";
-import { hide } from "expo-router/build/utils/splash";
 
 
 const createLoguin = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); 
+  const [isNameFocused, setIsNameFocused] = useState(false); 
+  const [isEmailFocused, setIsEmailFocused] = useState(false); 
+  const [isPasswordFocused, setIsPasswordFocused] = useState(false); 
+  // Ocultar e desoclutar password 
+  const [hidePassOut, setHidePassOut] = useState(true)
+  const [hidePassIn, setHidePassIn] = useState(true)
+  const [hidePassOn, setHidePassOn] = useState(true)
+
 
   async function handleCreateLoguin() {
     setLoading(true);
@@ -55,9 +58,6 @@ const createLoguin = () => {
     router.replace('/(auth)/(loguin)');
   }
 
-  // Ocultar e desoclutar password 
-  const [hidePass, setHidePass] = useState(true)
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1, backgroundColor: "#000000" }}>
@@ -74,63 +74,124 @@ const createLoguin = () => {
               automotive world
             </Text>
           </View>
+
           <View style={styles.form}>
-            <Text style={styles.label}>Nome Completo</Text>
-            <View style={styles.space}>
-                <TextInput
-                  value={name}
-                  onChangeText={setName}
-                  placeholder="Inisra o seu nome completo"
-                  style={styles.input}
-                  secureTextEntry={hidePass}
-                />
-                <TouchableOpacity onPress={() => { setHidePass(!hidePass);}} style={styles.icon }>
-                  { hidePass ?
-                  <Ionicons name="eye" size={24} color="black" style={{ marginLeft: 10 }} />
-                  :
-                  <Ionicons  name="eye-off"  size={24}  color="black"  style={{ marginLeft: 10 }}   />
-                  }
-                </TouchableOpacity>                
-            </View>
-            <Text style={styles.label}>Nome do Usuário</Text>
-            <View style={styles.space}>
-                <TextInput
-                  value={email}
-                  onChangeText={setEmail}
-                  placeholder="Insira o seu Email"
-                  style={styles.input}
-                  secureTextEntry={hidePass}
-                />
-                <TouchableOpacity onPress={() => { setHidePass(!hidePass);}} style={styles.icon }>
-                  { hidePass ?
-                  <Ionicons name="eye" size={24} color="black" style={{ marginLeft: 10 }} />
-                  :
-                  <Ionicons  name="eye-off"  size={24}  color="black"  style={{ marginLeft: 10 }}   />
-                  }
-                </TouchableOpacity>    
-            </View>
-            <Text style={styles.label}> Nova Senha</Text>
-            <View style={styles.space}>
-              <TextInput
-                value={password}
-                onChangeText={setPassword}
-                placeholder="Inisira a sua Senha"
-                style={styles.input}
-                secureTextEntry={hidePass}
-              />
-              <TouchableOpacity onPress={() => { setHidePass(!hidePass);}} style={styles.icon }>
-                  { hidePass ?
-                  <Ionicons name="eye" size={24} color="black" style={{ marginLeft: 10 }} />
-                  :
-                  <Ionicons  name="eye-off"  size={24}  color="black"  style={{ marginLeft: 10 }}   />
-                  }
-              </TouchableOpacity>    
-            </View>
-            <Pressable style={styles.button} onPress={handleCreateLoguin}>
-              <Text style={styles.buttonText}>
-                {loading ? "Loading..." : "Create acoult"}
-              </Text>
-            </Pressable>
+              <View style={styles.inputContainer}>
+                <Animated.Text
+                  style={[
+                    styles.label,
+                    {
+                      top: name || isNameFocused ? -10 : 14,
+                      fontSize: name|| isNameFocused ? 12 : 14,
+                      color: name || isNameFocused ? "#f50000" : "#000",
+                    },
+                  ]}
+                >
+                  Name
+                </Animated.Text>
+                <View style={styles.inputWrapper}>
+                    <TextInput
+                      value={name}
+                      onChangeText={setName}
+                      placeholder={isNameFocused ? "" : ""}
+                      style={styles.input}
+                      keyboardType="url"
+                      onFocus={() => setIsNameFocused(true)}
+                      onBlur={() => setIsNameFocused(!!name)}
+                    />
+                    <TouchableOpacity
+                        onPress={() => setHidePassIn(!hidePassIn)}
+                        style={styles.icon}
+                      >
+                        <Ionicons
+                          name={hidePassIn ? "eye" : "eye-off"}
+                          size={24}
+                          color="black"
+                          style={styles.iconStyle} // Ajuste o estilo conforme necessário
+                        />
+                    </TouchableOpacity>    
+                </View>
+              </View>       
+
+              <View style={styles.inputContainer}>
+                <Animated.Text
+                  style={[
+                    styles.label,
+                    {
+                      top: email || isEmailFocused ? -10 : 14,
+                      fontSize: email || isEmailFocused ? 12 : 14,
+                      color: email || isEmailFocused ? "#f50000" : "#000",
+                    },
+                  ]}
+                >
+                  Email
+                </Animated.Text>
+                <View style={styles.inputWrapper}>
+                    <TextInput
+                      value={email}
+                      onChangeText={setEmail}
+                      placeholder={isEmailFocused ? "" : ""}
+                      style={styles.input}
+                      keyboardType="email-address"
+                      onFocus={() => setIsEmailFocused(true)}
+                      onBlur={() => setIsEmailFocused(!!email)}
+                    />
+                    <TouchableOpacity
+                        onPress={() => setHidePassOn(!hidePassOn)}
+                        style={styles.icon}
+                      >
+                        <Ionicons
+                          name={hidePassOn ? "eye" : "eye-off"}
+                          size={24}
+                          color="black"
+                          style={styles.iconStyle} // Ajuste o estilo conforme necessário
+                        />
+                    </TouchableOpacity>  
+                </View>
+              </View>     
+
+              <View style={styles.inputContainer}>
+                <Animated.Text
+                  style={[
+                    styles.label,
+                    {
+                      top: password || isPasswordFocused ? -10 : 14,
+                      fontSize: password || isPasswordFocused ? 12 : 14,
+                      color: password || isPasswordFocused ? "#f50000" : "#000",
+                    },
+                  ]}
+                >
+                  Password
+                </Animated.Text>   
+                <View style={styles.inputWrapper}>
+                  <TextInput
+                    value={password}
+                    onChangeText={setPassword}
+                    placeholder={isPasswordFocused ? "" : ""}
+                    style={styles.input}
+                    keyboardType="email-address"
+                    secureTextEntry={hidePassOut} 
+                    onFocus={() => setIsPasswordFocused(true)}
+                    onBlur={() => setIsPasswordFocused(!!password)}
+                  />
+                  <TouchableOpacity
+                    onPress={() => setHidePassOut(!hidePassOut)}
+                    style={styles.icon}
+                  >
+                    <Ionicons
+                      name={hidePassOut ? "eye" : "eye-off"}
+                      size={24}
+                      color="black"
+                      style={styles.iconStyle} 
+                    />
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <Pressable style={styles.button} onPress={handleCreateLoguin}>
+                <Text style={styles.buttonText}>
+                  {loading ? "Loading..." : "Create acoult"}
+                </Text>
+              </Pressable>
           </View>
         </View>
       </ScrollView>
@@ -203,21 +264,38 @@ const styles = StyleSheet.create({
   },
 
   //Ajustes no forumulário
-
-  label: {
-    color: "#000000",
-    fontSize: 18,
-    marginBottom: 18,
-    marginInline: 12,
+  inputContainer: {
+    width: '80%',
+    position: 'relative',
+    marginVertical: 24,
   },
-  input: {
-    color: "#000000",
-    width: "80%",
+  inputWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  label: {
+    position: 'absolute',
+    left: 10,
+    paddingHorizontal: 4,
     fontSize: 18,
-    marginInline: 12,
+    color: "#ccc",
+    backgroundColor: "#f3f3f3",
+    zIndex: 10,
+  },
+  iconStyle: {
+    marginLeft: -40,
+  },  
+  input: {
     height: 50,
+    width: '100%',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    fontSize: 18,
   },
   placeholder: {
+    width: '100%',
     color: "#ffffff",
     fontSize: 18,
     marginInline: 12,
@@ -237,13 +315,7 @@ const styles = StyleSheet.create({
     fontWeight: "200",
     textAlign: "center",
   },
-  forgotPassword: {
-    color: "#000000",
-    fontSize: 18,
-    marginBlock: 24,
-    marginInline: 12,
-    textDecorationLine: "underline",
-  },
+  
   backButton: {
     backgroundColor: "#ff2626",
     padding: 10,

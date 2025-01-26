@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Alert,
   StyleSheet,
@@ -7,6 +6,7 @@ import {
   View,
   TextInput,
   Pressable,
+  Animated,
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
@@ -19,27 +19,29 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isEmailFocused, setIsEmailFocused] = useState(false);
+  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+  const [hidePass, setHidePass] = useState(true);
 
   async function handleSignIn() {
-    setLoading(true);
-    // Simula a verificação do login
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
-    });
-
-    if (error) {
-      Alert.alert("Falha ao logar", error.message);
-      setLoading(false);
+    if (!email || !password) {
+      Alert.alert("Erro", "Preencha todos os campos!");
       return;
     }
 
-    setLoading(false);
-    router.replace('/(tabs)');
-  }
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-  // Ocular de Desocultar password
-  const [hidePass, setHidePass] = useState(true);
+    setLoading(false);
+    if (error) {
+      Alert.alert("Falha ao logar", error.message);
+    } else {
+      router.replace("/(tabs)");
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -48,58 +50,84 @@ const Login = () => {
           Drift King <Text style={styles.titleColors}>Mobile</Text>
         </Text>
         <Text style={styles.subtitle}>
-          Complete to loguin for explore the more vast content of the westen
-          automotive world{" "}
+          Complete o login para explorar o vasto mundo automotivo!
         </Text>
       </View>
       <View style={styles.form}>
-        <Text style={styles.label}>Usuário</Text>
-        <View style={styles.space}>
-            <TextInput
-              value={email}
-              onChangeText={setEmail}
-              placeholder="Inisra o seu Email"
-              style={styles.input}
-              secureTextEntry={hidePass}
-            />
-            <TouchableOpacity onPress={() => { setHidePass(!hidePass);}} style={styles.icon }>
-              { hidePass ?
-              <Ionicons name="eye" size={24} color="black" style={{ marginLeft: 10 }} />
-              :
-              <Ionicons  name="eye-off"  size={24}  color="black"  style={{ marginLeft: 10 }}   />
-              }
-            </TouchableOpacity>
+
+        {/* Email */}
+        <View style={styles.inputContainer}>
+          <Animated.Text
+            style={[
+              styles.label,
+              {
+                top: email || isEmailFocused ? -10 : 14,
+                fontSize: email || isEmailFocused ? 12 : 14,
+                color: email || isEmailFocused ? "#f50000" : "#000",
+              },
+            ]}
+          >
+            User
+          </Animated.Text>
+          <TextInput
+            value={email}
+            onChangeText={setEmail}
+            placeholder={isEmailFocused ? "" : ""}
+            style={styles.input}
+            keyboardType="email-address"
+            onFocus={() => setIsEmailFocused(true)}
+            onBlur={() => setIsEmailFocused(!!email)}
+          />
         </View>
 
-        <Text style={styles.label}>Senha</Text>
-        <View style={styles.space}>
-            <TextInput
-              value={password}
-              onChangeText={setPassword}
-              placeholder="Insira a Senha"
-              style={styles.input}
-              secureTextEntry={hidePass}
+        {/* Senha */}
+        <View style={styles.inputContainer}>
+          <Animated.Text
+            style={[
+              styles.label,
+              {
+                top: password || isPasswordFocused ? -10 : 15,
+                fontSize: password || isPasswordFocused ? 12 : 16,
+                color: password || isPasswordFocused ? "#f50000" : "#000",
+              },
+            ]}
+          >
+            Password
+          </Animated.Text>
+          <TextInput
+            value={password}
+            onChangeText={setPassword}
+            placeholder={isPasswordFocused ? "" :""}
+            style={styles.input}
+            secureTextEntry={hidePass}
+            onFocus={() => setIsPasswordFocused(true)}
+            onBlur={() => setIsPasswordFocused(!!password)}
+          />
+          <TouchableOpacity
+            onPress={() => setHidePass(!hidePass)}
+            style={styles.icon}
+          >
+            <Ionicons
+              name={hidePass ? "eye" : "eye-off"}
+              size={24}
+              color="black"
+              style={{ marginLeft: 10 }}
             />
-            <TouchableOpacity onPress={() => { setHidePass(!hidePass);}} style={styles.icon }>
-              { hidePass ?
-              <Ionicons name="eye" size={24} color="black" style={{ marginLeft: 10 }} />
-              :
-              <Ionicons  name="eye-off"  size={24}  color="black"  style={{ marginLeft: 10 }}   />
-              }
-            </TouchableOpacity>
+          </TouchableOpacity>
         </View>
 
-        <Pressable style={styles.button}>
-          <Text onPress={handleSignIn} style={styles.buttonText}>
-            {loading ? "Loading..." : "Loguin !"}
+        <Pressable
+          style={[styles.button, loading && { backgroundColor: "#ccc" }]}
+          disabled={loading}
+          onPress={handleSignIn}
+        >
+          <Text style={styles.buttonText}>
+            {loading ? "Loading..." : "Login!"}
           </Text>
         </Pressable>
 
         <Link href="(auth)/(signup)/createUser">
-          <Text style={styles.forgotPassword}>
-            {" "}
-            Ainda não possui uma conta?
-          </Text>
+          <Text style={styles.forgotPassword}>Ainda não possui uma conta?</Text>
         </Link>
       </View>
     </View>
@@ -107,6 +135,7 @@ const Login = () => {
 };
 
 export default Login;
+
 
 const styles = StyleSheet.create({
   container: {
@@ -119,7 +148,6 @@ const styles = StyleSheet.create({
     flex: 1 / 4,
     width: "100%",
     padding: 12,
-    margin: 20,
     backgroundColor: "transparent",
     borderRadius: 14,
     textAlign: "left",
@@ -127,7 +155,7 @@ const styles = StyleSheet.create({
 
   form: {
     flex: 1 / 2,
-    width: "98%",
+    width: "100%",
     padding: 12,
     backgroundColor: "#f3f3f3",
     borderRadius: 14,
@@ -138,11 +166,11 @@ const styles = StyleSheet.create({
     marginBottom: 18,
     marginInline: 12,
     flexDirection: 'row',
-    width: "80%",
+    width: "100%",
   },
   space: {
     flexDirection: 'row',
-    width: "85%",
+    width: "95%",
     borderWidth: 1,
     borderColor: "#000000",
     borderRadius: 8,
@@ -152,7 +180,9 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    height: 25,
+    position: 'absolute',
+    right: 10,
+    top: 13,
   },
   //Ajustes nos titulos e paragrafos
 
@@ -176,19 +206,32 @@ const styles = StyleSheet.create({
 
   //Ajustes no forumulário
 
+  inputContainer: {
+    width: '80%',
+    position: 'relative',
+    marginVertical: 24,
+  },
+
   label: {
-    color: "#000000",
+    position: 'absolute',
+    left: 10,
+    paddingHorizontal: 4,
     fontSize: 18,
-    marginBottom: 18,
-    marginInline: 12,
+    color: "#ccc",
+    backgroundColor: "#f3f3f3",
+    zIndex: 10,
   },
   input: {
-    color: "#000000",
-    width: "85%",
     height: 50,
+    width: '100%',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    paddingHorizontal: 10,
     fontSize: 18,
   },
   placeholder: {
+    width: '100%',
     color: "#ffffff",
     fontSize: 18,
     marginInline: 12,

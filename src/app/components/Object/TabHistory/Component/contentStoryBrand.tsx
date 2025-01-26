@@ -3,20 +3,18 @@ import {Text, ScrollView, SafeAreaView, Image, StyleSheet, View, TouchableOpacit
 import CarrouselWords from '../../../Dinamics/CarrouselWords'
 
 //Styes 
-import { ThemeProvider } from '../../../../../context/themeContext';
+import { Linking } from 'react-native';
 import { useTheme } from "../../../../../context/themeContext";
 import { Ionicons } from '@expo/vector-icons';
 
 
 
 const StoryBrand = () => {
-    
     const theme = useTheme();
-    
     const styles = StyleSheet.create({
 
     box: {
-        width: "95%",
+        width: 430,
         padding: 6,
         height:'auto',
         marginInline: 12,
@@ -31,7 +29,7 @@ const StoryBrand = () => {
     },
 
     title: {
-        color: theme.colors.white.primary,
+        color: theme.colors.red.primary,
         fontSize: 32,
         fontWeight: "600",
         marginInlineStart: 12,
@@ -75,7 +73,7 @@ const StoryBrand = () => {
     button: {
         width: 150,
         padding: 12,
-        backgroundColor: theme.colors.dark.secondary,
+        backgroundColor: theme.colors.dark.primary,
         borderRadius: 6,
         marginBottom: 12,
         marginInline:10,
@@ -93,6 +91,37 @@ const StoryBrand = () => {
     },
     
     });
+        
+    // Chama a Constante para ir ao Link Http
+    
+    const openBrand = {
+
+        brandNissan: () => {
+        const url = 'https://www.nissan.co.jp/';
+        Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+        },
+        brandMitsubichi: () => {
+        const url = 'https://www.mitsubishi-motors.co.jp/'
+        Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+        },
+        brandToyota: () => {
+        const url = 'https://toyota.jp/';
+        Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+        },
+        brandHonda: () => {
+        const url = 'https://www.honda.co.jp/?msockid=3e8ecfece648628b193edb82e71f63df';
+        Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+        },
+        brandMardza: () => {
+        const url = 'https://www.mazda.co.jp/';
+        Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+        },
+        brandLexus: () => {
+        const url = 'https://lexus.jp/';
+        Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err));
+        },
+        
+    };   
 
     return (
         <SafeAreaView>
@@ -104,39 +133,39 @@ const StoryBrand = () => {
                     <ScrollView horizontal   showsHorizontalScrollIndicator={false}>
                         <View style={styles.list}>
 
-                            <TouchableOpacity style={styles.button}>
+                            <TouchableOpacity onPress={openBrand.brandHonda} style={styles.button}>
                                 <Text style={styles.titleColors}>Honda</Text>
                                 <Ionicons name='star-half' style={styles.icon} size={24} color={'#ff2626'}></Ionicons>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.button}>
+                            <TouchableOpacity onPress={openBrand.brandToyota} style={styles.button}>
                                 <Text style={styles.titleColors}>Toyota</Text>
                                 <Ionicons name='star-half' style={styles.icon} size={24} color={'#ff2626'}></Ionicons>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.button}>
+                            <TouchableOpacity onPress={openBrand.brandMitsubichi} style={styles.button}>
                                 <Text style={styles.titleColors}>Mitisubichi</Text>
                                 <Ionicons name='star-half' style={styles.icon} size={24} color={'#ff2626'}></Ionicons>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.button}>
+                            <TouchableOpacity onPress={openBrand.brandMardza} style={styles.button}>
                                 <Text style={styles.titleColors}>Mardza</Text>
                                 <Ionicons name='star-half' style={styles.icon} size={24} color={'#ff2626'}></Ionicons>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.button}>
+                            <TouchableOpacity onPress={openBrand.brandNissan} style={styles.button}>
                                 <Text style={styles.titleColors}>Nissan</Text>
                                 <Ionicons name='star-half' style={styles.icon} size={24} color={'#ff2626'}></Ionicons>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.button}>
+                            <TouchableOpacity onPress={openBrand.brandLexus} style={styles.button}>
                                 <Text style={styles.titleColors}>Lexus</Text>
                                 <Ionicons name='star-half' style={styles.icon} size={24} color={'#ff2626'}></Ionicons>
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
                    
-                    <CarrouselWords  words={['React JS', 'Node JS', 'Value JS', 'Node JS']} speed={150}direction="left" gradientWidth={40}  textStyle={{ color: 'red',fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
+                    <CarrouselWords  words={['Supra', 'Civic', 'Lancer', 'Skyline']} speed={150}direction="left" gradientWidth={40}  textStyle={{ color: 'red',fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
                 </View>           
             </ScrollView>
         </SafeAreaView>
