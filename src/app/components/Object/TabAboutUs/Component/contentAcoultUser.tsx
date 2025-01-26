@@ -1,10 +1,9 @@
 
 import{} from 'react'
-import { ScrollView, View, Text, TouchableOpacity, Button, StyleSheet, Pressable } from 'react-native'
+import { ScrollView, View, Text, Button, StyleSheet, Pressable } from 'react-native'
 
 //Styles 
 
-import { ThemeProvider } from '../../../../../context/themeContext'
 import { useTheme } from '../../../../../context/themeContext'
 import { Ionicons } from '@expo/vector-icons'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -30,12 +29,12 @@ const AcoultUser = () => {
             marginBottom: 12
         },
         box: {
-            backgroundColor: theme.colors.dark.tertiary,
+            backgroundColor: theme.colors.red.tertiary,
             flexDirection: 'row',
             justifyContent:'space-between',
             alignItems: 'center',
             width: '100%',
-            height: 100,
+            height: 110,
             padding: 24,
             borderRadius: 10,
             marginBottom: 12
@@ -54,7 +53,7 @@ const AcoultUser = () => {
             color: theme.colors.white.primary
         },
         subtitle: {
-            fontSize: 18,
+            fontSize: 16,
             color: theme.colors.white.secondary
         },
         barTitle: {
@@ -89,15 +88,15 @@ const AcoultUser = () => {
             <ScrollView>
                 <View style={styles.container}>
                     <View style={styles.bar}>
-                        <Text style={styles.barTitle}>Authentication of activities</Text>
+                        <Text style={styles.barTitle}>Expirences with Developing..</Text>
                         <Pressable style={styles.barButton}>
-                            <Ionicons name="log-out-outline" size={48} color={theme.colors.white.primary} />
+                            <Ionicons name="analytics-outline" size={64} color={theme.colors.red.primary} />
                         </Pressable>
                    </View>
                    <View style={styles.box}>
                         <View style={styles.content}>
-                           <Text style={styles.title}>User Activity</Text>
-                           <Text style={styles.subtitle}>Parameters Produced to Illustrate</Text>
+                           <Text style={styles.title}>Developer Web</Text>
+                           <Text style={styles.subtitle}> Html | CSS | JS </Text>
                         </View>
                         <Pressable style={styles.button}>
                             <Ionicons name="bookmark-outline" size={32} color={theme.colors.white.primary} />
@@ -105,8 +104,8 @@ const AcoultUser = () => {
                    </View>
                    <View style={styles.box}>
                         <View style={styles.content}>
-                           <Text style={styles.title}>User Activity</Text>
-                           <Text style={styles.subtitle}>Parameters Produced to Illustrate</Text>
+                           <Text style={styles.title}>Developer Server</Text>
+                           <Text style={styles.subtitle}> Node JS | Angular JS | Next JS | Mongo DB |</Text>
                         </View>
                         <Pressable style={styles.button}>
                             <Ionicons name="bulb-outline" size={32} color={theme.colors.white.primary} />
@@ -114,8 +113,8 @@ const AcoultUser = () => {
                    </View>
                    <View style={styles.box}>
                         <View style={styles.content}>
-                           <Text style={styles.title}>User Activity</Text>
-                           <Text style={styles.subtitle}>Parameters Produced to Illustrate</Text>
+                           <Text style={styles.title}>Developer Aplicatives</Text>
+                           <Text style={styles.subtitle}>React | Vue JS | Flutter | React Native</Text>
                         </View>
                         <Pressable style={styles.button}>
                             <Ionicons name="flag-outline" size={32} color={theme.colors.white.primary} />

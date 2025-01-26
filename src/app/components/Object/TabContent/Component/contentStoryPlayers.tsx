@@ -22,11 +22,11 @@ const StoryPlayers = () => {
             marginInline: 12,
             marginBlock: 24,
             borderRadius: 12,
-            shadowColor: theme.colors.dark.tertiary,
+            shadowColor: theme.colors.dark.primary,
             shadowOffset: { width: 0, height: 2 },
             shadowOpacity: 0.5,
             shadowRadius: 4,
-            backgroundColor: theme.colors.dark.tertiary,
+            backgroundColor: theme.colors.dark.primary,
         },
 
         titleColors: {

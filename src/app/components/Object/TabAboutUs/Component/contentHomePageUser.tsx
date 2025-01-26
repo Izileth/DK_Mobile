@@ -4,7 +4,6 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 //Styles 
 
-import { ThemeProvider } from '../../../../../context/themeContext'
 import { useTheme } from '../../../../../context/themeContext'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -18,7 +17,7 @@ const HomePageUser = () => {
             alignItems: 'center',
             flexDirection: 'column',
             borderRadius: 12,
-            backgroundColor: 'rgba(41, 41, 41, 0.2)', // Simula o "embaçado"
+            backgroundColor: theme.colors.dark.primary,
         },
         content: {
             alignItems: 'center',
@@ -92,7 +91,7 @@ const HomePageUser = () => {
             <ScrollView>
                 <View style={styles.container}>
                     <View style={styles.content}>
-                        <Image source={{uri: 'https://i.pinimg.com/736x/5e/39/6b/5e396bb1b17681759922dd10f8a9d702.jpg'}} style={styles.contentUser}></Image>
+                        <Image source={{uri: 'https://i.pinimg.com/736x/73/62/ec/7362ec1d92cc3ddb7150a3cf0de940ce.jpg'}} style={styles.contentUser}></Image>
                         <View style={styles.listTop}>
                             <Ionicons name="star-outline" size={24} color={theme.colors.white.primary} />
                         </View>
@@ -104,8 +103,8 @@ const HomePageUser = () => {
                         </View>
                     </View>
                     <View style={styles.content}>
-                        <Text style={styles.title}>Name of User</Text>
-                        <Text style={styles.subtitle}>Descriton of Qualitys in The App</Text>
+                        <Text style={styles.title}>Izileth</Text>
+                        <Text style={styles.subtitle}>Developer Full Stack</Text>
                     </View>
                 </View>
             </ScrollView>

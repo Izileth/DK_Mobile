@@ -1,5 +1,5 @@
 import{} from 'react'
-import { ScrollView, StyleSheet, View, Text, TouchableOpacity} from 'react-native'
+import { ScrollView, StyleSheet, View, Text, TouchableOpacity, Linking} from 'react-native'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 
 //Styes 
@@ -75,6 +75,11 @@ const Banner = () => {
         },
     });
 
+    const openLink = () => {
+        const url = 'https://manifestoriental.netlify.app/';
+        Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err)); 
+    }    
+
     return (
         <SafeAreaView>
             <ScrollView>
@@ -82,7 +87,7 @@ const Banner = () => {
                     <View style={styles.box}>
                         <Text style={styles.title}>Welcome To <Text style={styles.titleColors}>Drift For All</Text></Text>
                         <Text style={styles.subtitle}>Where are you going today?</Text>
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity onPress={openLink} style={styles.button}>
                             <Text style={{color: theme.colors.white.primary, fontWeight: '100', fontSize: 18, padding:4, borderRadius: 4, }}>Book Now</Text>
                             <Ionicons name='arrow-forward-circle-outline' style={{color: theme.colors.white.primary, fontSize: 24, marginLeft: 2}} size={24} />
                         </TouchableOpacity>

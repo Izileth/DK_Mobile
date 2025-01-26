@@ -1,13 +1,7 @@
 import {
-  Alert,
   ScrollView,
-  FlatList,
-  Image,
-  TouchableOpacity,
   StyleSheet,
-  Text,
   View,
-  Button,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -41,11 +35,9 @@ const Profile = () => {
     container: {
       flex: 1,
       backgroundColor: theme.colors.dark.primary,
-      paddingTop: 48,
       paddingBottom: 24,
       alignItems: "center",
       justifyContent: "center",
-      marginTop: 50,
     },
 
     main: {
@@ -73,7 +65,7 @@ const Profile = () => {
 
   return (
     <SafeAreaView>
-      <ScrollView style={{ backgroundColor: "#101010", width: "100%" }}>
+      <ScrollView style={{ backgroundColor: "#000", width: "100%" }}>
         <View style={styles.container}>
           <TopStyle />
           <View style={styles.mainCarrousel}>

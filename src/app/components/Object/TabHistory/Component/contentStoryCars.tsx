@@ -16,11 +16,11 @@ const StoryCars = () => {
     const styles = StyleSheet.create({
         
     box: {
-        width: 430,
+        width: 480,
         height:'auto',
         marginInline:12,
         padding: 24,
-        backgroundColor: theme.colors.dark.tertiary,
+        backgroundColor: theme.colors.red.tertiary,
         borderRadius: 12,
         shadowColor: theme.colors.dark.primary,
         shadowOffset: { width: 0, height: 2 },
@@ -31,7 +31,7 @@ const StoryCars = () => {
     },
 
     title: {
-        color: theme.colors.red.primary,
+        color: theme.colors.white.primary,
         fontSize: 32,
         fontWeight: "600",
         marginBlock: 12,
@@ -149,7 +149,7 @@ const StoryCars = () => {
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
-                    <CarrouselWords  words={['Honda', 'Nissan', 'Lexus', 'Mitisubichi']} speed={150}direction="left" gradientWidth={40}  textStyle={{ color: 'red',fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
+                    <CarrouselWords  words={['Honda', 'Nissan', 'Lexus', 'Mitisubichi']} speed={150}direction="left" gradientWidth={0}  textStyle={{ color: '#000',fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
                 </View>           
             </ScrollView>
         </SafeAreaView>

@@ -14,11 +14,11 @@ const StoryBrand = () => {
     const styles = StyleSheet.create({
 
     box: {
-        width: 430,
+        width: 480,
         padding: 6,
         height:'auto',
         marginInline: 12,
-        backgroundColor: theme.colors.dark.tertiary,
+        backgroundColor: theme.colors.red.tertiary,
         borderRadius: 12,
         shadowColor: theme.colors.dark.tertiary,
         shadowOffset: { width: 0, height: 2 },
@@ -29,7 +29,7 @@ const StoryBrand = () => {
     },
 
     title: {
-        color: theme.colors.red.primary,
+        color: theme.colors.white.primary,
         fontSize: 32,
         fontWeight: "600",
         marginInlineStart: 12,
@@ -165,7 +165,7 @@ const StoryBrand = () => {
                         </View>
                     </ScrollView>
                    
-                    <CarrouselWords  words={['Supra', 'Civic', 'Lancer', 'Skyline']} speed={150}direction="left" gradientWidth={40}  textStyle={{ color: 'red',fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
+                    <CarrouselWords  words={['Supra', 'Civic', 'Lancer', 'Skyline']} speed={150}direction="left" gradientWidth={0}  textStyle={{ color: '#000',fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
                 </View>           
             </ScrollView>
         </SafeAreaView>

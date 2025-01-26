@@ -9,16 +9,14 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import CarrouselWords from "../../../Dinamics/CarrouselWords";
 //Styes
-import { ThemeProvider } from "../../../../../context/themeContext";
 import { useTheme } from "../../../../../context/themeContext";
 import { Ionicons } from "@expo/vector-icons";
-import StoryStreet from "./contentStoryPlayers";
 
 const StoryStreets = () => {
   const theme = useTheme();
   const styles = StyleSheet.create({
     box: {
-      backgroundColor: theme.colors.dark.tertiary,
+      backgroundColor: theme.colors.red.primary,
       height: "auto",
       width: "95%",
       padding: 10,
@@ -152,9 +150,9 @@ const StoryStreets = () => {
             ]}
             speed={250}
             direction="left"
-            gradientWidth={40}
+            gradientWidth={0}
             textStyle={{
-              color: theme.colors.red.tertiary,
+              color: theme.colors.dark.primary,
               fontSize: 18,
               fontWeight: "bold",
             }}

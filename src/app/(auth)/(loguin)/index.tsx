@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 10,
     paddingHorizontal: 4,
-    fontSize: 18,
+    fontSize: 24,
     color: "#ccc",
     backgroundColor: "#f3f3f3",
     zIndex: 10,
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
   placeholder: {
     width: '100%',
     color: "#ffffff",
-    fontSize: 18,
+    fontSize: 20,
     marginInline: 12,
   },
   button: {

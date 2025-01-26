@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "DK Mobile",
-    "slug": "meu-app",
+    "slug": "dkmobileapp",
+    "owner": "izileth",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "https://i.pinimg.com/736x/7c/71/00/7c71000a4397e62685fe5345d873d27c.jpg",
@@ -10,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.seudominio.dkmobile"
@@ -28,14 +31,21 @@
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/your-project-id"
+      "url": "https://u.expo.dev/360c0760-8504-41f1-b4dd-35d964a71a18"
     },
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "scheme": "dkmobile",
     "extra": {
       "eas": {
-        "projectId": "your-project-id"
+        "projectId": "360c0760-8504-41f1-b4dd-35d964a71a18"
       }
     },
-    "platforms": ["ios", "android", "web"],
-    "scheme": "your-app-scheme"
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
   }
 }

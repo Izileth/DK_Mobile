@@ -5,10 +5,6 @@ import {
   Image,
   StyleSheet,
   View,
-  TouchableOpacity,
-  Animated,
-  Pressable,
-  FlatList,
   Alert,
 } from "react-native";
 import AudioPlayer from "../../../Music/Songs ID/AudioPlayer";
@@ -106,7 +102,7 @@ const ProfileSpotfy = () => {
             </View>
             <ScrollView horizontal>
               <Text style={styles.titleMusic}>
-                Noite em Osaka - <Text style={styles.titleColors}>Drift</Text>{" "}
+                Power Slide - <Text style={styles.titleColors}>Drift</Text>{" "}
                 Boys
               </Text>
             </ScrollView>
@@ -127,7 +123,7 @@ const ProfileSpotfy = () => {
             </View>
             <ScrollView horizontal>
               <Text style={styles.titleMusic}>
-                Noite em Osaka - <Text style={styles.titleColors}>Drift</Text>{" "}
+                Canadá - <Text style={styles.titleColors}>Drift</Text>{" "}
                 Boys
               </Text>
             </ScrollView>
@@ -148,7 +144,7 @@ const ProfileSpotfy = () => {
             </View>
             <ScrollView horizontal>
               <Text style={styles.titleMusic}>
-                Noite em Osaka - <Text style={styles.titleColors}>Drift</Text>{" "}
+                Õkami - <Text style={styles.titleColors}>Drift</Text>{" "}
                 Boys
               </Text>
             </ScrollView>

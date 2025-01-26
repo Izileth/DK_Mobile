@@ -5,13 +5,9 @@ import {
   Text,
   Animated,
   Dimensions,
-  Image,
-  TouchableOpacity,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import React, { useState, useRef } from "react";
 import {
-  SafeAreaFrameContext,
   SafeAreaView,
 } from "react-native-safe-area-context";
 
@@ -21,11 +17,8 @@ import CarouselModels from "../../../Dinamics/CarrouselModels";
 
 //Styles
 
-import { ThemeProvider } from "../../../../../context/themeContext";
 import { useTheme } from "../../../../../context/themeContext";
 import {
-  carouselDataImagesIndexPrincipal,
-  carouselDataImagesHistory,
   carouselDataImagesContent,
 } from "../../../Data";
 
@@ -70,11 +63,11 @@ const Streets = () => {
       marginInline: 12,
       marginBlock: 24,
       borderRadius: 12,
-      shadowColor: theme.colors.dark.tertiary,
+      shadowColor: theme.colors.dark.primary,
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 0.5,
       shadowRadius: 4,
-      backgroundColor: theme.colors.dark.tertiary,
+      backgroundColor: theme.colors.dark.primary,
     },
 
     title: {

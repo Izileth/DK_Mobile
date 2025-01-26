@@ -1,19 +1,17 @@
 
 import{} from 'react'
-import { ScrollView, View, Text, TouchableOpacity, Button, StyleSheet, Pressable } from 'react-native'
+import { ScrollView, View, Text, TouchableOpacity, Button, StyleSheet, Pressable, Linking } from 'react-native'
 
 //Styles 
 
-import { ThemeProvider } from '../../../../../context/themeContext'
 import { useTheme } from '../../../../../context/themeContext'
 import { Ionicons } from '@expo/vector-icons'
-import { SafeAreaView } from 'react-native-safe-area-context'
 
 const BannerUser = () => {
     const { colors } = useTheme();
     const styles = StyleSheet.create({
         container: {
-            backgroundColor: colors.dark.tertiary,
+            backgroundColor: colors.red.primary,
             width:460,
             height: 220,
             paddingHorizontal: 20,
@@ -21,7 +19,7 @@ const BannerUser = () => {
             borderRadius: 12,
             justifyContent: 'space-between',
             borderBottomWidth: 1,
-            borderColor: colors.dark.tertiary,
+            borderColor: colors.dark.primary,
         },
         content: {
             height: 120,
@@ -31,7 +29,7 @@ const BannerUser = () => {
         },
         title: {
             fontSize: 28,
-            width: 310,
+            width: 320,
             fontWeight: 'bold',
             marginInlineStart: 12,
             color: colors.white.primary,
@@ -43,13 +41,13 @@ const BannerUser = () => {
             color: colors.white.secondary,
         },
         button: {
-            backgroundColor: colors.red.primary,
-            width: 130,
-            height: 36,
+            backgroundColor: colors.dark.primary,
+            width: 142,
+            height: 42,
             marginInlineEnd: 180,
             marginBlock:2,
             paddingHorizontal: 20,
-            borderRadius: 2,
+            borderRadius: 8,
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -65,13 +63,17 @@ const BannerUser = () => {
         },
 
     });
+    const openLink = () => {
+        const url = 'https://github.com/Izileth';
+        Linking.openURL(url).catch((err) => console.error("Erro ao Abrir o Link", err)); 
+    }
     return (
         <View style={styles.container}>
             <View style={styles.content}>
                 <Text style={styles.title}>Welcome To My Profile</Text>
                 <Text style={styles.subtitle}>Your Personalized Experience</Text>
             </View>
-            <Pressable style={styles.button}>
+            <Pressable onPress={openLink} style={styles.button}>
                 <Text style={styles.buttonText}>Discover</Text>
                 <Ionicons name="arrow-forward" size={24} color={colors.white.primary} />
             </Pressable>

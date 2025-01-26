@@ -16,7 +16,7 @@ const StoryYouTube = () => {
     const styles = StyleSheet.create({
         
     box: {
-        backgroundColor: theme.colors.dark.tertiary,
+        backgroundColor: theme.colors.red.primary,
         height:'auto',
         width: '95%',
         padding: 10,
@@ -105,7 +105,7 @@ const StoryYouTube = () => {
                             <Ionicons name='star' size={24} style={styles.icon} color={'#ff2626'}></Ionicons>
                         </TouchableOpacity>    
                     </ScrollView>
-                    <CarrouselWords  words={['Dark Midia', 'Hart Net', 'Go Harder', 'Neo Qual', 'Tomoki´s', 'Hart Net Midia', 'Speed Media']} speed={250} direction="left" gradientWidth={40}  textStyle={{ color: theme.colors.red.tertiary ,fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
+                    <CarrouselWords  words={['Dark Midia', 'Hart Net', 'Go Harder', 'Neo Qual', 'Tomoki´s', 'Hart Net Midia', 'Speed Media']} speed={250} direction="left" gradientWidth={0}  textStyle={{ color: theme.colors.dark.primary ,fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
                 </View>
             </ScrollView>
         </SafeAreaView>

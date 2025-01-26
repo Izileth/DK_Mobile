@@ -4,7 +4,6 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 
 //Styles 
 
-import { ThemeProvider } from '../../../../../context/themeContext'
 import { useTheme } from '../../../../../context/themeContext'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -79,7 +78,7 @@ const HeaderUser = () => {
                     <Text style={styles.title}>Drift King <Text style={styles.titleColors}>Acout</Text></Text>
                     <TouchableOpacity style={styles.button }>
                         <Ionicons name='notifications' size={24} color={theme.colors.red.primary} />
-                        <Image source={{uri: 'https://i.pinimg.com/736x/5e/39/6b/5e396bb1b17681759922dd10f8a9d702.jpg'}} style={styles.userImage}></Image>
+                        <Image source={{uri: 'https://i.pinimg.com/736x/73/62/ec/7362ec1d92cc3ddb7150a3cf0de940ce.jpg'}} style={styles.userImage}></Image>
                     </TouchableOpacity>
                 </View>
             </ScrollView>

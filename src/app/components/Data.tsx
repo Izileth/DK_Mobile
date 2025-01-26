@@ -149,16 +149,16 @@ export const carouselDataImagesContent = {
 export const carouselDataImagesProfile = {
   setOne: [
     {
-      uri: "https://i.pinimg.com/736x/70/a7/0a/70a70a7e1cadba3cfb9d33683cc23e22.jpg",
+      uri: "https://i.pinimg.com/736x/3a/a8/bd/3aa8bdb4bcffed1c6119814bd8137fd1.jpg",
     },
     {
-      uri: "https://i.pinimg.com/736x/a9/28/95/a92895afb06d86649397be5a58b7b239.jpg",
+      uri: "https://i.pinimg.com/736x/3a/a8/bd/3aa8bdb4bcffed1c6119814bd8137fd1.jpg",
     },
     {
-      uri: "https://i.pinimg.com/736x/3f/59/87/3f5987ea0d60e68747d275d1b981d6d6.jpg",
+      uri: "https://i.pinimg.com/736x/3a/a8/bd/3aa8bdb4bcffed1c6119814bd8137fd1.jpg",
     },
     {
-      uri: "https://i.pinimg.com/736x/70/a7/0a/70a70a7e1cadba3cfb9d33683cc23e22.jpg",
+      uri: "https://i.pinimg.com/736x/3a/a8/bd/3aa8bdb4bcffed1c6119814bd8137fd1.jpg",
     },
   ],
 }

@@ -32,7 +32,6 @@ const Content = () => {
       backgroundColor: theme.colors.dark.primary,
       alignItems: "center",
       justifyContent: "center",
-      marginTop: 100,
     },
     main: {
       width: "100%",

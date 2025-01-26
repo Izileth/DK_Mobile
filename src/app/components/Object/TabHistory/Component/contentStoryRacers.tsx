@@ -12,11 +12,11 @@ const StoryRacers = () => {
     const theme = useTheme();
     const styles = StyleSheet.create({
     box: {
-        width:  430,
-        height:450,
+        width:  480,
+        height:420,
         padding: 24,
         marginInline: 12,
-        backgroundColor: theme.colors.dark.tertiary,
+        backgroundColor: theme.colors.red.tertiary,
         borderRadius: 12,
         shadowColor: "#000",
         shadowOffset: { width: 0, height: 2 },
@@ -27,7 +27,7 @@ const StoryRacers = () => {
     },
 
     title: {
-        color: theme.colors.red.primary,
+        color: theme.colors.white.primary,
         fontSize: 32,
         fontWeight: "600",
         marginBlock: 12,
@@ -128,7 +128,7 @@ const StoryRacers = () => {
 
                         </View>
                     </ScrollView>
-                    <CarrouselWords  words={['Arizona', 'Detroit', 'Japan', 'Brazil']} speed={150}direction="left" gradientWidth={40}  textStyle={{ color: 'red',fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
+                    <CarrouselWords  words={['Arizona', 'Detroit', 'Japan', 'Brazil']} speed={150}direction="left" gradientWidth={0}  textStyle={{ color: '#000',fontSize: 18,fontWeight: 'bold' }}   containerStyle={{ backgroundColor: 'transparent', height: 50}} />
                 </View>           
             </ScrollView>
         </SafeAreaView>
