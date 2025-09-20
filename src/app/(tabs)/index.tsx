@@ -1,3 +1,4 @@
+import TestComponent from "../components/TestComponent";
 import { StatusBar } from "expo-status-bar";
 import {
   Alert,
@@ -99,6 +100,7 @@ const App = () => {
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "#1a1a1a", width: "100%" }}>
+      <TestComponent />
       <LinearGradient
         style={styles.container}
         colors={["#1a1a1a", "#000000"]}

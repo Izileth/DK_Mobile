@@ -1,3 +1,9 @@
+import { NativeWindStyleSheet } from "nativewind";
+
+NativeWindStyleSheet.setOutput({
+  default: "native",
+});
+
 // app/_layout.tsx
 import { Slot } from 'expo-router';
 import { SafeAreaView, StyleSheet } from 'react-native';

@@ -16,7 +16,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.seudominio.dkmobile"
+      "bundleIdentifier": "com.seudominio.dkmobile",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -38,7 +41,7 @@
       "android",
       "web"
     ],
-    "scheme": "dkmobile",
+    "scheme": "dk-mobile",
     "extra": {
       "eas": {
         "projectId": "360c0760-8504-41f1-b4dd-35d964a71a18"
